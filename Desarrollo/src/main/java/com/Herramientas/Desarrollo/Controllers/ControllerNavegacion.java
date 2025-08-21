@@ -18,5 +18,9 @@ public class ControllerNavegacion {
 	public String login() {
 		return "Login";
 	}
+	@GetMapping("/inicio")
+	public String login() {
+		return "menu";
+	}
 	
 }
