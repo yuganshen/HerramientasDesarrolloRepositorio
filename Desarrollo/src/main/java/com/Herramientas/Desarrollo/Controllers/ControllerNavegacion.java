@@ -10,4 +10,8 @@ public class ControllerNavegacion {
 	public String index() {
 		return "inicio";
 	}
+	@GetMapping("/hola")
+	public String hola() {
+		return "inicio";
+	}
 }
