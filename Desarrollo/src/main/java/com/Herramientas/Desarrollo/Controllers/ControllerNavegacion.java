@@ -14,4 +14,13 @@ public class ControllerNavegacion {
 	public String hola() {
 		return "inicio";
 	}
+	@GetMapping("/Login")
+	public String login() {
+		return "Login";
+	}
+	@GetMapping("/inicio")
+	public String login() {
+		return "menu";
+	}
+	
 }
