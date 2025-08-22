@@ -10,7 +10,7 @@ public class ControllersNavegacion {
 	public String inicio() {
 		return"inicio";
 	}
-	@GetMapping("/causa")
+	@GetMapping("/inicio")
 	public String causa() {
 		return"inicio";
 	}
