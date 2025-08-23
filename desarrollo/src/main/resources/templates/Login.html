@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+
+<body>
+    <div class="padre-login">
+        <div class="contenedor-login">
+            <div class="imagen">
+                <img class="imagen-trabajador" src="img/pc.webp" alt="" />
+            </div>
+            <div class="logeo">
+                <div class="imagen-usuario">
+                    <img src="img/usuario.png" alt="" />
+                </div>
+                <h3>Iniciar sesión</h3>
+                <!-- 🔄 Eliminado el atributo 'action' para que no envíe al backend -->
+                <form id="form-login" th:action="@{/login}" method="post">
+                    <div class="value espacio input-icono">
+                        <label for="">Usuario:</label>
+                        <input type="text" placeholder="Ingresa tu usuario" name="username" required />
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="value espacio input-icono">
+                        <label for="">Contraseña:</label>
+                        <input type="password" placeholder="Ingresa tu contraseña" name="password" required />
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+
+
+                    <div class="restablecer espacio">
+                        <a href="correo.html">¿Has olvidado tu contraseña?</a>
+                    </div>
+
+                    <div class="boton espacio">
+                        <input type="submit" value="Log in" />
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
