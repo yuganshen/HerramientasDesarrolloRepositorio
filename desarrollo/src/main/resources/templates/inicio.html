@@ -1,105 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina de inicio de todo</title>
-
-    <link rel="stylesheet" href="inicio.css" />
-=======
-    
-
+    <title>GameStore - Inicio</title>
+    <link rel="stylesheet" href="/inicio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav>
-    <a href="/" class="logo">🕹️ GamingStore</a>
+    <!-- HEADER -->
+    <header class="header">
+        <h1 class="logo">🎮 GameStore</h1>
+        <nav class="nav">
+            <a href="/inicio">Inicio</a>
+            <a href="/productos">Productos</a>
+            <a href="/ofertas">Ofertas</a>
+            <a href="/login">Login</a>
+        </nav>
+    </header>
 
-    <div class="nav-links">
-      <a href="/">Inicio</a>
-      <a href="/catalogo">Catálogo</a>
-      <a href="/cart">Carrito (0)</a> <!-- Puedes cambiar el 0 manualmente si deseas simular productos -->
-    </div>
-  </nav>
-<h1>Pantalla de inicio</h1>
+    <!-- BANNER -->
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Accesorios Gamer al Mejor Precio</h2>
+            <p>Teclados, mouse, audífonos y todo para tu setup.</p>
+            <a href="/ofertas" class="btn">Ver Ofertas</a>
+        </div>
+    </section>
 
-<style>
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <section class="productos">
+        <h2>🔥 Productos Destacados</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://www.mmstoreperu.com/cdn/shop/files/MOUSEHAVITMS1001S_4_800DPI_RGB_NEGRO_1000x.png?v=1711471340" alt="Mouse Gamer">
+                <h3>Mouse Gamer RGB</h3>
+                <p>S/ 89.90</p>
+                <button>Añadir al carrito</button>
+            </div>
+            <div class="card">
+                <img src="https://hca.pe/storage/media/large_8zjWwc5at1uu2fiB2TfHfZVHdlIYi2nRdpJ0Nxhh.png" alt="Teclado Mecánico">
+                <h3>Teclado Mecánico</h3>
+                <p>S/ 249.90</p>
+                <button>Añadir al carrito</button>
+            </div>
+            <div class="card">
+                <img src="https://computershopperu.com/2653-medium_default/audifono-cybertel-element-cbx-h700-rgb-con-microfono-sonido-71-conexion-usb-.jpg" alt="Audífonos Gamer">
+                <h3>Headset Gamer</h3>
+                <p>S/ 159.90</p>
+                <button>Añadir al carrito</button>
+            </div>
+        </div>
+    </section>
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    <!-- OFERTAS -->
+    <section class="ofertas">
+        <h2>⚡ Ofertas de la Semana</h2>
+        <div class="cards">
+            <div class="card oferta">
+                <img src="https://dasmitec.pe/wp-content/uploads/2024/10/DPPRO-RD.png" alt="Silla Gamer">
+                <h3>Silla Gamer</h3>
+                <p><del>S/ 599.90</del> <strong>S/ 499.90</strong></p>
+                <button>Añadir al carrito</button>
+            </div>
+            <div class="card oferta">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpsf9oUjh_pzA9q7YTJ26FOlxpTIvqNFv90w&s" alt="Micrófono">
+                <h3>Micrófono Streaming</h3>
+                <p><del>S/ 299.90</del> <strong>S/ 229.90</strong></p>
+                <button>Añadir al carrito</button>
+            </div>
+        </div>
+    </section>
 
-footer {
-  background-color: #111;
-  color: #f1f1f1;
-  font-family: Arial, sans-serif;
-}
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <h2>📧 Suscríbete para más ofertas</h2>
+        <form>
+            <input type="email" placeholder="Tu correo">
+            <button type="submit">Suscribirme</button>
+        </form>
+    </section>
 
-.footer-container {
-  display: flex;
-  justify-content: space-around;
-  padding: 40px 20px;
-  flex-wrap: wrap;
-}
-
-.footer-section {
-  flex: 1;
-  min-width: 200px;
-  margin: 10px;
-}
-
-.footer-section h3 {
-  margin-bottom: 15px;
-  color: #ff9800;
-}
-
-.footer-section p, .footer-section a {
-  color: #f1f1f1;
-  text-decoration: none;
-  line-height: 1.6;
-}
-
-.footer-section a:hover {
-  color: #ff9800;
-}
-
-.social-icons a {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding: 15px;
-  background-color: #000;
-  font-size: 14px;
-}
- </style>
-    <footer>
-  <div class="footer-container">
-    <div class="footer-section">
-      <h3>Sobre Nosotros</h3>
-      <p>Somos una empresa dedicada a ofrecer soluciones tecnológicas innovadoras.</p>
-    </div>
-    <div class="footer-section">
-      <h3>Contacto</h3>
-      <p>Email: contacto@empresa.com</p>
-      <p>Tel: +51 987 654 321</p>
-    </div>
-    <div class="footer-section">
-      <h3>Síguenos</h3>
-      <div class="social-icons">
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2025 Mi Empresa. Todos los derechos reservados.
-  </div>
-</footer>
-    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 GameStore - Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>
