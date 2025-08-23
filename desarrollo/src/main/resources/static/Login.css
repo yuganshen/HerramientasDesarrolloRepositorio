@@ -9,27 +9,6 @@ body {
     background: linear-gradient(to bottom, #bfd0e2,#C4B4FF);
     height: 100vh; 
 }
-
-ul {
-    display: flex;
-    gap: 20px;
-    background-color: black;
-    height: 80px;
-    align-items: center;
-    padding-left: 30px;
-    list-style: none;
-}
-
-ul a {
-    text-decoration: none;
-    color: #fff;
-}
-
-ul a:hover {
-    text-decoration: none;
-    color: rgb(37, 231, 37);
-}
-
 .padre-login {
     padding: 100px 0px;
     display: flex;
