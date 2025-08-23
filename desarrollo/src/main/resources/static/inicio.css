@@ -1,3 +1,4 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -5,66 +6,186 @@
 }
 
 html, body {
-  height: 100%;
-}
-/*
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0f172a; /* fondo oscuro *
-  color: #e5e7eb;            /* texto claro *
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0f172a;
+  color: #e5e7eb;
   line-height: 1.6;
-}  */
+}
 
-/* NAVBAR */
-nav {
+/* HEADER */
+.header {
   background: linear-gradient(90deg, #1e3a8a, black);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
 
-nav .logo {
+.header .logo {
   font-size: 1.5rem;
   font-weight: bold;
   color: #facc15;
-  text-decoration: none;
 }
 
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
+.header .nav a {
+  margin-left: 1.5rem;
   text-decoration: none;
   color: white;
   font-weight: 500;
   transition: color 0.2s;
 }
 
-.nav-links a:hover {
-  color: #fbbf24; /* dorado */
+.header .nav a:hover {
+  color: #fbbf24;
 }
 
-/* CONTENIDO GENERAL */
-main {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-  padding-top: 90px;  /* Ajuste por navbar fija */
+/* BANNER */
+.banner {
+  background: url('https://i.ibb.co/4g2T0qW/banner-gamer.jpg') no-repeat center/cover;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
 }
 
-/* TITULOS */
-h1 {
+.banner-content {
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.banner h2 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.banner p {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.banner .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #facc15;
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.banner .btn:hover {
+  background: #fbbf24;
+}
+
+/* SECCIONES */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+h2 {
   font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 30px;
+  color: #facc15;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #fbbf24;
+}
+
+.card button {
+  padding: 8px 15px;
+  border: none;
+  background: #facc15;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card button:hover {
+  background: #fbbf24;
+}
+
+/* OFERTAS */
+.ofertas .card strong {
+  color: #22c55e;
+}
+
+.ofertas .card del {
+  color: #9ca3af;
+}
+
+/* NEWSLETTER */
+.newsletter form {
+  margin-top: 15px;
+}
+
+.newsletter input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+  margin-right: 10px;
+}
+
+.newsletter button {
+  padding: 10px 20px;
+  background: #facc15;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.newsletter button:hover {
+  background: #fbbf24;
+}
+
+/* FOOTER */
+.footer {
+  background: #111827;
+  padding: 20px;
+  text-align: center;
+  color: #9ca3af;
+  margin-top: 40px;
 }
