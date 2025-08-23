@@ -5,14 +5,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ControllersNavegacion {
-	
-	@GetMapping("/")
-	public String inicio() {
-		return"inicio";
-	}
-	@GetMapping("/inicio")
-	public String causa() {
-		return"inicio";
-	}
 
 }
