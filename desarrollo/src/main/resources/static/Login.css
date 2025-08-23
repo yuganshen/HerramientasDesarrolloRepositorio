@@ -1,0 +1,161 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: linear-gradient(to bottom, #bfd0e2,#C4B4FF);
+    height: 100vh; 
+}
+
+ul {
+    display: flex;
+    gap: 20px;
+    background-color: black;
+    height: 80px;
+    align-items: center;
+    padding-left: 30px;
+    list-style: none;
+}
+
+ul a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul a:hover {
+    text-decoration: none;
+    color: rgb(37, 231, 37);
+}
+
+.padre-login {
+    padding: 100px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-login {
+    box-shadow: 5px 5px 10px rgb(103, 99, 99);
+    display: grid;
+    grid-template-columns: 400px 400px;
+    background-color: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.imagen {
+    /*#f1ebd1*/
+    background-color: #82e0aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logeo {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background:linear-gradient(to bottom, #bbcde3,#6595c7);
+}
+
+h3 {
+    text-align: center;
+}
+
+.imagen-trabajador {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.imagen-usuario {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8px;
+}
+
+.imagen-usuario img {
+    width: 130px;
+    height: auto;
+}
+
+.value {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.seleccion select{
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.seleccion select option{
+    text-align: center;
+}
+.value input {
+    padding-left: 30px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition-property:border, box-shadow;
+    transition-duration:0.3s,0.3s;
+    transition-timing-function:ease, ease;
+}
+.value input:focus{
+    border: 1px solid rgb(7, 154, 7);
+    box-shadow: 0 0 0 4px #8ff0b9;
+    outline: none;
+}
+
+ /* diseño del icono */
+.value i {
+    position: absolute;
+    left: 10px;
+    top: 60%;
+    color: gray;
+    pointer-events: none; /* evita que bloquee clics */
+}
+
+
+.espacio {
+    margin-top: 22px;
+}
+
+.restablecer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.restablecer p {
+    padding-right: 5px;
+}
+
+label {
+    padding-bottom: 8px;
+    font-size: 17px;
+}
+
+.boton{
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.boton input {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #a09f9f;
+    cursor: pointer;
+}
+
+.boton input:hover {
+    background-color: #808b96;
+    color: #fff;
+    border: 1px solid #808b96;
+}
