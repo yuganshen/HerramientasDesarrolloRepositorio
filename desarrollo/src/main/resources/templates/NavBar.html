@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GamingStore</title>
+  <link rel="stylesheet" href="NavBar.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="logo">🕹️ GamingStore</a>
+
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/catalogo">Catálogo</a>
+      <a href="/cart">Carrito (0)</a> <!-- Puedes cambiar el 0 manualmente si deseas simular productos -->
+    </div>
+  </nav>
+
+  <div class="tabs-container">
+        <div class="tabs">
+          <button class="tab-button" data-tab="laptops">Laptops</button>
+          <button class="tab-button" data-tab="computadoras">Computadoras</button>
+          <button class="tab-button" data-tab="zona-gamer">Zona Gamer</button>
+          <button class="tab-button" data-tab="partes-pc">Partes de PC</button>
+          <button class="tab-button" data-tab="monitores">Monitores y más</button>
+          <button class="tab-button" data-tab="impresoras">Impresoras</button>
+        </div>
+      
+        <div class="tab-content" id="laptops">
+          <h2>Laptops</h2>
+          <p>Asus</p>
+          <p>Hp</p>
+          <p>Lenovo</p>
+          <p>Dell</p>
+          <br>
+
+          <h2>Laptops Gamer</h2>
+          <p>Asus</p>
+          <p>Hp</p>
+          <p>Lenovo</p>
+          <p>Dell</p>
+        </div>
+      
+        <div class="tab-content" id="computadoras">
+          <h2>Hogar & Oficina</h2>
+          <p>AMD Series</p>
+          <p>Intel Series</p>
+          <br>
+
+          <h2>PC'S Gamers</h2>
+          <p>Línea baja</p>
+          <p>Línea ultra</p>
+          <p>Línea extrema</p>
+        </div>
+      
+        <div class="tab-content" id="zona-gamer">
+          <h2>Zona Gamer</h2>
+          <p>Teclado Gamer</p>
+          <p>Mouse Gamer</p>
+          <p>Audífonos Gamer</p>
+          <p>Sillas Gamer</p>
+          <p>Pantallas Gamer</p>
+        </div>
+      
+        <div class="tab-content" id="partes-pc">
+          <h2>Partes de PC</h2>
+          <p>Tarjetas de video</p>
+          <p>Discos</p>
+          <p>Procesadores</p>
+          <p>Memoria Ram</p>
+          <p>Fuentes de Poder</p>
+          <p>Cooler</p>
+        </div>
+      
+        <div class="tab-content" id="monitores">
+          <h2>Monitores</h2>
+          <p>Lg</p>
+          <p>Samsung</p>
+          <p>Asus</p>
+          <p>Teros</p>
+          <br>
+          
+          <h2>Proyectores</h2>
+          <p>View Sonic</p>
+          <p>Epson</p>
+          <p>Havit</p>
+        </div>
+      
+        <div class="tab-content" id="impresoras">
+          <h2>Impresoras</h2>
+          <p>Brother</p>
+          <p>Epson</p>
+          <p>Canon</p>
+          <p>Hp</p>
+        </div>
+      </div>
+  <script>
+        const tabs = document.querySelectorAll('.tab-button');
+        const contents = document.querySelectorAll('.tab-content');
+      
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            // Quitar active de todos los tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            // Poner active al tab clickeado
+            tab.classList.add('active');
+      
+            // Ocultar todos los contenidos
+            contents.forEach(c => c.classList.remove('active'));
+            // Mostrar el contenido correspondiente
+            const tabId = tab.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+          });
+        });
+      </script>
+
+</body>
+</html>

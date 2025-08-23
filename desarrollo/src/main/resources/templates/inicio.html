@@ -10,7 +10,8 @@
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
+    <header class="header"> 
+    
         <h1 class="logo">🎮 GameStore</h1>
         <nav class="nav">
             <a href="/inicio">Inicio</a>
@@ -18,7 +19,8 @@
             <a href="/ofertas">Ofertas</a>
             <a href="/login">Login</a>
         </nav>
-    </header>
+         </header> 
+           
 
     <!-- BANNER -->
     <section class="banner">
@@ -86,5 +88,25 @@
     <footer class="footer">
         <p>© 2025 GameStore - Todos los derechos reservados</p>
     </footer>
+    
+    <script>
+        const tabs = document.querySelectorAll('.tab-button');
+        const contents = document.querySelectorAll('.tab-content');
+      
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            // Quitar active de todos los tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            // Poner active al tab clickeado
+            tab.classList.add('active');
+      
+            // Ocultar todos los contenidos
+            contents.forEach(c => c.classList.remove('active'));
+            // Mostrar el contenido correspondiente
+            const tabId = tab.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+          });
+        });
+      </script>
 </body>
 </html>

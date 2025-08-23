@@ -19,6 +19,10 @@ public class ControllersNavegacion {
 		return"Login";
 	}
 	
+	@GetMapping("/NavBar")
+	public String Navbar() {
+		return"NavBar";
+	}
 	
 
 
