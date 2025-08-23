@@ -11,12 +11,9 @@ public class ControllersNavegacion {
 	
 	@GetMapping("/")
 	public String inicio() {
-		return"inicio";
+		return"Login";
 	}
-	@GetMapping("/inicio")
-	public String causa() {
-		return"inicio";
-	}
+
 	@GetMapping("/login")
 	public String login() {
 		return"Login";
