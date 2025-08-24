@@ -2,7 +2,6 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-
 }
 
 body {
@@ -10,9 +9,10 @@ body {
     height: 100vh; 
 }
 .padre-login {
-    padding: 100px 0px;
+    height: 100vh; 
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .contenedor-login {
@@ -25,11 +25,19 @@ body {
 }
 
 .imagen {
-    /*#f1ebd1*/
-    background-color: #82e0aa;
+    background-image: url('img/pc.webp'); 
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.imagen p{
+    font-size: 18px;
 }
 
 .logeo {
@@ -77,9 +85,9 @@ h3 {
 }
 .value input {
     padding-left: 30px;
-    height: 40px;
+    height: 46px;
     font-size: 15px;
-    border-radius: 8px;
+    border-radius: 18px;
     border: 1px solid #ced4da;
     transition-property:border, box-shadow;
     transition-duration:0.3s,0.3s;
@@ -123,14 +131,18 @@ label {
     height: 40px;
     display: flex;
     align-items: center;
-}
+}       
 
 .boton input {
     width: 100%;
-    height: 40px;
+    height: 46px;
     border-radius: 8px;
     border: 1px solid #a09f9f;
     cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    color: #6595c7;
+    border-radius: 18px;    
 }
 
 .boton input:hover {
