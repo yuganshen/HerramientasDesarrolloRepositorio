@@ -25,6 +25,8 @@ public class ControllersNavegacion {
 	}
 	@GetMapping("/Na2vBar")
 	public String Navbar() {
+		return"NavBar";
+	}
 
 
 
