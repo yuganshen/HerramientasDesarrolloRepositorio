@@ -7,13 +7,6 @@
 html, body {
   height: 100%;
 }
-/*
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0f172a; /* fondo oscuro *
-  color: #e5e7eb;            /* texto claro *
-  line-height: 1.6;
-}  */
 
 /* NAVBAR */
 nav {
@@ -141,4 +134,27 @@ h1 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+
+/*Diseño de los subpestañas (subtaps)*/
+.subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.subtabs a {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.subtabs a:hover {
+  background-color: #fbbf24;
+  color: black;
 }
