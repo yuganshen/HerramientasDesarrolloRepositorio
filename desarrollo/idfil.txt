@@ -1,0 +1,3 @@
+agregar filtros por marca
+solucionar la persistencia de datos con una bd embebida o com bd en la nube
+controladores restmaping para la navegación en los desplegables 
