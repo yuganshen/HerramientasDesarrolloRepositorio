@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GamingStore</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="NavBar.css" />
 </head>
 <body>
 
@@ -74,55 +74,74 @@
       
         <div class="tab-content" id="partes-pc">
           <h2>Partes de PC</h2>
-          <p>Tarjetas de video</p>
-          <p>Discos</p>
-          <p>Procesadores</p>
-          <p>Memoria Ram</p>
-          <p>Fuentes de Poder</p>
-          <p>Cooler</p>
+          <div class="subtabs">
+          <a href="">Tarjetas de video</a>
+           <a href="">Discos</a>
+           <a href="">Procesadores</a>
+          <a href="">Memoria Ram</a>
+           <a href="">Fuentes de Poder</a>
+           <a href="">Cooler</a>
+          </div>
         </div>
       
         <div class="tab-content" id="monitores">
           <h2>Monitores</h2>
-          <p>Lg</p>
-          <p>Samsung</p>
-          <p>Asus</p>
-          <p>Teros</p>
-          <br>
+          <div class="subtabs">
+           <a href="">Lg</a>
+           <a href="">Samsung</a>
+           <a href="">Asus</a>
+           <a href="">Teros</a>
+          </div>
           
           <h2>Proyectores</h2>
-          <p>View Sonic</p>
-          <p>Epson</p>
-          <p>Havit</p>
+          <div class="subtabs">
+           <a href="">View Sonic</a>
+           <a href="">Epson</a>
+           <a href="">Havit</a>
+          </div>
         </div>
       
         <div class="tab-content" id="impresoras">
           <h2>Impresoras</h2>
-          <p>Brother</p>
-          <p>Epson</p>
-          <p>Canon</p>
-          <p>Hp</p>
+          <div class="subtabs">
+           <a href="">Brother</a>
+           <a href="">Epson</a>
+           <a href="">Canon</a>
+           <a href="">Hp</a>
+          </div>
         </div>
       </div>
+
+      
   <script>
-        const tabs = document.querySelectorAll('.tab-button');
-        const contents = document.querySelectorAll('.tab-content');
-      
-        tabs.forEach(tab => {
-          tab.addEventListener('click', () => {
-            // Quitar active de todos los tabs
-            tabs.forEach(t => t.classList.remove('active'));
-            // Poner active al tab clickeado
-            tab.classList.add('active');
-      
-            // Ocultar todos los contenidos
-            contents.forEach(c => c.classList.remove('active'));
-            // Mostrar el contenido correspondiente
-            const tabId = tab.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-          });
-        });
-      </script>
+  const tabs = document.querySelectorAll('.tab-button');
+  const contents = document.querySelectorAll('.tab-content');
+  let activeTab = null; // Para guardar el tab activo actual
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabId = tab.getAttribute('data-tab');
+      const content = document.getElementById(tabId);
+
+      // Si el tab ya está activo, ocultarlo
+      if (activeTab === tab) {
+        tab.classList.remove('active');
+        content.classList.remove('active');
+        activeTab = null; // Reinicia el tab activo
+      } else {
+        // Desactiva todos los tabs y contenidos
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        // Activa el nuevo tab y su contenido
+        tab.classList.add('active');
+        content.classList.add('active');
+        activeTab = tab;
+      }
+    });
+  });
+</script>
+
 
 </body>
 </html>
