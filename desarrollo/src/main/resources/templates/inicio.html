@@ -1,150 +1,170 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameStore - Inicio</title>
+    <title>
+      GameStore - Inicio
+    </title>
     <link rel="stylesheet" href="/inicio.css">
-     <link rel="stylesheet" href="/Footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/NavBar.css}">
-
-
-    
-</head>
-<body>
-
- <div th:replace="Componentes/NavBar :: nav_bar"></div>
-
+    <link rel="stylesheet" th:href="@{/Footer.css}">
+  </head>
+  <body>
+<!-- NAVBAR -->
+    <div th:replace="Componentes/NavBar :: nav_bar"></div>
+<!-- Fin NAVBAR -->
     <!-- BANNER -->
     <section class="banner">
-        <div class="banner-content">
-            <h2>Accesorios Gamer al Mejor Precio</h2>
-            <p>Teclados, mouse, audífonos y todo para tu setup.</p>
-            <a href="/ofertas" class="btn">Ver Ofertas</a>
-        </div>
+      <div class="banner-content">
+        <h2>
+          Accesorios Gamer al Mejor Precio
+        </h2>
+        <p>
+          Teclados, mouse, audífonos y todo para tu setup.
+        </p>
+        <a href="/ofertas" class="btn">
+          Ver Ofertas
+        </a>
+      </div>
     </section>
 
     <!-- SECCIÓN DE PRODUCTOS -->
     <section class="productos">
-        <h2>🔥 Productos Destacados</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="https://www.mmstoreperu.com/cdn/shop/files/MOUSEHAVITMS1001S_4_800DPI_RGB_NEGRO_1000x.png?v=1711471340" alt="Mouse Gamer">
-                <h3>Mouse Gamer RGB</h3>
-                <p>S/ 89.90</p>
-                <button>Añadir al carrito</button>
-            </div>
-            <div class="card">
-                <img src="https://hca.pe/storage/media/large_8zjWwc5at1uu2fiB2TfHfZVHdlIYi2nRdpJ0Nxhh.png" alt="Teclado Mecánico">
-                <h3>Teclado Mecánico</h3>
-                <p>S/ 249.90</p>
-                <button>Añadir al carrito</button>
-            </div>
-            <div class="card">
-                <img src="https://computershopperu.com/2653-medium_default/audifono-cybertel-element-cbx-h700-rgb-con-microfono-sonido-71-conexion-usb-.jpg" alt="Audífonos Gamer">
-                <h3>Headset Gamer</h3>
-                <p>S/ 159.90</p>
-                <button>Añadir al carrito</button>
-            </div>
+      <h2>
+        🔥 Productos Destacados
+      </h2>
+      <div class="cards">
+        <div class="card">
+          <img 
+              src="https://www.mmstoreperu.com/cdn/shop/files/MOUSEHAVITMS1001S_4_800DPI_RGB_NEGRO_1000x.png?v=1711471340"
+              alt="Mouse Gamer">
+
+          <h3>
+            Mouse Gamer RGB
+          </h3>
+          <p>
+            S/ 89.90
+          </p>
+          <button>
+            Añadir al carrito
+          </button>
         </div>
+        <div class="card">
+          <img 
+              src="https://hca.pe/storage/media/large_8zjWwc5at1uu2fiB2TfHfZVHdlIYi2nRdpJ0Nxhh.png"
+              alt="Teclado Mecánico">
+
+          <h3>
+            Teclado Mecánico
+          </h3>
+          <p>
+            S/ 249.90
+          </p>
+          <button>
+            Añadir al carrito
+          </button>
+        </div>
+        <div class="card">
+          <img 
+              src="https://computershopperu.com/2653-medium_default/audifono-cybertel-element-cbx-h700-rgb-con-microfono-sonido-71-conexion-usb-.jpg"
+              alt="Audífonos Gamer">
+
+          <h3>
+            Headset Gamer
+          </h3>
+          <p>
+            S/ 159.90
+          </p>
+          <button>
+            Añadir al carrito
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- OFERTAS -->
     <section class="ofertas">
-        <h2>⚡ Ofertas de la Semana</h2>
-        <div class="cards">
-            <div class="card oferta">
-                <img src="https://dasmitec.pe/wp-content/uploads/2024/10/DPPRO-RD.png" alt="Silla Gamer">
-                <h3>Silla Gamer</h3>
-                <p><del>S/ 599.90</del> <strong>S/ 499.90</strong></p>
-                <button>Añadir al carrito</button>
-            </div>
-            <div class="card oferta">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpsf9oUjh_pzA9q7YTJ26FOlxpTIvqNFv90w&s" alt="Micrófono">
-                <h3>Micrófono Streaming</h3>
-                <p><del>S/ 299.90</del> <strong>S/ 229.90</strong></p>
-                <button>Añadir al carrito</button>
-            </div>
+      <h2>
+        ⚡ Ofertas de la Semana
+      </h2>
+      <div class="cards">
+        <div class="card oferta">
+          <img src="https://dasmitec.pe/wp-content/uploads/2024/10/DPPRO-RD.png" alt="Silla Gamer">
+          <h3>
+            Silla Gamer
+          </h3>
+          <p>
+            <del>
+              S/ 599.90
+            </del>
+            <strong>
+              S/ 499.90
+            </strong>
+          </p>
+          <button>
+            Añadir al carrito
+          </button>
         </div>
+        <div class="card oferta">
+          <img 
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpsf9oUjh_pzA9q7YTJ26FOlxpTIvqNFv90w&s"
+              alt="Micrófono">
+
+          <h3>
+            Micrófono Streaming
+          </h3>
+          <p>
+            <del>
+              S/ 299.90
+            </del>
+            <strong>
+              S/ 229.90
+            </strong>
+          </p>
+          <button>
+            Añadir al carrito
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- NEWSLETTER -->
     <section class="newsletter">
-        <h2>📧 Suscríbete para más ofertas</h2>
-        <form>
-            <input type="email" placeholder="Tu correo">
-            <button type="submit">Suscribirme</button>
-        </form>
+      <h2>
+        📧 Suscríbete para más ofertas
+      </h2>
+      <form>
+        <input type="email" placeholder="Tu correo">
+        <button type="submit">
+          Suscribirme
+        </button>
+      </form>
     </section>
-
-    <!-- FOOTER -->
-     <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <!-- Logo o nombre -->
-      <div class="footer-brand">
-        <h2>TechZone</h2>
-        <p>Innovación y tecnología a tu alcance</p>
-      </div>
-
-      <!-- Enlaces -->
-      <div class="footer-links">
-        <h3>Enlaces</h3>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Productos</a></li>
-          <li><a href="#">Ofertas</a></li>
-          <li><a href="#">Contacto</a></li>
-        </ul>
-      </div>
-
-      <!-- Contacto -->
-      <div class="footer-contact">
-        <h3>Contáctanos</h3>
-        <p>Email: soporte@techzone.com</p>
-        <p>Tel: +51 999 888 777</p>
-        <p>Dirección: Av. Tecnología 123, Lima</p>
-      </div>
-
-      <!-- Redes sociales -->
-      <div class="footer-social">
-        <h3>Síguenos</h3>
-        <div class="social-icons">
-          <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook"></a>
-          <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/twitter.svg" alt="Twitter"></a>
-          <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram"></a>
-          <a href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube"></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Línea final -->
-    <div class="footer-bottom">
-      <p>© 2025 TechZone | Venta de Computadoras</p>
-    </div>
-  </footer>
-
+    <!-- Footer  Componente-->
+    <footer th:replace="Componentes/Footer :: footer"> </footer>
+    <!-- Fin Footer -->
     
-    <script>
-        const tabs = document.querySelectorAll('.tab-button');
-        const contents = document.querySelectorAll('.tab-content');
-      
-        tabs.forEach(tab => {
-          tab.addEventListener('click', () => {
-            // Quitar active de todos los tabs
-            tabs.forEach(t => t.classList.remove('active'));
-            // Poner active al tab clickeado
-            tab.classList.add('active');
-      
-            // Ocultar todos los contenidos
-            contents.forEach(c => c.classList.remove('active'));
-            // Mostrar el contenido correspondiente
-            const tabId = tab.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
+    <script> 
+      const tabs = document.querySelectorAll('.tab-button');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Quitar active de todos los tabs
+          tabs.forEach(t => t.classList.remove('active'));
+          // Poner active al tab clickeado
+          tab.classList.add('active');
+
+          // Ocultar todos los contenidos
+          contents.forEach(c => c.classList.remove('active'));
+          // Mostrar el contenido correspondiente
+          const tabId = tab.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
           });
-        });
-      </script>
-</body>
-</html>
+          });
+        </script>
+      </body>
+    </html>
