@@ -8,20 +8,14 @@
      <link rel="stylesheet" href="/Footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/NavBar.css}">
+
+
+    
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="header"> 
-    
-        <h1 class="logo">🎮 GameStore</h1>
-        <nav class="nav">
-            <a href="/inicio">Inicio</a>
-            <a href="/productos">Productos</a>
-            <a href="/ofertas">Ofertas</a>
-            <a href="/login">Login</a>
-        </nav>
-         </header> 
-           
+
+ <div th:replace="Componentes/NavBar :: nav_bar"></div>
 
     <!-- BANNER -->
     <section class="banner">
