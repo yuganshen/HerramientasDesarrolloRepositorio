@@ -5,7 +5,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #bfd0e2,#C4B4FF);
+    background: linear-gradient(to bottom, #80a3c9,#032745);
     height: 100vh; 
 }
 .padre-login {
@@ -16,16 +16,16 @@ body {
 }
 
 .contenedor-login {
-    box-shadow: 5px 5px 10px rgb(103, 99, 99);
+    box-shadow: 3px 3px 8px rgb(27, 26, 26);
     display: grid;
     grid-template-columns: 400px 400px;
     background-color: #fff;
-    border-radius: 30px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
 .imagen {
-    background-image: url('img/pc.webp'); 
+    background-image: url('pc.webp'); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -45,11 +45,12 @@ body {
     padding-bottom: 40px;
     padding-left: 30px;
     padding-right: 30px;
-    background:linear-gradient(to bottom, #bbcde3,#6595c7);
+    background:linear-gradient(to bottom, #94b7e2,#05a3d7);
 }
 
 h3 {
     text-align: center;
+    color: #fff;
 }
 
 .imagen-trabajador {
@@ -73,6 +74,7 @@ h3 {
     display: flex;
     flex-direction: column;
     position: relative;
+    
 }
 .seleccion select{
     width: 100%;
@@ -85,14 +87,20 @@ h3 {
 }
 .value input {
     padding-left: 30px;
-    height: 46px;
+    height: 50px;
     font-size: 15px;
     border-radius: 18px;
-    border: 1px solid #ced4da;
+    border: 3px solid #ced4da;
     transition-property:border, box-shadow;
     transition-duration:0.3s,0.3s;
     transition-timing-function:ease, ease;
+    background-color: transparent;
+    color: #fff;
 }
+input::placeholder {
+  color: white;
+}
+
 .value input:focus{
     border: 1px solid rgb(7, 154, 7);
     box-shadow: 0 0 0 4px #8ff0b9;
@@ -150,3 +158,4 @@ label {
     color: #fff;
     border: 1px solid #808b96;
 }
+
