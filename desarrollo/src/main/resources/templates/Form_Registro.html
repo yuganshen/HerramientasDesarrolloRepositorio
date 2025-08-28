@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro</title>
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="color-scheme" content="light dark" />
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100">
+  <header class="px-6 py-4">
+    <a href="#" class="inline-flex items-center gap-2 font-semibold">
+      <span class="text-2xl">🕹️</span>
+      <span>Mi App</span>
+    </a>
+  </header>
+
+  <main class="px-4 sm:px-6">
+    <section class="mx-auto max-w-lg">
+      <div class="mb-8 text-center">
+        <h1 class="text-3xl font-bold tracking-tight">Crea tu cuenta</h1>
+        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Regístrate para empezar a usar la aplicación.</p>
+      </div>
+
+      <form action="#" method="POST" class="rounded-2xl bg-white/70 dark:bg-slate-900/60 backdrop-blur shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10 p-6 sm:p-8 space-y-6" novalidate>
+        <!-- Nombre y Apellido -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="given-name" required
+                   class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+          </div>
+          <div>
+            <label for="apellido" class="block text-sm font-medium mb-1">Apellido</label>
+            <input id="apellido" name="apellido" type="text" autocomplete="family-name" required
+                   class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+          </div>
+        </div>
+
+        <!-- Usuario -->
+        <div>
+          <label for="usuario" class="block text-sm font-medium mb-1">Usuario</label>
+          <input id="usuario" name="usuario" type="text" minlength="3" required
+                 class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1">Correo electrónico</label>
+          <input id="email" name="email" type="email" autocomplete="email" required
+                 class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+        </div>
+
+        <!-- Teléfono y País -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="telefono" class="block text-sm font-medium mb-1">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" inputmode="numeric" pattern="[0-9\s\-()+]+" placeholder="Ej. +51 999 999 999"
+                   class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+          </div>
+          <div>
+            <label for="pais" class="block text-sm font-medium mb-1">País</label>
+            <select id="pais" name="pais" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+              <option value="">Selecciona tu país</option>
+              <option value="PE">Perú</option>
+              <option value="AR">Argentina</option>
+              <option value="CL">Chile</option>
+              <option value="CO">Colombia</option>
+              <option value="MX">México</option>
+              <option value="ES">España</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="password" class="block text-sm font-medium mb-1">Contraseña</label>
+            <div class="relative">
+              <input id="password" name="password" type="password" minlength="8" required
+                     class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 pr-10 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+              <button type="button" id="togglePwd" aria-label="Mostrar/Ocultar contraseña" class="absolute inset-y-0 right-2 my-auto px-1 rounded-md text-slate-500 hover:text-slate-700 dark:hover:text-slate-200">
+                👁️
+              </button>
+            </div>
+            <p class="mt-1 text-xs text-slate-500">Mínimo 8 caracteres. Usa mayúsculas, minúsculas y números.</p>
+          </div>
+          <div>
+            <label for="confirm" class="block text-sm font-medium mb-1">Confirmar contraseña</label>
+            <input id="confirm" name="confirm" type="password" minlength="8" required
+                   class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+            <p id="matchMsg" class="mt-1 text-xs"></p>
+          </div>
+        </div>
+
+        <!-- Términos -->
+        <div class="flex items-start gap-3">
+          <input id="terms" name="terms" type="checkbox" required class="mt-1 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
+          <label for="terms" class="text-sm">Acepto los <a href="#" class="text-indigo-600 hover:underline">términos y condiciones</a>.</label>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-medium px-4 py-2.5 shadow-lg shadow-indigo-600/20 transition">
+          Crear cuenta
+        </button>
+
+        <!-- Separador -->
+        <div class="flex items-center gap-3">
+          <div class="h-px flex-1 bg-slate-200 dark:bg-slate-700"></div>
+          <span class="text-xs text-slate-500">o</span>
+          <div class="h-px flex-1 bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <!-- Social (opcional) -->
+      </form>
+
+      <p class="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
+        ¿Ya tienes cuenta? <a href="#" class="text-indigo-600 hover:underline">Inicia sesión</a>
+      </p>
+    </section>
+  </main>
+
+  <script>
+    // Mostrar/ocultar contraseña y validación simple de coincidencia
+    const pwd = document.getElementById('password');
+    const confirmPwd = document.getElementById('confirm');
+    const toggle = document.getElementById('togglePwd');
+    const msg = document.getElementById('matchMsg');
+
+    toggle?.addEventListener('click', () => {
+      const isPass = pwd.type === 'password';
+      pwd.type = isPass ? 'text' : 'password';
+      confirmPwd.type = isPass ? 'text' : 'password';
+    });
+
+    function checkMatch() {
+      if (!confirmPwd.value) { msg.textContent = ''; return; }
+      if (pwd.value === confirmPwd.value) {
+        msg.textContent = '✔ Las contraseñas coinciden';
+        msg.className = 'mt-1 text-xs text-emerald-600';
+      } else {
+        msg.textContent = '✖ Las contraseñas no coinciden';
+        msg.className = 'mt-1 text-xs text-rose-600';
+      }
+    }
+    pwd.addEventListener('input', checkMatch);
+    confirmPwd.addEventListener('input', checkMatch);
+  </script>
+</body>
+</html>
+>
