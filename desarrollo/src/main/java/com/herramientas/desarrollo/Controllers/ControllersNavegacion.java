@@ -17,5 +17,5 @@ public class ControllersNavegacion {
 	@GetMapping("/registrar")
 	public String registrarNuevoUsuario() {
 		return"Form_Registro";
-	}
+	}	
 }
