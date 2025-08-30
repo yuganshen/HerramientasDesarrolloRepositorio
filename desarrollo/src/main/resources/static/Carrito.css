@@ -44,3 +44,51 @@ body {
   background: #00aaff;
   color: #000;
 }
+/* Productos */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.product {
+  background: #111;
+  border: 1px solid #222;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+}
+.product:hover {
+  border: 1px solid #00aaff;
+  box-shadow: 0 0 15px #00aaff55;
+}
+
+.product img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.product h3 {
+  color: #00aaff;
+  margin-bottom: 0.5rem;
+}
+
+.product p {
+  margin-bottom: 1rem;
+}
+
+.product button {
+  background: #00aaff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  color: #000;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.product button:hover {
+  background: #0090dd;
+}
