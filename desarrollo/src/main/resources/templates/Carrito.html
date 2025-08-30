@@ -39,5 +39,19 @@
     <p class="total">Total: S/. <span id="cart-total">0</span></p>
     <button class="checkout">Finalizar Compra</button>
   </aside>
+  <!-- Script -->
+  <script>
+    let cart = [];
+    let cartCount = 0;
+    let cartTotal = 0;
+
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      cartCount++;
+      cartTotal += price;
+
+      document.getElementById("cart-count").textContent = cartCount;
+      renderCart();
+    }
 </body>
 </html>
