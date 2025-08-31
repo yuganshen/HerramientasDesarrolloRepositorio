@@ -23,45 +23,53 @@
         <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Regístrate para empezar a usar la aplicación.</p>
       </div>
 
-      <form action="/registro" method="post" class="rounded-2xl bg-white/70 dark:bg-slate-900/60 backdrop-blur shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10 p-6 sm:p-8 space-y-6" novalidate>
+      <form th:action="@{/registro}"  th:object="${registroUsuarioDto}" method="post" class="rounded-2xl bg-white/70 dark:bg-slate-900/60 backdrop-blur shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10 p-6 sm:p-8 space-y-6" novalidate>
         <!-- Nombre y Apellido -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="nombre" class="block text-sm font-medium mb-1">Nombre</label>
-            <input id="nombre" name="nombre" type="text" autocomplete="given-name" required
+            <input id="nombre" name="nombre" th:field="*{nombre}" type="text" autocomplete="given-name" required
                    class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+                   <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="text-red-500 text-sm"></span>                  
           </div>
           <div>
             <label for="apellido" class="block text-sm font-medium mb-1">Apellido</label>
-            <input id="apellido" name="apellido" type="text" autocomplete="family-name" required
+            <input id="apellido" name="apellido" th:field="*{apellido}" type="text" autocomplete="family-name" required
                    class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+                  <p th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}" class="text-red-500 text-sm"></p>
           </div>
         </div>
 
         <!-- Usuario -->
         <div>
           <label for="usuario" class="block text-sm font-medium mb-1">Usuario</label>
-          <input id="usuario" name="usuario" type="text" minlength="3" required
+          <input id="usuario" name="usuario" th:field="*{usuario}" type="text" minlength="3" required
                  class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+                <p th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}" class="text-red-500 text-sm"></p>
+        
         </div>
 
         <!-- Email -->
         <div>
           <label for="email" class="block text-sm font-medium mb-1">Correo electrónico</label>
-          <input id="email" name="email" type="email" autocomplete="email" required
+          <input id="email" name="email" th:field="*{email}" type="email" autocomplete="email" required
                  class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-500 text-sm"></p>
+        
         </div>
 
         <!-- Teléfono y País -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="telefono" class="block text-sm font-medium mb-1">Teléfono</label>
-            <input id="telefono" name="telefono" type="tel" inputmode="numeric" pattern="[0-9\s\-()+]+" placeholder="Ej. +51 999 999 999"
+            <input id="telefono" name="telefono" th:field="*{telefono}" type="tel" inputmode="numeric" pattern="[0-9\s\-()+]+" placeholder="Ej. +51 999 999 999"
                    class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+                  <p th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" class="text-red-500 text-sm"></p>
+          
           </div>
           <div>
             <label for="pais" class="block text-sm font-medium mb-1">País</label>
-            <select id="pais" name="pais" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+            <select id="pais" name="pais" th:field="*{pais}" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
               <option value="">Selecciona tu país</option>
               <option value="PE">Perú</option>
               <option value="AR">Argentina</option>
@@ -71,6 +79,8 @@
               <option value="ES">España</option>
             </select>
           </div>
+                 <p th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}" class="text-red-500 text-sm"></p>
+                
         </div>
 
         <!-- Contraseña -->
@@ -78,8 +88,9 @@
           <div>
             <label for="password" class="block text-sm font-medium mb-1">Contraseña</label>
             <div class="relative">
-              <input id="password" name="password" type="password" minlength="8" required
+              <input id="password" name="password" th:field="*{password}" type="password" minlength="8" required                                 
                      class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 pr-10 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+                     <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-red-500 text-sm"></p>
               <button type="button" id="togglePwd" aria-label="Mostrar/Ocultar contraseña" class="absolute inset-y-0 right-2 my-auto px-1 rounded-md text-slate-500 hover:text-slate-700 dark:hover:text-slate-200">
                 👁️
               </button>
@@ -88,16 +99,19 @@
           </div>
           <div>
             <label for="confirm" class="block text-sm font-medium mb-1">Confirmar contraseña</label>
-            <input id="confirm" name="confirm" type="password" minlength="8" required
+            <input id="confirm" name="confirm" th:field="*{confirm}" type="password" minlength="8" required
                    class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+                    <p th:if="${#fields.hasErrors('confirm')}" th:errors="*{confirm}" class="text-red-500 text-sm"></p>
             <p id="matchMsg" class="mt-1 text-xs"></p>
           </div>
         </div>
 
         <!-- Términos -->
         <div class="flex items-start gap-3">
-          <input id="terms" name="terms" type="checkbox" required class="mt-1 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
+          <input id="terms" name="terms" th:field="*{terms}" type="checkbox" required class="mt-1 h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" />
           <label for="terms" class="text-sm">Acepto los <a href="#" class="text-indigo-600 hover:underline">términos y condiciones</a>.</label>
+            <p th:if="${#fields.hasErrors('terms')}" th:errors="*{terms}" class="text-red-500 text-sm"></p>
+        
         </div>
 
         <!-- Submit -->

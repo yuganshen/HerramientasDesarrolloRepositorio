@@ -23,15 +23,16 @@ public class ControllerLogin {
 	
 	//Controller de registro de ususarios + validacion de campos
 	@PostMapping("/registro")
-    public String procesarRegistro(
-            @Valid RegistroUsuarioDto registroUsuarioDto,
-            BindingResult result,
-            Model model) {
-
-        if (result.hasErrors()) {
-            // Si hay errores, devuelve al formulario mostrando los mensajes
-            return "Form_Registro";
-        }
+	public String procesarRegistro(
+		    @Valid @ModelAttribute RegistroUsuarioDto registroUsuarioDto,
+		    BindingResult result,
+		    Model model)
+ {
+        //en caso de un campo erroneo
+		if (result.hasErrors()) {
+		    model.addAttribute("registroUsuarioDto", registroUsuarioDto);
+		    return "Form_Registro";
+		}
 
         // Si pasa las validaciones, imprime en consola
         System.out.println("Nombre: " + registroUsuarioDto.getNombre());
