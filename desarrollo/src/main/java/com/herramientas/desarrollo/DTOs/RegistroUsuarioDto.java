@@ -30,7 +30,7 @@ public class RegistroUsuarioDto {
     @NotBlank(message = "El país es obligatorio")
     private String pais;
 
-    @NotBlank(message = "La contraseña es obligatoria")
+    @NotBlank(message = "La contraseña es obligatorio")
     @Size(min = 8, message = "La contraseña debe tener al menos 8 caracteres")
     private String password;
 

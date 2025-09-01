@@ -43,7 +43,7 @@ public class ControllerLogin {
         System.out.println("País: " + registroUsuarioDto.getPais());
         System.out.println("Password: " + registroUsuarioDto.getPassword());
         System.out.println("Confirm: " + registroUsuarioDto.getConfirm());
-        System.out.println("Acepta términos: " + registroUsuarioDto.getTerms());
+        System.out.println("Acepta términos y condiciones: " + registroUsuarioDto.getTerms());
 
         // En el futuro aquí iría la lógica de guardar en la base de datos
         model.addAttribute("mensaje", "Registro exitoso");

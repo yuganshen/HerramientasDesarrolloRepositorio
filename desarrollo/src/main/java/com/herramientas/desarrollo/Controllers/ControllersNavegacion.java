@@ -9,7 +9,6 @@ import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
 @Controller
 public class ControllersNavegacion {
 
-	
 	@GetMapping("/")
 	public String inicio() {
 		return"Login";
