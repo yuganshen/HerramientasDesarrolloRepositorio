@@ -1,41 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito de Compras</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<!-- Lista de productos -->
-  <main class="products">
-    <div class="product">
-      <img src="https://picsum.photos/250?random=1" alt="Laptop Gamer">
-      <h3>Laptop Gamer</h3>
-      <p>S/. 3500</p>
-      <button onclick="addToCart('Laptop Gamer', 3500)">Agregar</button>
+<body class="bg-black text-white font-sans">
+
+  <!-- HEADER -->
+  <header class="flex justify-between items-center p-6 bg-zinc-900 shadow-lg">
+    <h1 class="text-2xl font-bold text-blue-400">TechStore</h1>
+    <div class="relative">
+      <!-- Icono carrito -->
+      <button class="relative">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13h10">
+          </path>
+        </svg>
+        <span id="cart-count"
+          class="absolute -top-2 -right-2 bg-blue-500 text-xs rounded-full px-2 py-0.5">2</span>
+      </button>
     </div>
-    <div class="product">
-      <img src="https://picsum.photos/250?random=2" alt="PC Gamer">
-      <h3>PC Gamer</h3>
-      <p>S/. 4200</p>
-      <button onclick="addToCart('PC Gamer', 4200)">Agregar</button>
+  </header>
+
+  <!-- MAIN -->
+  <main class="max-w-5xl mx-auto p-6">
+    <h2 class="text-3xl font-semibold mb-6 text-blue-400">Tu Carrito</h2>
+
+    <!-- Lista de productos -->
+    <div class="grid gap-6">
+      <!-- Producto -->
+      <div class="flex items-center justify-between bg-zinc-800 p-4 rounded-2xl shadow-md">
+        <div class="flex items-center gap-4">
+          <img src="https://via.placeholder.com/100" class="w-20 h-20 rounded-xl" alt="Producto 1" />
+          <div>
+            <h3 class="text-lg font-bold">Laptop Gamer</h3>
+            <p class="text-sm text-gray-400">Potente y moderna</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="text-blue-400 font-bold text-lg">$1200</span>
+          <input type="number" value="1" min="1" class="w-16 text-black p-1 rounded" />
+          <button class="text-red-400 hover:text-red-600">✕</button>
+        </div>
+      </div>
+
+      <!-- Producto -->
+      <div class="flex items-center justify-between bg-zinc-800 p-4 rounded-2xl shadow-md">
+        <div class="flex items-center gap-4">
+          <img src="https://via.placeholder.com/100" class="w-20 h-20 rounded-xl" alt="Producto 2" />
+          <div>
+            <h3 class="text-lg font-bold">Mouse Inalámbrico</h3>
+            <p class="text-sm text-gray-400">Ergonómico y preciso</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="text-blue-400 font-bold text-lg">$40</span>
+          <input type="number" value="2" min="1" class="w-16 text-black p-1 rounded" />
+          <button class="text-red-400 hover:text-red-600">✕</button>
+        </div>
+      </div>
     </div>
-     <div class="product">
-      <img src="https://picsum.photos/250?random=3" alt="Monitor 4K">
-      <h3>Monitor 4K</h3>
-      <p>S/. 1200</p>
-      <button onclick="addToCart('Monitor 4K', 1200)">Agregar</button>
+
+    <!-- TOTAL -->
+    <div class="mt-10 flex justify-between items-center bg-zinc-900 p-6 rounded-2xl shadow-lg">
+      <h3 class="text-xl font-semibold">Total:</h3>
+      <span class="text-2xl font-bold text-blue-400">$1280</span>
     </div>
-    <div class="product">
-      <img src="https://picsum.photos/250?random=4" alt="Teclado Mecánico">
-      <h3>Teclado Mecánico</h3>
-      <p>S/. 350</p>
-      <button onclick="addToCart('Teclado Mecánico', 350)">Agregar</button>
+
+    <!-- Botón de pago -->
+    <div class="mt-6 text-right">
+      <button
+        class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-2xl shadow-lg font-semibold transition">
+        Proceder al Pago
+      </button>
     </div>
   </main>
-   <!-- Carrito lateral -->
-  <aside class="cart-panel" id="cart-panel">
-    <h2>Carrito</h2>
-    <ul id="cart-items"></ul>
-    <p class="total">Total: S/. <span id="cart-total">0</span></p>
-    <button class="checkout">Finalizar Compra</button>
-  </aside>
+
+</body>
+</html>
