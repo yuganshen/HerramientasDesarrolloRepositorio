@@ -89,10 +89,20 @@ main {
 
  /* Eliminar flecha por defecto: solo activa la tendrá */
 .tab-button::after {
-  content: none;
+   content: "";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid black ;
+  margin-left: 8px;
+  transition: border-top-color 0.3s;
   
 }
-
+/* Flecha cuando se hace hover en el botón */
+.tab-button:hover::after {
+  border-top-color: #fbbf24; /* mismo dorado en hover */
+}
   
   .tab-button:hover {
     color: #fbbf24; /* dorado */
@@ -158,3 +168,4 @@ h1 {
   background-color: #fbbf24;
   color: black;
 }
+
