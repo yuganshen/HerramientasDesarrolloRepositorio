@@ -8,9 +8,4 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping ("/laptos")
 public class ControllerSubOpciones {
 
-  @GetMapping("/marca")
-  public String marca(){
-    return "marcas";
-  }
-
 }
