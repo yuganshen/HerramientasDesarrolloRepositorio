@@ -9,10 +9,12 @@ public class RegistroUsuarioDto {
 
     @NotBlank(message = "El nombre es obligatorio")
     @Size(min = 2, max = 30, message = "El nombre debe tener entre 2 y 30 caracteres")
+    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$", message = "El nombre solo puede contener letras y espacios")
     private String nombre;
 
     @NotBlank(message = "El apellido es obligatorio")
     @Size(min = 2, max = 30, message = "El apellido debe tener entre 2 y 30 caracteres")
+    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$", message = "El apellido solo puede contener letras y espacios")
     private String apellido;
 
     @NotBlank(message = "El usuario es obligatorio")
