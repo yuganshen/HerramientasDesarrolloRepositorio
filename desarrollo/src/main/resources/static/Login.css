@@ -25,7 +25,7 @@ body {
 }
 
 .imagen {
-    background-image: url('pc.webp'); 
+    background-image: url('img/pc.webp'); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -36,9 +36,11 @@ body {
     gap: 6px;
 }
 
+
 .imagen p{
     font-size: 18px;
 }
+
 
 .logeo {
     padding-top: 30px;
