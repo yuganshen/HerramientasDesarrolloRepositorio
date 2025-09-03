@@ -1,55 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login de la pagina web</title>
-    <link rel="stylesheet" href="Login.css">
-    <script src="https://kit.fontawesome.com/da157044bb.js"crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login de la página web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div class="padre-login">
-        <div class="contenedor-login">
-            <div class="imagen">
-                <!-- <img class="imagen-trabajador" src="pc.webp" alt="" />-->
-                 <h2>OSCssA</h2>
-                 <p>Tienda en linea a de accesorios para computadoras</p>
-                 <p>y otros dispositivos electronicos</p>
-            </div>
-            <div class="logeo">
-                <div class="imagen-usuario">
-                    <img src="usuario.png" alt="" />
-                </div>
-                <h3>Iniciar S   esión</h3>
-                <!-- 🔄 Eliminado el atributo 'action' para que no envíe al backend -->
-                <form id="form-login" th:action="@{/login}" method="post">
-                    <div class="value espacio input-icono">
-                        <label for="">Usuario:</label>
-                        <input type="text" placeholder="Ingresa tu usuario" name="user" required />
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-
-                    <div class="value espacio input-icono">
-                        <label for="">Contraseña:</label>
-                        <input type="password" placeholder="Ingresa tu contraseña" name="password" required />
-                        <i class="fa-solid fa-lock"></i>
-                    </div>
-
-
-                    <div class="restablecer espacio">
-                        <a href="correo.html">¿Has olvidado tu contraseña?</a>
-                    </div>
-
-                    <div class="boton espacio">
-                        <input type="submit" value="LOGIN" />
-                    </div>
-                </form>
-
-            </div>
-        </div>
+<body class="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+  <div class="flex flex-col md:flex-row bg-white shadow-xl rounded-2xl overflow-hidden w-full max-w-4xl">
+    
+    <!-- Lado izquierdo -->
+    <div class="flex flex-col items-center justify-center bg-indigo-600 text-white p-8 md:w-1/2">
+      <h2 class="text-3xl md:text-4xl font-bold">OSCssA</h2>
+      <p class="mt-4 text-center text-sm md:text-base">
+        Tienda en línea de accesorios para computadoras
+      </p>
+      <p class="text-center text-sm md:text-base">
+        y otros dispositivos electrónicos
+      </p>
     </div>
 
-</body>
+    <!-- Lado derecho (formulario) -->
+     <div class="flex flex-col items-center justify-center p-6 md:p-10 md:w-1/2">
+      <div class="w-20 h-20 mb-4">
+        <img src="img/usuario.png" alt="Usuario"
+             class="w-full h-full object-cover rounded-full border-2 border-gray-300">
+      </div>
 
+      <h3 class="text-xl md:text-2xl font-semibold mb-6">Iniciar Sesión</h3>
+
+      <form id="form-login" th:action="@{/login}" method="post"
+            class="w-full max-w-sm space-y-4">
+        <!-- Usuario -->
+        <div>
+          <label class="block text-gray-700 text-sm">Usuario:</label>
+          <div class="relative">
+            <input type="text" name="user" placeholder="Ingresa tu usuario" required
+                   class="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none text-sm md:text-base">
+            <i class="fa-solid fa-user absolute left-3 top-3 text-gray-400"></i>
+          </div>
+        </div>
+
+        <!-- Contraseña -->
+        <div>
+          <label class="block text-gray-700 text-sm">Contraseña:</label>
+          <div class="relative">
+            <input type="password" name="password" placeholder="Ingresa tu contraseña" required
+                   class="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none text-sm md:text-base">
+            <i class="fa-solid fa-lock absolute left-3 top-3 text-gray-400"></i>
+          </div>
+        </div>
+
+        <!-- Restablecer contraseña -->
+        <div class="text-right">
+          <a href="correo.html" class="text-sm text-indigo-600 hover:underline">
+            ¿Has olvidado tu contraseña?
+          </a>
+        </div>
+
+        <!-- Botón -->
+        <div>
+          <input type="submit" value="LOGIN"
+                 class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition text-sm md:text-base">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
 </html>
+
