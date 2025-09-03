@@ -8,77 +8,100 @@
 </head>
 <body class="bg-black text-white font-sans">
 
-  <!-- HEADER -->
-  <header class="flex justify-between items-center p-6 bg-zinc-900 shadow-lg">
-    <h1 class="text-2xl font-bold text-blue-400">TechStore</h1>
-    <div class="relative">
-      <!-- Icono carrito -->
-      <button class="relative">
-        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2"
-          viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13h10">
-          </path>
-        </svg>
-        <span id="cart-count"
-          class="absolute -top-2 -right-2 bg-blue-500 text-xs rounded-full px-2 py-0.5">2</span>
-      </button>
-    </div>
-  </header>
+   <!-- Icono carrito -->
+      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13h10">
+        </path>
+      </svg>
+      <span id="cart-count"
+        class="absolute -top-2 -right-2 bg-blue-500 text-xs rounded-full px-2 py-0.5">0</span>
+    </button>
+  </nav>
 
-  <!-- MAIN -->
-  <main class="max-w-5xl mx-auto p-6">
-    <h2 class="text-3xl font-semibold mb-6 text-blue-400">Tu Carrito</h2>
+  <!-- CONTENIDO -->
+  <main class="p-8">
+    <h2 class="text-3xl font-bold text-blue-400 mb-6">Productos Disponibles</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-    <!-- Lista de productos -->
-    <div class="grid gap-6">
       <!-- Producto -->
-      <div class="flex items-center justify-between bg-zinc-800 p-4 rounded-2xl shadow-md">
-        <div class="flex items-center gap-4">
-          <img src="https://via.placeholder.com/100" class="w-20 h-20 rounded-xl" alt="Producto 1" />
-          <div>
-            <h3 class="text-lg font-bold">Laptop Gamer</h3>
-            <p class="text-sm text-gray-400">Potente y moderna</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-6">
-          <span class="text-blue-400 font-bold text-lg">$1200</span>
-          <input type="number" value="1" min="1" class="w-16 text-black p-1 rounded" />
-          <button class="text-red-400 hover:text-red-600">✕</button>
-        </div>
+      <div class="bg-gray-800 p-4 rounded-xl shadow hover:scale-105 transition">
+        <img src="https://via.placeholder.com/200" alt="Producto" class="rounded-lg mb-3">
+        <h3 class="text-xl font-semibold">Consola X</h3>
+        <p class="text-gray-400 text-sm">Nueva generación</p>
+        <p class="text-blue-400 font-bold mt-2">$500</p>
+        <button onclick="addToCart('Consola X', 500)" class="mt-3 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold">Agregar</button>
       </div>
 
       <!-- Producto -->
-      <div class="flex items-center justify-between bg-zinc-800 p-4 rounded-2xl shadow-md">
-        <div class="flex items-center gap-4">
-          <img src="https://via.placeholder.com/100" class="w-20 h-20 rounded-xl" alt="Producto 2" />
-          <div>
-            <h3 class="text-lg font-bold">Mouse Inalámbrico</h3>
-            <p class="text-sm text-gray-400">Ergonómico y preciso</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-6">
-          <span class="text-blue-400 font-bold text-lg">$40</span>
-          <input type="number" value="2" min="1" class="w-16 text-black p-1 rounded" />
-          <button class="text-red-400 hover:text-red-600">✕</button>
-        </div>
+      <div class="bg-gray-800 p-4 rounded-xl shadow hover:scale-105 transition">
+        <img src="https://via.placeholder.com/200" alt="Producto" class="rounded-lg mb-3">
+        <h3 class="text-xl font-semibold">Control Gamer</h3>
+        <p class="text-gray-400 text-sm">Inalámbrico</p>
+        <p class="text-blue-400 font-bold mt-2">$60</p>
+        <button onclick="addToCart('Control Gamer', 60)" class="mt-3 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold">Agregar</button>
       </div>
-    </div>
 
-    <!-- TOTAL -->
-    <div class="mt-10 flex justify-between items-center bg-zinc-900 p-6 rounded-2xl shadow-lg">
-      <h3 class="text-xl font-semibold">Total:</h3>
-      <span class="text-2xl font-bold text-blue-400">$1280</span>
-    </div>
-
-    <!-- Botón de pago -->
-    <div class="mt-6 text-right">
-      <button
-        class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-2xl shadow-lg font-semibold transition">
-        Proceder al Pago
-      </button>
     </div>
   </main>
 
+  <!-- CARRITO (OCULTO) -->
+  <div id="cart-panel" class="fixed right-0 top-0 h-full w-80 bg-gray-900 shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+    <div class="flex justify-between items-center px-4 py-3 bg-gray-800">
+      <h2 class="text-xl font-bold">Tu Carrito</h2>
+      <button onclick="toggleCart()" class="text-red-400 hover:text-red-600">✕</button>
+    </div>
+    <div id="cart-items" class="p-4 space-y-3"></div>
+    <div class="p-4 border-t border-gray-700">
+      <div class="flex justify-between font-semibold">
+        <span>Total:</span>
+        <span id="cart-total" class="text-blue-400">$0</span>
+      </div>
+      <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold">Pagar</button>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+    const cartBtn = document.getElementById("cart-btn");
+    const cartPanel = document.getElementById("cart-panel");
+    const cartCount = document.getElementById("cart-count");
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartBtn.addEventListener("click", toggleCart);
+
+    function toggleCart() {
+      cartPanel.classList.toggle("translate-x-full");
+    }
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+    }
+
+    function updateCart() {
+      cartItems.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartItems.innerHTML += `
+          <div class="flex justify-between items-center bg-gray-800 p-3 rounded-lg">
+            <div>
+              <p class="font-semibold">${item.name}</p>
+              <p class="text-sm text-gray-400">$${item.price}</p>
+            </div>
+            <button onclick="removeItem(${index})" class="text-red-400 hover:text-red-600">✕</button>
+          </div>`;
+      });
+      cartTotal.textContent = "$" + total;
+      cartCount.textContent = cart.length;
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+  </script>
 </body>
 </html>
