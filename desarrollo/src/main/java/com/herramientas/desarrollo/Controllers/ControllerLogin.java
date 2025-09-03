@@ -1,10 +1,11 @@
 package com.herramientas.desarrollo.Controllers;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -24,7 +25,7 @@ public class ControllerLogin {
 	//Controller de registro de ususarios + validacion de campos
 	@PostMapping("/registro")
 	public String procesarRegistro(
-		    @Valid @ModelAttribute RegistroUsuarioDto registroUsuarioDto,
+		    @Validated @ModelAttribute RegistroUsuarioDto registroUsuarioDto,
 		    BindingResult result,
 		    Model model)
  {
