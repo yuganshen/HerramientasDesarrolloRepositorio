@@ -7,12 +7,12 @@
 
 html, body {
   font-family: 'Orbitron', sans-serif;
-  background-color: #0f172a;  
+  background-color: #0f172a; 
   color: #e5e7eb;
   line-height: 1.6;
 }
 
-/* HEADER */
+/* HEADER 
 .header {
   background: linear-gradient(90deg, #1e3a8a, black);
   padding: 1rem 2rem;
@@ -43,7 +43,7 @@ html, body {
 
 .header .nav a:hover {
   color: #fbbf24;
-}
+}  */
 
 /* BANNER */
 .banner {
