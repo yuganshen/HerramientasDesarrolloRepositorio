@@ -24,4 +24,9 @@ public class ControllersNavegacion {
 		model.addAttribute("registroUsuarioDto", new RegistroUsuarioDto());
 		return"Form_Registro";
 	}	*/
+	
+	@GetMapping("/catalogo")
+	public String catalogo() {
+		return"Catalogo";
+	}
 }
