@@ -1,7 +1,7 @@
-/*
+
 package com.herramientas.desarrollo.Controllers;
 
-//import javax.validation.Valid;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,4 +54,4 @@ public class ControllerLogin {
         return "Login"; 
     }
 }
-   */
+   

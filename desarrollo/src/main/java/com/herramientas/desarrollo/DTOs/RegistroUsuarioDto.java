@@ -1,4 +1,4 @@
-/*
+
 package com.herramientas.desarrollo.DTOs;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -106,4 +106,4 @@ public class RegistroUsuarioDto {
     public void setTerms(Boolean terms) {
         this.terms = terms;
     }
-}   */
+}   
