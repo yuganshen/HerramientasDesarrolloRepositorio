@@ -16,10 +16,6 @@ public class ControllersNavegacion {
 		return"Login";
 	}
 	
-	@GetMapping("/navbar")
-	public String navegacion() {
-		return"NavBar";
-	}
 
 	@GetMapping("/registrar")
 	public String registrarNuevoUsuario(Model model){
