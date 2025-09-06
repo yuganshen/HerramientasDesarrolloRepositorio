@@ -20,7 +20,7 @@ public class ControllerLogin {
     public String login(@ModelAttribute DTOUsuario dto) {
         System.out.println(dto);
         return "inicio"; 
-    }
+	}
 	 
 	
 	//Controller de registro de ususarios + validacion de campos
