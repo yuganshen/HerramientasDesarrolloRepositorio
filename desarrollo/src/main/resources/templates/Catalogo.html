@@ -5,118 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameStore - Catálogo</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Orbitron', sans-serif; }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-gray-900 text-white">
 
-  <!-- NAVBAR -->
-  <nav class="flex justify-between items-center px-8 py-4 bg-gray-800 shadow-lg sticky top-0 z-50">
-    <h1 class="text-2xl font-bold text-blue-400">GameStore</h1>
-    <div class="flex items-center space-x-6">
-      <a href="#" class="hover:text-blue-400 transition">Inicio</a>
-      <a href="#" class="hover:text-blue-400 transition">Catálogo</a>
-      <a href="#" class="hover:text-blue-400 transition">Ofertas</a>
-      <button class="relative">
-        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13h10"></path>
-        </svg>
-        <span class="absolute -top-2 -right-2 bg-blue-500 text-xs rounded-full px-2 py-0.5">0</span>
-      </button>
+  <!-- HEADER / NAVBAR -->
+  <header class="bg-gray-800 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold text-blue-400">🎮 GameStore</h1>
+      <nav class="flex items-center gap-6">
+        <a href="#" class="hover:text-blue-400">Inicio</a>
+        <a href="#" class="hover:text-blue-400">Catálogo</a>
+        <a href="#" class="hover:text-blue-400">Ofertas</a>
+        <a href="#" class="hover:text-blue-400">Contacto</a>
+        <button class="relative">
+          🛒
+          <span class="absolute -top-2 -right-2 bg-blue-500 text-xs rounded-full px-2">3</span>
+        </button>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <!-- HERO -->
-  <section class="relative h-[400px] flex items-center justify-center bg-cover bg-center" style="background-image: url('https://wallpaperaccess.com/full/84248.jpg');">
-    <div class="absolute inset-0 bg-black/60"></div>
-    <div class="relative text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-blue-400 mb-4">Bienvenido a GameStore</h2>
-      <p class="text-gray-300 mb-6">Las mejores consolas, laptops y accesorios gamer en un solo lugar</p>
-      <a href="#catalogo" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition">Ver Catálogo</a>
+  <section class="relative bg-gradient-to-r from-gray-900 to-gray-700 h-[300px] flex items-center justify-center text-center">
+    <div>
+      <h2 class="text-4xl font-bold text-blue-400">¡Bienvenido a GameStore!</h2>
+      <p class="text-gray-300 mt-2">Tu destino gamer con las mejores consolas, accesorios y más.</p>
+      <button class="mt-6 px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg shadow-lg font-semibold transition">Explorar ahora</button>
     </div>
   </section>
 
-  <!-- OFERTAS -->
-  <section class="p-8 text-center">
-    <h2 class="text-3xl font-bold text-blue-400 mb-6">🔥 Ofertas Destacadas 🔥</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-gray-800 p-5 rounded-xl shadow hover:scale-105 transition">
-        <h3 class="text-xl font-semibold">Consola X - Oferta</h3>
-        <p class="text-gray-400">Antes $600</p>
-        <p class="text-green-400 font-bold mt-2">Ahora $500</p>
-      </div>
-      <div class="bg-gray-800 p-5 rounded-xl shadow hover:scale-105 transition">
-        <h3 class="text-xl font-semibold">Auriculares Pro</h3>
-        <p class="text-gray-400">Antes $150</p>
-        <p class="text-green-400 font-bold mt-2">Ahora $120</p>
-      </div>
-      <div class="bg-gray-800 p-5 rounded-xl shadow hover:scale-105 transition">
-        <h3 class="text-xl font-semibold">Laptop Gamer RTX</h3>
-        <p class="text-gray-400">Antes $2000</p>
-        <p class="text-green-400 font-bold mt-2">Ahora $1800</p>
-      </div>
+  <!-- BUSCADOR Y FILTROS -->
+  <section class="max-w-7xl mx-auto p-6">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <input type="text" placeholder="Buscar productos..." class="w-full md:w-1/2 px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+      <select class="px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option>Todos</option>
+        <option>Consolas</option>
+        <option>Accesorios</option>
+        <option>Juegos</option>
+        <option>PC Gamer</option>
+      </select>
     </div>
-  </section>
-
-  <!-- FILTROS -->
-  <section class="px-8 py-6 flex justify-center space-x-4">
-    <button class="px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-600 font-semibold">Todos</button>
-    <button class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 font-semibold">Consolas</button>
-    <button class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 font-semibold">Accesorios</button>
-    <button class="px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 font-semibold">Laptops</button>
   </section>
 
   <!-- CATÁLOGO -->
-  <main id="catalogo" class="p-8">
-    <h2 class="text-4xl font-bold text-blue-400 mb-10 text-center">Catálogo de Productos</h2>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-
-      <!-- Producto -->
-      <div class="bg-gray-800 p-5 rounded-xl shadow hover:scale-105 hover:shadow-blue-500/40 transition duration-300">
-        <img src="https://via.placeholder.com/250x200" alt="Producto" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Consola X</h3>
-        <p class="text-gray-400 text-sm">Nueva generación con gráficos 8K</p>
-        <p class="text-blue-400 font-bold mt-2">$500</p>
-        <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
-      </div>
-
-      <!-- Producto -->
-      <div class="bg-gray-800 p-5 rounded-xl shadow hover:scale-105 hover:shadow-blue-500/40 transition duration-300">
-        <img src="https://via.placeholder.com/250x200" alt="Producto" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Control Gamer</h3>
-        <p class="text-gray-400 text-sm">Inalámbrico con vibración HD</p>
-        <p class="text-blue-400 font-bold mt-2">$60</p>
-        <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
-      </div>
-
-      <!-- Producto -->
-      <div class="bg-gray-800 p-5 rounded-xl shadow hover:scale-105 hover:shadow-blue-500/40 transition duration-300">
-        <img src="https://via.placeholder.com/250x200" alt="Producto" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Auriculares Pro</h3>
-        <p class="text-gray-400 text-sm">Sonido envolvente 7.1</p>
-        <p class="text-blue-400 font-bold mt-2">$120</p>
-        <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
-      </div>
-
-      <!-- Producto -->
-      <div class="bg-gray-800 p-5 rounded-xl shadow hover:scale-105 hover:shadow-blue-500/40 transition duration-300">
-        <img src="https://via.placeholder.com/250x200" alt="Producto" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Laptop Gamer</h3>
-        <p class="text-gray-400 text-sm">RTX 4070, 16GB RAM, SSD 1TB</p>
-        <p class="text-blue-400 font-bold mt-2">$1800</p>
-        <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
-      </div>
-
+  <main class="max-w-7xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    
+    <!-- Producto -->
+    <div class="bg-gray-800/70 backdrop-blur-lg p-5 rounded-xl shadow hover:scale-105 hover:shadow-blue-500/40 transition duration-300">
+      <img src="https://via.placeholder.com/250x200" alt="Producto" class="rounded-lg mb-4 w-full h-48 object-cover">
+      <h3 class="text-xl font-semibold">Consola X</h3>
+      <p class="text-gray-400 text-sm">Nueva generación con gráficos 8K</p>
+      <p class="text-blue-400 font-bold mt-2">$500</p>
+      <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
     </div>
+
+    <div class="bg-gray-800/70 backdrop-blur-lg p-5 rounded-xl shadow hover:scale-105 hover:shadow-blue-500/40 transition duration-300">
+      <img src="https://via.placeholder.com/250x200" alt="Producto" class="rounded-lg mb-4 w-full h-48 object-cover">
+      <h3 class="text-xl font-semibold">Control Gamer</h3>
+      <p class="text-gray-400 text-sm">Inalámbrico con vibración HD</p>
+      <p class="text-blue-400 font-bold mt-2">$60</p>
+      <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
+    </div>
+
+    <div class="bg-gray-800/70 backdrop-blur-lg p-5 rounded-xl shadow hover:scale-105 hover:shadow-blue-500/40 transition duration-300">
+      <img src="https://via.placeholder.com/250x200" alt="Producto" class="rounded-lg mb-4 w-full h-48 object-cover">
+      <h3 class="text-xl font-semibold">Auriculares Pro</h3>
+      <p class="text-gray-400 text-sm">Sonido envolvente 7.1</p>
+      <p class="text-blue-400 font-bold mt-2">$120</p>
+      <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
+    </div>
+
+    <div class="bg-gray-800/70 backdrop-blur-lg p-5 rounded-xl shadow hover:scale-105 hover:shadow-blue-500/40 transition duration-300">
+      <img src="https://via.placeholder.com/250x200" alt="Producto" class="rounded-lg mb-4 w-full h-48 object-cover">
+      <h3 class="text-xl font-semibold">Laptop Gamer</h3>
+      <p class="text-gray-400 text-sm">RTX 4070, 16GB RAM, SSD 1TB</p>
+      <p class="text-blue-400 font-bold mt-2">$1800</p>
+      <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
+    </div>
+    
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-800 mt-12 py-6 text-center text-gray-400">
-    <p>© 2025 GameStore - Todos los derechos reservados</p>
-    <div class="flex justify-center space-x-6 mt-3">
-      <a href="#" class="hover:text-blue-400 transition">Facebook</a>
-      <a href="#" class="hover:text-blue-400 transition">Twitter</a>
-      <a href="#" class="hover:text-blue-400 transition">Instagram</a>
+  <footer class="bg-gray-800 py-6 mt-10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-400">
+      <p>&copy; 2025 GameStore. Todos los derechos reservados.</p>
+      <div class="flex gap-6 mt-4 md:mt-0">
+        <a href="#" class="hover:text-blue-400">Facebook</a>
+        <a href="#" class="hover:text-blue-400">Twitter</a>
+        <a href="#" class="hover:text-blue-400">Instagram</a>
+      </div>
     </div>
   </footer>
 
