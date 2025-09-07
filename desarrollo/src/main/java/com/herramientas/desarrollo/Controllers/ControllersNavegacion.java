@@ -16,11 +16,6 @@ public class ControllersNavegacion {
 		return"Login";
 	}
 	
-	@GetMapping("/navbar")
-	public String navbar() {
-		return"NavBar";
-	}
-	
 	@GetMapping("/registrar")
 	public String registrarNuevoUsuario(Model model){
 		model.addAttribute("registroUsuarioDto", new RegistroUsuarioDto());
