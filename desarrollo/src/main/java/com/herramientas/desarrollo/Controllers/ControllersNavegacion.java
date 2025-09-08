@@ -26,4 +26,9 @@ public class ControllersNavegacion {
 	public String catalogo() {
 		return"Catalogo";
 	}
+	
+	@GetMapping("/carro")
+	public String carrito() {
+		return"Carrito";
+	}
 }
