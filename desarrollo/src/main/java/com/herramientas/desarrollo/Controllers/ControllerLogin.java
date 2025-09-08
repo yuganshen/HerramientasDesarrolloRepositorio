@@ -21,6 +21,7 @@ public class ControllerLogin {
         //System.out.println(dto);
         System.out.println(dto.getUser());
         System.out.println(dto.getPassword());
+        System.out.println(dto);
         return "inicio"; 
 	}
 	 
