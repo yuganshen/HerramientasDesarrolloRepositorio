@@ -1,6 +1,0 @@
-        @GetMapping("/catalogo")
-        public String catalogo() {
-                return"Catalogo";
-        }
-
-verificar controller, no encuentra vista 
