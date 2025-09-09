@@ -16,12 +16,11 @@ import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
 @Controller
 public class ControllerLogin {
 	
-	@PostMapping("/login")
+	@PostMapping("/sesion")
     public String login(@ModelAttribute DTOUsuario dto) {
+       // System.out.println(dto.getUser());
+        //System.out.println(dto.getPassword());
         //System.out.println(dto);
-        System.out.println(dto.getUser());
-        System.out.println(dto.getPassword());
-        System.out.println(dto);
         return "inicio"; 
 	}
 	 
