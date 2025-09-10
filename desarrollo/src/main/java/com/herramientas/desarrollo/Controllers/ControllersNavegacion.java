@@ -32,5 +32,5 @@ public class ControllersNavegacion {
 		return"Carrito";
 	}
 	
-	// Chuta que
+	
 }
