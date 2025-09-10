@@ -1,0 +1,4 @@
+ya se tiene la conexion a base de datos, aun se vera si es embebida, pero por el momento nos funciona para hacer las pruebas
+NOTA: Debemos implementar los service para la interaccion de los repositorios, separar la funcionalidad del controller
+
+BE BETTER
