@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class DTOUsuario {
 private String user;
 private String password;
+
 public String getUser() {
 	return user;
 }
