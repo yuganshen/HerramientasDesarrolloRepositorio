@@ -1,8 +1,6 @@
 
 package com.herramientas.desarrollo.Controllers;
 
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,9 +14,8 @@ import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
 @Controller
 public class ControllerLogin {
 	
-	@PostMapping("/login")
+	@PostMapping("/sesion")
     public String login(@ModelAttribute DTOUsuario dto) {
-        //System.out.println(dto);
         System.out.println(dto.getUser());
         System.out.println(dto.getPassword());
         System.out.println(dto);

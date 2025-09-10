@@ -1,28 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teclados</title>
-   <!-- <link rel="stylesheet" href="/teclado.css"> --> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Teclados</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <!-- Aquí va el contenido de la página -->
-    <header>
-        <h1>Teclados que pondremos</h1>
-    </header>
-    <nav>
-        <!-- Menú de navegación -->
-    </nav>
-    <main>
-        <!-- Contenido principal -->
-        <article>
-            <h2>Artículo Principal</h2>
-            <p>Este es un párrafo de texto.</p>
-        </article>
-    </main>
-    <footer>
-        <!-- Pie de página -->
-    </footer>
+<body class="bg-gradient-to-b from-gray-900 via-purple-900 to-black text-white min-h-screen">
+
+  <!-- HEADER -->
+  <header class="text-center py-10">
+    <h1 class="text-4xl md:text-6xl font-bold text-purple-400">Teclados Exclusivos</h1>
+    <p class="mt-4 text-gray-300">Elige el teclado ideal para tu setup gamer o profesional</p>
+  </header>
+
+  <!-- NAV / FILTROS -->
+  <nav class="flex justify-center space-x-4 mb-10">
+    <button class="px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-700 transition">Todos</button>
+    <button class="px-4 py-2 rounded-full bg-gray-800 hover:bg-purple-600 transition">Gaming</button>
+    <button class="px-4 py-2 rounded-full bg-gray-800 hover:bg-purple-600 transition">Mecánicos</button>
+    <button class="px-4 py-2 rounded-full bg-gray-800 hover:bg-purple-600 transition">Inalámbricos</button>
+  </nav>
+
+  <!-- GRID DE PRODUCTOS -->
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-16">
+    
+    <!-- CARD 1 -->
+    <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition">
+      <img src="https://cdn.pixabay.com/photo/2017/08/06/22/01/keyboard-2593010_1280.jpg" alt="Teclado 1" class="w-full h-48 object-cover">
+      <div class="p-5">
+        <h2 class="text-xl font-semibold text-purple-400">Teclado Mecánico RGB</h2>
+        <p class="text-gray-300 mt-2">Switches rojos, retroiluminación RGB y diseño compacto.</p>
+        <div class="flex justify-between items-center mt-4">
+          <span class="text-lg font-bold text-purple-300">$89.99</span>
+          <button class="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition">
+      <img src="https://cdn.pixabay.com/photo/2016/06/29/09/25/keyboard-1483099_1280.jpg" alt="Teclado 2" class="w-full h-48 object-cover">
+      <div class="p-5">
+        <h2 class="text-xl font-semibold text-purple-400">Teclado Gaming Inalámbrico</h2>
+        <p class="text-gray-300 mt-2">Batería de larga duración y conectividad Bluetooth.</p>
+        <div class="flex justify-between items-center mt-4">
+          <span class="text-lg font-bold text-purple-300">$119.99</span>
+          <button class="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:scale-105 transition">
+      <img src="https://cdn.pixabay.com/photo/2014/11/26/15/28/computer-546939_1280.jpg" alt="Teclado 3" class="w-full h-48 object-cover">
+      <div class="p-5">
+        <h2 class="text-xl font-semibold text-purple-400">Teclado Profesional</h2>
+        <p class="text-gray-300 mt-2">Diseño ergonómico ideal para oficina y largas jornadas.</p>
+        <div class="flex justify-between items-center mt-4">
+          <span class="text-lg font-bold text-purple-300">$69.99</span>
+          <button class="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700 transition">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-8 mt-12 bg-black bg-opacity-50">
+    <p class="text-gray-400">© 2025 GameStore - Todos los derechos reservados</p>
+  </footer>
+
 </body>
 </html>
