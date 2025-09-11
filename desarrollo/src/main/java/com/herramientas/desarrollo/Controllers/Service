@@ -1,4 +1,10 @@
 ya se tiene la conexion a base de datos, aun se vera si es embebida, pero por el momento nos funciona para hacer las pruebas
 NOTA: Debemos implementar los service para la interaccion de los repositorios, separar la funcionalidad del controller
 
+
+Se implemento localmente las de as entidades pero aún nos falta las relaciones, aún no las fusionó porque están sin terminar 
+notaciones pendientes 
+many to many 
+one to one
+
 BE BETTER
