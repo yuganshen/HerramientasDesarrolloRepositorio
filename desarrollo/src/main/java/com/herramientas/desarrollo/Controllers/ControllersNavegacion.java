@@ -31,5 +31,5 @@ public class ControllersNavegacion {
 	public String carrito() {
 		return"Carrito";
 	}
-	
+}
 
