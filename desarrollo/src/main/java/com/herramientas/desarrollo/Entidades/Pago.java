@@ -1,5 +1,5 @@
 package com.herramientas.desarrollo.Entidades;
 
-public class Carrito {
+public class Pago {
 
 }
