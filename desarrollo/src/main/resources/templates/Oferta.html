@@ -2,131 +2,122 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ofertas Especiales</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
   <style>
-    /* Fondo animado */
     body {
-      background: linear-gradient(135deg, #0f0f1f, #1a082d, #000);
-      background-size: 400% 400%;
-      animation: gradientMove 12s ease infinite;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
     }
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+
+    header {
+      background: #e63946;
+      color: white;
+      text-align: center;
+      padding: 1.5em 0;
     }
-    /* Glow para cards */
-    .card-glow:hover {
-      box-shadow: 0 0 20px rgba(186, 85, 255, 0.7), 0 0 40px rgba(138, 43, 226, 0.6);
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .oferta {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .oferta:hover {
+      transform: scale(1.05);
+    }
+
+    .oferta img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .oferta h3 {
+      margin: 10px 0;
+      font-size: 1.3em;
+      color: #e63946;
+    }
+
+    .precio {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #2a9d8f;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #e63946;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .boton:hover {
+      background: #d62828;
+    }
+
+    footer {
+      text-align: center;
+      background: #222;
+      color: white;
+      padding: 15px;
+      margin-top: 20px;
     }
   </style>
 </head>
-<body class="text-white min-h-screen flex flex-col">
+<body>
 
-  <!-- HEADER -->
-  <header class="text-center py-12 relative">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-purple-400 drop-shadow-lg">🔥 Ofertas Especiales 🔥</h1>
-    <p class="mt-4 text-gray-300 text-lg">¡Aprovecha nuestras promociones limitadas antes de que se acaben!</p>
-
-    <!-- Esferas decorativas -->
-    <div class="absolute top-10 left-10 w-32 h-32 bg-purple-700 rounded-full blur-3xl opacity-40"></div>
-    <div class="absolute bottom-10 right-10 w-40 h-40 bg-pink-600 rounded-full blur-3xl opacity-40"></div>
+  <header>
+    <h1>🔥 Ofertas Especiales 🔥</h1>
+    <p>Aprovecha los descuentos limitados por tiempo</p>
   </header>
 
-  <!-- BANNER OFERTA -->
-  <section class="relative bg-gradient-to-r from-purple-700 via-purple-900 to-black p-10 mx-6 md:mx-16 rounded-2xl shadow-lg overflow-hidden text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white">Mega Oferta de la Semana</h2>
-    <p class="mt-2 text-gray-300">Hasta <span class="text-pink-400 font-bold">-50%</span> en teclados gamer seleccionados</p>
-    <div id="countdown" class="mt-6 text-2xl font-mono text-pink-400"></div>
+  <section class="contenedor">
+    <div class="oferta">
+      <img src="https://via.placeholder.com/250x150" alt="Producto 1">
+      <h3>Producto 1</h3>
+      <p class="precio">Antes: $50 <br> Ahora: $30</p>
+      <a href="#" class="boton">Comprar ahora</a>
+    </div>
+
+    <div class="oferta">
+      <img src="https://via.placeholder.com/250x150" alt="Producto 2">
+      <h3>Producto 2</h3>
+      <p class="precio">Antes: $80 <br> Ahora: $55</p>
+      <a href="#" class="boton">Comprar ahora</a>
+    </div>
+
+    <div class="oferta">
+      <img src="https://via.placeholder.com/250x150" alt="Producto 3">
+      <h3>Producto 3</h3>
+      <p class="precio">Antes: $120 <br> Ahora: $90</p>
+      <a href="#" class="boton">Comprar ahora</a>
+    </div>
   </section>
 
-  <!-- GRID DE OFERTAS -->
-  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-16 mt-12 flex-grow">
-
-    <!-- PRODUCTO 1 -->
-    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition card-glow relative">
-      <span class="absolute top-3 left-3 bg-red-600 text-xs font-bold px-3 py-1 rounded-full">-30%</span>
-      <img src="https://cdn.pixabay.com/photo/2017/08/06/22/01/keyboard-2593010_1280.jpg" alt="Teclado RGB" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-purple-300">Teclado Mecánico RGB</h3>
-        <p class="text-gray-300 mt-2">Switches rojos y luces RGB dinámicas.</p>
-        <div class="flex justify-between items-center mt-5">
-          <span class="line-through text-gray-500">$99.99</span>
-          <span class="text-xl font-extrabold text-pink-400">$69.99</span>
-        </div>
-        <button class="w-full mt-4 px-5 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg hover:opacity-90 transition">Comprar</button>
-      </div>
-    </div>
-
-    <!-- PRODUCTO 2 -->
-    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition card-glow relative">
-      <span class="absolute top-3 left-3 bg-yellow-500 text-xs font-bold px-3 py-1 rounded-full">Oferta Flash</span>
-      <img src="https://cdn.pixabay.com/photo/2016/06/29/09/25/keyboard-1483099_1280.jpg" alt="Teclado Inalámbrico" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-purple-300">Teclado Wireless Pro</h3>
-        <p class="text-gray-300 mt-2">Conexión Bluetooth y batería duradera.</p>
-        <div class="flex justify-between items-center mt-5">
-          <span class="line-through text-gray-500">$149.99</span>
-          <span class="text-xl font-extrabold text-pink-400">$99.99</span>
-        </div>
-        <button class="w-full mt-4 px-5 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg hover:opacity-90 transition">Comprar</button>
-      </div>
-    </div>
-
-    <!-- PRODUCTO 3 -->
-    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition card-glow relative">
-      <span class="absolute top-3 left-3 bg-green-600 text-xs font-bold px-3 py-1 rounded-full">Nuevo</span>
-      <img src="https://cdn.pixabay.com/photo/2014/11/26/15/28/computer-546939_1280.jpg" alt="Teclado Ergonómico" class="w-full h-48 object-cover">
-      <div class="p-6">
-        <h3 class="text-2xl font-bold text-purple-300">Teclado Ergonómico Pro</h3>
-        <p class="text-gray-300 mt-2">Perfecto para largas horas de trabajo.</p>
-        <div class="flex justify-between items-center mt-5">
-          <span class="line-through text-gray-500">$89.99</span>
-          <span class="text-xl font-extrabold text-pink-400">$59.99</span>
-        </div>
-        <button class="w-full mt-4 px-5 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg hover:opacity-90 transition">Comprar</button>
-      </div>
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="text-center py-8 mt-12 bg-black bg-opacity-60">
-    <div class="flex justify-center space-x-6 mb-4">
-      <a href="#" class="hover:text-purple-400"><i class="fab fa-facebook"></i></a>
-      <a href="#" class="hover:text-purple-400"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="hover:text-purple-400"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="hover:text-purple-400"><i class="fab fa-discord"></i></a>
-    </div>
-    <p class="text-gray-400">© 2025 GameStore - Ofertas limitadas</p>
+  <footer>
+    <p>&copy; 2025 Tienda Virtual - Todos los derechos reservados</p>
   </footer>
 
-  <!-- SCRIPT PARA EL CONTADOR -->
-  <script>
-    function startCountdown(duration) {
-      let timer = duration, hours, minutes, seconds;
-      const countdownEl = document.getElementById("countdown");
-      setInterval(function () {
-        hours = parseInt(timer / 3600, 10);
-        minutes = parseInt((timer % 3600) / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        hours = hours < 10 ? "0" + hours : hours;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        countdownEl.textContent = hours + ":" + minutes + ":" + seconds;
-
-        if (--timer < 0) {
-          countdownEl.textContent = "Finalizado";
-        }
-      }, 1000);
-    }
-    window.onload = function () {
-      startCountdown(7200); // 2 horas
-    };
-  </script>
 </body>
 </html>
