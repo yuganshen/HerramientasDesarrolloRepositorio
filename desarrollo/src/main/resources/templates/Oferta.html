@@ -5,118 +5,136 @@
   <title>Ofertas Especiales</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f8f9fa;
+      background: #f4f0fa;
       color: #333;
     }
 
     header {
-      background: #e63946;
+      background: linear-gradient(135deg, #6a11cb, #9a3fd5);
       color: white;
       text-align: center;
-      padding: 1.5em 0;
+      padding: 2em 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.8em;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      font-size: 1.2em;
     }
 
     .contenedor {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 30px;
+      gap: 25px;
+      padding: 40px 20px;
     }
 
     .oferta {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 15px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+      padding: 20px;
       text-align: center;
-      transition: transform 0.2s ease-in-out;
+      transition: transform 0.25s ease-in-out, box-shadow 0.25s;
     }
 
     .oferta:hover {
-      transform: scale(1.05);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
     .oferta img {
       max-width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
     }
 
     .oferta h3 {
-      margin: 10px 0;
-      font-size: 1.3em;
-      color: #e63946;
+      margin: 15px 0 10px;
+      font-size: 1.4em;
+      color: #6a11cb;
     }
 
     .precio {
-      font-size: 1.2em;
+      font-size: 1.1em;
+      margin: 10px 0;
       font-weight: bold;
       color: #2a9d8f;
     }
 
+    .precio span {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 0.9em;
+      margin-right: 8px;
+    }
+
     .boton {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #e63946;
+      margin-top: 12px;
+      padding: 10px 18px;
+      background: #6a11cb;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       transition: background 0.3s;
+      font-weight: bold;
     }
 
     .boton:hover {
-      background: #d62828;
+      background: #5310a8;
     }
 
     footer {
       text-align: center;
-      background: #222;
+      background: #4a148c;
       color: white;
-      padding: 15px;
+      padding: 18px;
       margin-top: 20px;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>🔥 Ofertas Especiales 🔥</h1>
-    <p>Aprovecha los descuentos limitados por tiempo</p>
+    <h1>✨ Ofertas Especiales ✨</h1>
+    <p>No te pierdas los mejores descuentos de la temporada</p>
   </header>
 
   <section class="contenedor">
     <div class="oferta">
-      <img src="https://via.placeholder.com/250x150" alt="Producto 1">
+      <img src="https://via.placeholder.com/250x150/6a11cb/ffffff?text=Producto+1" alt="Producto 1">
       <h3>Producto 1</h3>
-      <p class="precio">Antes: $50 <br> Ahora: $30</p>
+      <p class="precio"><span>$50</span> $30</p>
       <a href="#" class="boton">Comprar ahora</a>
     </div>
 
     <div class="oferta">
-      <img src="https://via.placeholder.com/250x150" alt="Producto 2">
+      <img src="https://via.placeholder.com/250x150/9a3fd5/ffffff?text=Producto+2" alt="Producto 2">
       <h3>Producto 2</h3>
-      <p class="precio">Antes: $80 <br> Ahora: $55</p>
+      <p class="precio"><span>$80</span> $55</p>
       <a href="#" class="boton">Comprar ahora</a>
     </div>
 
     <div class="oferta">
-      <img src="https://via.placeholder.com/250x150" alt="Producto 3">
+      <img src="https://via.placeholder.com/250x150/7b1fa2/ffffff?text=Producto+3" alt="Producto 3">
       <h3>Producto 3</h3>
-      <p class="precio">Antes: $120 <br> Ahora: $90</p>
+      <p class="precio"><span>$120</span> $90</p>
       <a href="#" class="boton">Comprar ahora</a>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Tienda Virtual - Todos los derechos reservados</p>
+    <p>&copy; 2025 Tienda Virtual - Ofertas Limitadas</p>
   </footer>
 
 </body>
