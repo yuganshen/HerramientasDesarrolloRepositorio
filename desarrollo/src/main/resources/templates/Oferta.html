@@ -4,138 +4,185 @@
   <meta charset="UTF-8">
   <title>Ofertas Especiales</title>
   <style>
+    /* Fondo animado con gradiente morado/negro */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f0fa;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(-45deg, #1a001f, #3d004d, #6a11cb, #12001a);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #fff;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     header {
-      background: linear-gradient(135deg, #6a11cb, #9a3fd5);
-      color: white;
       text-align: center;
-      padding: 2em 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      padding: 3em 1em;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
     }
-
     header h1 {
       margin: 0;
-      font-size: 2.8em;
-      letter-spacing: 1px;
+      font-size: 3em;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #d76dff, #a445ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
     header p {
-      margin: 8px 0 0;
       font-size: 1.2em;
+      opacity: 0.85;
     }
 
     .contenedor {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      padding: 40px 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      padding: 50px;
     }
 
     .oferta {
-      background: white;
-      border-radius: 14px;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 25px;
       text-align: center;
-      transition: transform 0.25s ease-in-out, box-shadow 0.25s;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
     }
-
     .oferta:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
     }
-
     .oferta img {
       max-width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
+      margin-bottom: 15px;
     }
-
     .oferta h3 {
-      margin: 15px 0 10px;
-      font-size: 1.4em;
-      color: #6a11cb;
-    }
-
-    .precio {
-      font-size: 1.1em;
       margin: 10px 0;
-      font-weight: bold;
-      color: #2a9d8f;
+      font-size: 1.6em;
+      color: #e2c6ff;
     }
-
+    .precio {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
     .precio span {
       text-decoration: line-through;
-      color: #999;
-      font-size: 0.9em;
+      color: #bbb;
       margin-right: 8px;
     }
 
+    /* Botón estilo gamer con gradiente animado */
     .boton {
       display: inline-block;
       margin-top: 12px;
-      padding: 10px 18px;
-      background: #6a11cb;
+      padding: 12px 22px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(270deg, #6a11cb, #a445ff, #6a11cb);
+      background-size: 400% 400%;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s;
-      font-weight: bold;
+      transition: transform 0.3s;
+      animation: gradientButton 6s ease infinite;
+    }
+    .boton:hover {
+      transform: scale(1.1);
+    }
+    @keyframes gradientButton {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
-    .boton:hover {
-      background: #5310a8;
+    /* Contador regresivo */
+    .contador {
+      margin-top: 15px;
+      font-size: 1em;
+      color: #ffccff;
+      font-weight: bold;
     }
 
     footer {
       text-align: center;
-      background: #4a148c;
-      color: white;
-      padding: 18px;
-      margin-top: 20px;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      margin-top: 30px;
       font-size: 0.9em;
+      color: #ddd;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>✨ Ofertas Especiales ✨</h1>
-    <p>No te pierdas los mejores descuentos de la temporada</p>
+    <h1>⚡ Ofertas Futuristas ⚡</h1>
+    <p>Aprovecha los descuentos antes que el tiempo se acabe</p>
   </header>
 
   <section class="contenedor">
     <div class="oferta">
-      <img src="https://via.placeholder.com/250x150/6a11cb/ffffff?text=Producto+1" alt="Producto 1">
-      <h3>Producto 1</h3>
-      <p class="precio"><span>$50</span> $30</p>
+      <img src="https://via.placeholder.com/260x160/6a11cb/ffffff?text=Teclado+RGB" alt="Teclado RGB">
+      <h3>Teclado Gamer RGB</h3>
+      <p class="precio"><span>$80</span> $49</p>
       <a href="#" class="boton">Comprar ahora</a>
+      <p class="contador" data-tiempo="2025-09-20T23:59:59">⏳ Cargando...</p>
     </div>
 
     <div class="oferta">
-      <img src="https://via.placeholder.com/250x150/9a3fd5/ffffff?text=Producto+2" alt="Producto 2">
-      <h3>Producto 2</h3>
-      <p class="precio"><span>$80</span> $55</p>
+      <img src="https://via.placeholder.com/260x160/9a3fd5/ffffff?text=Mouse+Gamer" alt="Mouse Gamer">
+      <h3>Mouse Gamer</h3>
+      <p class="precio"><span>$40</span> $25</p>
       <a href="#" class="boton">Comprar ahora</a>
+      <p class="contador" data-tiempo="2025-09-18T23:59:59">⏳ Cargando...</p>
     </div>
 
     <div class="oferta">
-      <img src="https://via.placeholder.com/250x150/7b1fa2/ffffff?text=Producto+3" alt="Producto 3">
-      <h3>Producto 3</h3>
-      <p class="precio"><span>$120</span> $90</p>
+      <img src="https://via.placeholder.com/260x160/7b1fa2/ffffff?text=Monitor+Curvo" alt="Monitor Curvo">
+      <h3>Monitor Curvo 144Hz</h3>
+      <p class="precio"><span>$300</span> $220</p>
       <a href="#" class="boton">Comprar ahora</a>
+      <p class="contador" data-tiempo="2025-09-25T23:59:59">⏳ Cargando...</p>
     </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Tienda Virtual - Ofertas Limitadas</p>
   </footer>
+
+  <script>
+    // Script para el contador
+    function iniciarContadores() {
+      const contadores = document.querySelectorAll(".contador");
+      contadores.forEach(contador => {
+        const fechaFinal = new Date(contador.dataset.tiempo).getTime();
+        setInterval(() => {
+          const ahora = new Date().getTime();
+          const distancia = fechaFinal - ahora;
+          if (distancia <= 0) {
+            contador.innerHTML = "⏰ Oferta terminada";
+          } else {
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+            contador.innerHTML = `⏳ ${dias}d ${horas}h ${minutos}m ${segundos}s`;
+          }
+        }, 1000);
+      });
+    }
+    iniciarContadores();
+  </script>
 
 </body>
 </html>
