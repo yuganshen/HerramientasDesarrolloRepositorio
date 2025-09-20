@@ -1,8 +1,13 @@
 package com.herramientas.desarrollo.Entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Pedido {
 
-//Atributos	
+//Atributos
+@Id
 public int idPedido;
 public int idUsuario;
 public int idProducto;

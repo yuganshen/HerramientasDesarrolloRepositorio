@@ -1,7 +1,13 @@
 package com.herramientas.desarrollo.Entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Pago {
-    private String idPago;                
+	
+	@Id
+    private Long idPago;                
     private double monto;                 
     private String moneda;                
     private	String fechaPago;     
@@ -10,10 +16,12 @@ public class Pago {
     private String referencia;           
     private String descripcion;          
     private String idUsuario;            
-	public String getIdPago() {
+
+
+	public Long getIdPago() {
 		return idPago;
 	}
-	public void setIdPago(String idPago) {
+	public void setIdPago(Long idPago) {
 		this.idPago = idPago;
 	}
 	public double getMonto() {
