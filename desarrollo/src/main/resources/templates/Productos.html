@@ -1,69 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>productos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Productos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
+  <style>
+    /* Fondo animado morado */
+    body {
+      background: linear-gradient(-45deg, #1a001f, #3d004d, #6a11cb, #12001a);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      color: #fff;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Card efecto glass */
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(186, 85, 255, 0.8), 0 0 50px rgba(138, 43, 226, 0.6);
+    }
+
+    /* Botón gradiente animado */
+    .btn-gradient {
+      background: linear-gradient(270deg, #6a11cb, #a445ff, #6a11cb);
+      background-size: 400% 400%;
+      animation: gradientButton 6s ease infinite;
+      transition: transform 0.3s;
+    }
+    .btn-gradient:hover {
+      transform: scale(1.1);
+    }
+    @keyframes gradientButton {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Modal */
+    #productModal {
+      backdrop-filter: blur(6px);
+    }
+  </style>
 </head>
-<body>
-      <!-- Catálogo de productos -->
-  <main class="p-10">
-    <h2 class="text-4xl font-bold text-center text-purple-400 mb-10">Catálogo de Productos</h2>
+<body class="min-h-screen flex flex-col">
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      
-      <!-- Producto 1 -->
-      <div class="bg-gray-800 rounded-xl shadow-lg hover:scale-105 hover:shadow-purple-500/40 transition duration-300 p-5">
-        <img src="https://via.placeholder.com/250x200" alt="Consola X" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Consola X</h3>
-        <p class="text-gray-400 text-sm">Nueva generación con gráficos 8K</p>
-        <p class="text-purple-400 font-bold mt-2">$500</p>
-        <button class="mt-4 w-full bg-purple-600 hover:bg-purple-700 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
+  <!-- HEADER -->
+  <header class="text-center py-10 relative">
+    <h1 class="text-5xl font-extrabold text-purple-300 drop-shadow-lg">Productos Disponibles</h1>
+    <p class="mt-3 text-gray-300">Explora nuestra selección de teclados y accesorios</p>
+  </header>
+
+  <!-- BUSCADOR -->
+  <div class="flex justify-center mb-8">
+    <input id="search" type="text" placeholder="🔍 Buscar producto..." class="px-5 py-3 w-2/3 md:w-1/3 rounded-lg bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+  </div>
+
+  <!-- FILTROS -->
+  <nav class="flex justify-center space-x-4 mb-10">
+    <button class="px-5 py-2 rounded-full bg-purple-600 hover:bg-purple-700 transition">Todos</button>
+    <button class="px-5 py-2 rounded-full bg-gray-800 hover:bg-purple-600 transition">Gaming</button>
+    <button class="px-5 py-2 rounded-full bg-gray-800 hover:bg-purple-600 transition">Mecánicos</button>
+    <button class="px-5 py-2 rounded-full bg-gray-800 hover:bg-purple-600 transition">Inalámbricos</button>
+  </nav>
+
+  <!-- GRID DE PRODUCTOS -->
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-16 flex-grow">
+    
+    <!-- CARD 1 -->
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2017/08/06/22/01/keyboard-2593010_1280.jpg" alt="Teclado 1" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-purple-600 px-2 py-1 rounded-full">Gaming</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Teclado Mecánico RGB</h2>
+        <p class="text-gray-300 mt-2">Switches rojos, retroiluminación RGB y diseño compacto.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold text-purple-200">$89.99</span>
+          <button onclick="openModal('Teclado Mecánico RGB')" class="px-5 py-2 rounded-lg btn-gradient">Comprar</button>
+        </div>
       </div>
+    </div>
 
-      <!-- Producto 2 -->
-      <div class="bg-gray-800 rounded-xl shadow-lg hover:scale-105 hover:shadow-purple-500/40 transition duration-300 p-5">
-        <img src="https://via.placeholder.com/250x200" alt="Control Gamer" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Control Gamer</h3>
-        <p class="text-gray-400 text-sm">Inalámbrico con vibración HD</p>
-        <p class="text-purple-400 font-bold mt-2">$60</p>
-        <button class="mt-4 w-full bg-purple-600 hover:bg-purple-700 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
+    <!-- CARD 2 -->
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2016/06/29/09/25/keyboard-1483099_1280.jpg" alt="Teclado 2" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-pink-600 px-2 py-1 rounded-full">Inalámbrico</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Teclado Gaming Wireless</h2>
+        <p class="text-gray-300 mt-2">Batería de larga duración y conectividad Bluetooth.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold text-purple-200">$119.99</span>
+          <button onclick="openModal('Teclado Gaming Wireless')" class="px-5 py-2 rounded-lg btn-gradient">Comprar</button>
+        </div>
       </div>
+    </div>
 
-      <!-- Producto 3 -->
-      <div class="bg-gray-800 rounded-xl shadow-lg hover:scale-105 hover:shadow-purple-500/40 transition duration-300 p-5">
-        <img src="https://via.placeholder.com/250x200" alt="Auriculares Pro" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Auriculares Pro</h3>
-        <p class="text-gray-400 text-sm">Sonido envolvente 7.1</p>
-        <p class="text-purple-400 font-bold mt-2">$120</p>
-        <button class="mt-4 w-full bg-purple-600 hover:bg-purple-700 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
+    <!-- CARD 3 -->
+    <div class="card">
+      <img src="https://cdn.pixabay.com/photo/2014/11/26/15/28/computer-546939_1280.jpg" alt="Teclado 3" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Profesional</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Teclado Ergonómico Pro</h2>
+        <p class="text-gray-300 mt-2">Diseño ergonómico para largas horas de trabajo.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold text-purple-200">$69.99</span>
+          <button onclick="openModal('Teclado Ergonómico Pro')" class="px-5 py-2 rounded-lg btn-gradient">Comprar</button>
+        </div>
       </div>
+    </div>
+  </main>
 
-      <!-- Producto 4 -->
-      <div class="bg-gray-800 rounded-xl shadow-lg hover:scale-105 hover:shadow-purple-500/40 transition duration-300 p-5">
-        <img src="https://via.placeholder.com/250x200" alt="Laptop Gamer" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Laptop Gamer</h3>
-        <p class="text-gray-400 text-sm">RTX 4070, 16GB RAM, SSD 1TB</p>
-        <p class="text-purple-400 font-bold mt-2">$1800</p>
-        <button class="mt-4 w-full bg-purple-600 hover:bg-purple-700 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
+  <!-- MODAL -->
+  <div id="productModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+    <div class="bg-gray-900 rounded-2xl p-8 w-96 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl">&times;</button>
+      <h3 id="modalTitle" class="text-2xl font-bold text-purple-300 mb-4"></h3>
+      <p class="text-gray-300">¿Quieres agregar este producto a tu carrito?</p>
+      <div class="mt-6 flex justify-between">
+        <button onclick="closeModal()" class="px-4 py-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition">Cancelar</button>
+        <button class="px-4 py-2 rounded-lg btn-gradient">Agregar al Carrito</button>
       </div>
+    </div>
+  </div>
 
-      <!-- Producto 5 -->
-      <div class="bg-gray-800 rounded-xl shadow-lg hover:scale-105 hover:shadow-purple-500/40 transition duration-300 p-5">
-        <img src="https://via.placeholder.com/250x200" alt="Mouse Gamer" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Mouse Gamer RGB</h3>
-        <p class="text-gray-400 text-sm">Sensor óptico 16000 DPI</p>
-        <p class="text-purple-400 font-bold mt-2">$45</p>
-        <button class="mt-4 w-full bg-purple-600 hover:bg-purple-700 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
-      </div>
+  <!-- FOOTER -->
+  <footer class="text-center py-8 mt-12 bg-black bg-opacity-60">
+    <p class="text-gray-400">© 2025 GameStore - Todos los derechos reservados</p>
+  </footer>
 
-      <!-- Producto 6 -->
-      <div class="bg-gray-800 rounded-xl shadow-lg hover:scale-105 hover:shadow-purple-500/40 transition duration-300 p-5">
-        <img src="https://via.placeholder.com/250x200" alt="Teclado Mecánico" class="rounded-lg mb-4 w-full h-48 object-cover">
-        <h3 class="text-xl font-semibold">Teclado Mecánico</h3>
-        <p class="text-gray-400 text-sm">Switches azules + retroiluminación RGB</p>
-        <p class="text-purple-400 font-bold mt-2">$80</p>
-        <button class="mt-4 w-full bg-purple-600 hover:bg-purple-700 rounded-lg py-2 font-semibold transition">Agregar al carrito</button>
-      </div>
-
+  <!-- SCRIPT -->
+  <script>
+    function openModal(title) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("productModal").classList.remove("hidden");
+      document.getElementById("productModal").classList.add("flex");
+    }
+    function closeModal() {
+      document.getElementById("productModal").classList.remove("flex");
+      document.getElementById("productModal").classList.add("hidden");
+    }
+  </script>
 </body>
 </html>
