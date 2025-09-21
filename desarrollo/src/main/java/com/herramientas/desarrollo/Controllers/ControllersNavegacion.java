@@ -36,9 +36,11 @@ public class ControllersNavegacion {
 	public String pantallitas() {
 		return"Pantalla";
 	}
-	
 
-	
-	
+	@GetMapping("/contactenos")
+	public String contactos() {
+		return"Contacto";
+	}
+
 }
 
