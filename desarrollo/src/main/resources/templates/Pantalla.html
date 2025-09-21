@@ -1,11 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Nuestras Pantallas</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantallas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #6a1b9a, #9c27b0);
+      color: white;
+    }
+
+    header {
+      background-color: rgba(74, 20, 140, 0.9);
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    main {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      margin: 10px 0;
+    }
+
+    .card p {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #ffd54f;
+    }
+
+    button {
+      background-color: #ab47bc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #8e24aa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(74, 20, 140, 0.9);
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Aquí irán las pantallas que tendremos</h1>
-  <p></p>
+  <header>
+    <h1>Nuestras Pantallas</h1>
+    <p>Modelos modernos con la mejor calidad y precios únicos</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x180?text=Pantalla+LED+32''" alt="Pantalla LED 32">
+      <h2>Pantalla LED 32"</h2>
+      <p>Perfecta para tu sala con imagen nítida y sonido envolvente.</p>
+      <p class="price">S/ 799.00</p>
+      <button>Comprar</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x180?text=Pantalla+Smart+43''" alt="Pantalla Smart 43">
+      <h2>Pantalla Smart 43"</h2>
+      <p>Accede a tus apps favoritas con calidad Full HD.</p>
+      <p class="price">S/ 1,299.00</p>
+      <button>Comprar</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x180?text=Pantalla+4K+55''" alt="Pantalla 4K 55">
+      <h2>Pantalla 4K 55"</h2>
+      <p>Disfruta de tus películas con resolución 4K Ultra HD.</p>
+      <p class="price">S/ 2,499.00</p>
+      <button>Comprar</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tienda de Pantallas - Todos los derechos reservados</p>
+  </footer>
 </body>
 </html>
