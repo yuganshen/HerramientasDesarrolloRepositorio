@@ -31,5 +31,10 @@ public class ControllersNavegacion {
 	public String carrito() {
 		return"Carrito";
 	}
+	
+	@GetMapping("/pantallas")
+	public String pantallitas() {
+		return"Pantalla";
+	}
 }
 
