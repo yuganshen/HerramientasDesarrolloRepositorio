@@ -36,5 +36,11 @@ public class ControllersNavegacion {
 	public String pantallitas() {
 		return"Pantalla";
 	}
+	
+	@GetMapping("/teclados")
+	public String teclados() {
+		return"teclado";
+	}
+	
 }
 
