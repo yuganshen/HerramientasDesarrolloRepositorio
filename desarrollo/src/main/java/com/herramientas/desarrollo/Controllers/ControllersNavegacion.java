@@ -37,10 +37,7 @@ public class ControllersNavegacion {
 		return"Pantalla";
 	}
 	
-	@GetMapping("/teclados")
-	public String teclados() {
-		return"teclado";
-	}
+
 	
 	
 }
