@@ -41,5 +41,6 @@ public class ControllersNavegacion {
 	public String contactos() {
 		return"Contacto";
 	}
+
 }
 
