@@ -6,29 +6,53 @@
   <title>Pantallas</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #6a1b9a, #9c27b0);
+      background: linear-gradient(to right, #4a148c, #7b1fa2);
       color: white;
+    }
+
+    /* Banner superior */
+    .banner {
+      background: linear-gradient(90deg, #ff4081, #ff80ab);
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
     }
 
     header {
       background-color: rgba(74, 20, 140, 0.9);
       text-align: center;
-      padding: 20px;
+      padding: 25px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
     }
 
     header h1 {
       font-size: 2.5rem;
       margin: 0;
+      color: #ffd54f;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.1rem;
     }
 
     main {
-      padding: 20px;
+      padding: 30px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 25px;
     }
 
     .card {
@@ -36,13 +60,15 @@
       border-radius: 15px;
       overflow: hidden;
       text-align: center;
-      padding: 15px;
-      transition: transform 0.3s;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     .card:hover {
       transform: scale(1.05);
       background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
     }
 
     .card img {
@@ -53,8 +79,9 @@
     }
 
     .card h2 {
-      font-size: 1.3rem;
-      margin: 10px 0;
+      font-size: 1.4rem;
+      margin: 12px 0;
+      color: #ffd54f;
     }
 
     .card p {
@@ -64,34 +91,63 @@
 
     .price {
       font-weight: bold;
-      font-size: 1.2rem;
-      color: #ffd54f;
+      font-size: 1.3rem;
+      color: #ffeb3b;
+      margin: 10px 0;
     }
 
     button {
-      background-color: #ab47bc;
+      background: linear-gradient(90deg, #ab47bc, #8e24aa);
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 25px;
       margin-top: 10px;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s;
+      font-size: 1rem;
+      transition: transform 0.3s, background 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
     }
 
     button:hover {
-      background-color: #8e24aa;
+      background: linear-gradient(90deg, #8e24aa, #6a1b9a);
+      transform: scale(1.08);
+    }
+
+    /* Opiniones */
+    .reviews {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      margin: 30px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .reviews h2 {
+      margin-bottom: 20px;
+      color: #ffd54f;
+    }
+
+    .review {
+      font-style: italic;
+      margin: 15px 0;
     }
 
     footer {
       text-align: center;
       padding: 15px;
-      background-color: rgba(74, 20, 140, 0.9);
+      background-color: rgba(74, 20, 140, 0.95);
       margin-top: 20px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+  <!-- Banner oferta -->
+  <div class="banner">
+    🎉 ¡OFERTA ESPECIAL! 20% de descuento en todas las pantallas este mes 🎉
+  </div>
+
   <header>
     <h1>Nuestras Pantallas</h1>
     <p>Modelos modernos con la mejor calidad y precios únicos</p>
@@ -103,7 +159,7 @@
       <h2>Pantalla LED 32"</h2>
       <p>Perfecta para tu sala con imagen nítida y sonido envolvente.</p>
       <p class="price">S/ 799.00</p>
-      <button>Comprar</button>
+      <button>🛒 Comprar</button>
     </div>
 
     <div class="card">
@@ -111,7 +167,7 @@
       <h2>Pantalla Smart 43"</h2>
       <p>Accede a tus apps favoritas con calidad Full HD.</p>
       <p class="price">S/ 1,299.00</p>
-      <button>Comprar</button>
+      <button>🛒 Comprar</button>
     </div>
 
     <div class="card">
@@ -119,12 +175,20 @@
       <h2>Pantalla 4K 55"</h2>
       <p>Disfruta de tus películas con resolución 4K Ultra HD.</p>
       <p class="price">S/ 2,499.00</p>
-      <button>Comprar</button>
+      <button>🛒 Comprar</button>
     </div>
   </main>
 
+  <!-- Opiniones de clientes -->
+  <section class="reviews">
+    <h2>Lo que opinan nuestros clientes</h2>
+    <p class="review">“La mejor pantalla que he comprado, la calidad de imagen es increíble.” – Carlos G.</p>
+    <p class="review">“Excelente atención y entrega rápida. Muy recomendados.” – Andrea P.</p>
+    <p class="review">“La Smart TV es perfecta para mis series y películas. 10/10.” – Luis M.</p>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Tienda de Pantallas - Todos los derechos reservados</p>
+    &copy; 2025 Tienda de Pantallas - Todos los derechos reservados
   </footer>
 </body>
 </html>
