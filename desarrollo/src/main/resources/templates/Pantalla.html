@@ -5,161 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pantallas</title>
   <style>
+    /* Fondo animado */
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #4a148c, #7b1fa2);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #2c003e, #4a148c, #000000, #7b1fa2);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
       color: white;
     }
-
-    /* Banner superior */
-    .banner {
-      background: linear-gradient(90deg, #ff4081, #ff80ab);
-      color: white;
-      text-align: center;
-      padding: 12px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-      animation: blink 2s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     header {
-      background-color: rgba(74, 20, 140, 0.9);
       text-align: center;
-      padding: 25px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      padding: 40px 20px;
     }
-
     header h1 {
-      font-size: 2.5rem;
-      margin: 0;
+      font-size: 2.8rem;
       color: #ffd54f;
+      margin: 0;
+      text-shadow: 0 0 10px #ffeb3b;
     }
-
     header p {
-      margin: 5px 0 0;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      color: #fff;
+      margin-top: 10px;
     }
 
+    /* Filtros */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px;
+      flex-wrap: wrap;
+    }
+    .filters select {
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      font-size: 1rem;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+    }
+
+    /* Grid de productos */
     main {
-      padding: 30px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 25px;
+      padding: 30px;
     }
 
     .card {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      overflow: hidden;
-      text-align: center;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
       padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(12px);
       transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      position: relative;
     }
-
     .card:hover {
-      transform: scale(1.05);
-      background-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
     }
 
     .card img {
       width: 100%;
       height: 180px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
     .card h2 {
+      margin: 15px 0 8px;
       font-size: 1.4rem;
-      margin: 12px 0;
       color: #ffd54f;
     }
 
-    .card p {
-      font-size: 1rem;
-      margin: 10px 0;
-    }
-
     .price {
-      font-weight: bold;
       font-size: 1.3rem;
       color: #ffeb3b;
-      margin: 10px 0;
+      font-weight: bold;
+      margin: 8px 0;
     }
 
-    button {
-      background: linear-gradient(90deg, #ab47bc, #8e24aa);
-      color: white;
-      border: none;
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #6a1b9a, #ab47bc, #8e24aa, #000);
+      background-size: 300% 300%;
+      animation: gradientBtn 5s infinite alternate;
       padding: 12px 25px;
-      margin-top: 10px;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 10px;
+      border: none;
+      color: white;
       font-size: 1rem;
-      transition: transform 0.3s, background 0.3s;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      cursor: pointer;
+      margin: 5px;
+      transition: transform 0.3s;
+      text-decoration: none;
     }
-
-    button:hover {
-      background: linear-gradient(90deg, #8e24aa, #6a1b9a);
-      transform: scale(1.08);
+    .btn:hover {
+      transform: scale(1.1);
+    }
+    @keyframes gradientBtn {
+      0% {background-position: left;}
+      100% {background-position: right;}
     }
 
     /* Opiniones */
     .reviews {
+      margin: 50px 20px;
+      padding: 30px;
       background: rgba(255,255,255,0.1);
-      padding: 25px;
-      margin: 30px;
-      border-radius: 12px;
+      border-radius: 15px;
       text-align: center;
     }
-
     .reviews h2 {
-      margin-bottom: 20px;
       color: #ffd54f;
+      margin-bottom: 20px;
     }
-
     .review {
       font-style: italic;
-      margin: 15px 0;
+      margin: 10px 0;
     }
 
     footer {
-      text-align: center;
+      background: rgba(0,0,0,0.7);
       padding: 15px;
-      background-color: rgba(74, 20, 140, 0.95);
-      margin-top: 20px;
+      text-align: center;
       font-size: 0.9rem;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-  <!-- Banner oferta -->
-  <div class="banner">
-    🎉 ¡OFERTA ESPECIAL! 20% de descuento en todas las pantallas este mes 🎉
-  </div>
 
   <header>
-    <h1>Nuestras Pantallas</h1>
-    <p>Modelos modernos con la mejor calidad y precios únicos</p>
+    <h1>Pantallas Premium</h1>
+    <p>Explora la mejor tecnología con estilo futurista</p>
   </header>
+
+  <!-- Filtros -->
+  <div class="filters">
+    <select>
+      <option value="">Filtrar por tamaño</option>
+      <option>32"</option>
+      <option>43"</option>
+      <option>55"</option>
+    </select>
+    <select>
+      <option value="">Filtrar por precio</option>
+      <option>Menos de S/1000</option>
+      <option>S/1000 - S/2000</option>
+      <option>Más de S/2000</option>
+    </select>
+  </div>
 
   <main>
     <div class="card">
       <img src="https://via.placeholder.com/300x180?text=Pantalla+LED+32''" alt="Pantalla LED 32">
       <h2>Pantalla LED 32"</h2>
-      <p>Perfecta para tu sala con imagen nítida y sonido envolvente.</p>
+      <p>Compacta y perfecta para espacios pequeños.</p>
       <p class="price">S/ 799.00</p>
-      <button>🛒 Comprar</button>
+      <a href="#" class="btn">🛒 Comprar</a>
+      <a href="#" class="btn">🔍 Ver más</a>
     </div>
 
     <div class="card">
@@ -167,28 +185,30 @@
       <h2>Pantalla Smart 43"</h2>
       <p>Accede a tus apps favoritas con calidad Full HD.</p>
       <p class="price">S/ 1,299.00</p>
-      <button>🛒 Comprar</button>
+      <a href="#" class="btn">🛒 Comprar</a>
+      <a href="#" class="btn">🔍 Ver más</a>
     </div>
 
     <div class="card">
       <img src="https://via.placeholder.com/300x180?text=Pantalla+4K+55''" alt="Pantalla 4K 55">
       <h2>Pantalla 4K 55"</h2>
-      <p>Disfruta de tus películas con resolución 4K Ultra HD.</p>
+      <p>Resolución Ultra HD con colores más vivos.</p>
       <p class="price">S/ 2,499.00</p>
-      <button>🛒 Comprar</button>
+      <a href="#" class="btn">🛒 Comprar</a>
+      <a href="#" class="btn">🔍 Ver más</a>
     </div>
   </main>
 
-  <!-- Opiniones de clientes -->
   <section class="reviews">
-    <h2>Lo que opinan nuestros clientes</h2>
-    <p class="review">“La mejor pantalla que he comprado, la calidad de imagen es increíble.” – Carlos G.</p>
-    <p class="review">“Excelente atención y entrega rápida. Muy recomendados.” – Andrea P.</p>
-    <p class="review">“La Smart TV es perfecta para mis series y películas. 10/10.” – Luis M.</p>
+    <h2>Opiniones de Clientes</h2>
+    <p class="review">“¡La imagen es nítida y espectacular!” – Carlos G.</p>
+    <p class="review">“Entrega rápida y excelente calidad.” – Andrea P.</p>
+    <p class="review">“La Smart TV superó mis expectativas.” – Luis M.</p>
   </section>
 
   <footer>
     &copy; 2025 Tienda de Pantallas - Todos los derechos reservados
   </footer>
+
 </body>
 </html>
