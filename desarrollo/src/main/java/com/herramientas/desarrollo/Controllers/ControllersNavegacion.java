@@ -42,5 +42,10 @@ public class ControllersNavegacion {
 		return"Contacto";
 	}
 
+	@GetMapping("/teclados")
+	public String tecladiños() {
+		return"teclado";
+	}
+
 }
 
