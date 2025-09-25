@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Mouses</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f0f1f, #1a082d, #000);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card-glow:hover {
+      box-shadow: 0 0 30px rgba(186, 85, 255, 0.8), 0 0 60px rgba(138, 43, 226, 0.6);
+      transform: scale(1.05) rotate3d(1, 1, 0, 5deg);
+      transition: all 0.4s ease;
+    }
+
+    .price-gradient {
+      background: linear-gradient(90deg, #a855f7, #ec4899, #9333ea, #a855f7);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+    }
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: 10px;
+      right: -20px;
+      transform: rotate(15deg);
+      background: linear-gradient(to right, #ff0080, #7928ca);
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 8px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: rotate(15deg) scale(1); }
+      50% { opacity: 0.7; transform: rotate(15deg) scale(1.1); }
+    }
+
+    .modal-glass {
+      background: rgba(20, 20, 35, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: zoomIn 0.4s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .btn-neon {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .btn-neon:hover {
+      box-shadow: 0 0 20px #9333ea, 0 0 40px #a855f7;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen flex flex-col">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-black bg-opacity-60 backdrop-blur-lg shadow-lg z-50">
+    <h1 class="text-2xl font-extrabold text-purple-400">GameStore</h1>
+    <input type="text" placeholder="Buscar..." class="px-4 py-1 rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-purple-500 outline-none hidden md:block">
+    <div class="flex space-x-4">
+      <a href="#" class="hover:text-purple-400"><i class="fas fa-home"></i></a>
+      <a href="#" class="hover:text-purple-400"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="text-center py-24 relative mt-16">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-purple-400 drop-shadow-lg">Mouses Exclusivos</h1>
+    <p class="mt-4 text-gray-300">Descubre el mouse perfecto para tu experiencia gamer o profesional</p>
+    <div class="absolute top-10 left-10 w-32 h-32 bg-purple-700 rounded-full blur-3xl opacity-40"></div>
+    <div class="absolute bottom-10 right-10 w-40 h-40 bg-pink-600 rounded-full blur-3xl opacity-40"></div>
+  </header>
+
+  <!-- GRID DE PRODUCTOS -->
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-16 flex-grow">
+    
+    <!-- CARD 1 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-15%</div>
+      <img src="https://realplaza.vtexassets.com/arquivos/ids/21813082/image-51a2786cb1bf4d1697999f33536e5389.jpg?v=637831554904870000" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-purple-600 px-2 py-1 rounded-full">Gaming</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Mouse Gamer RGB</h2>
+        <p class="text-gray-300 mt-2">Alta precisión, retroiluminación RGB y 6 botones programables.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$59.99</span>
+          <button onclick="openModal('Mouse Gamer RGB')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://cdn.memorykings.pe/files/2020/07/27/326703-MK027136E.jpg" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-pink-600 px-2 py-1 rounded-full">Inalámbrico</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Mouse Wireless Pro</h2>
+        <p class="text-gray-300 mt-2">Conectividad Bluetooth de baja latencia y batería recargable.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$79.99</span>
+          <button onclick="openModal('Mouse Wireless Pro')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://cdn.memorykings.pe/files/2022/09/27/328608-MK028955A.jpg" class="w-full h-48 object-cover">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Profesional</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Mouse Ergonómico</h2>
+        <p class="text-gray-300 mt-2">Diseño ergonómico para mayor comodidad en largas jornadas.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$49.99</span>
+          <button onclick="openModal('Mouse Ergonómico')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div id="productModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+    <div class="modal-glass rounded-2xl p-8 w-96 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl">&times;</button>
+      <h3 id="modalTitle" class="text-2xl font-bold text-purple-300 mb-4"></h3>
+      <p class="text-gray-300">¿Quieres agregar este producto a tu carrito?</p>
+      <div class="mt-6 flex justify-between">
+        <button onclick="closeModal()" class="px-4 py-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition">Cancelar</button>
+        <button class="px-4 py-2 rounded-lg btn-neon">Agregar al Carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-8 mt-12 bg-gradient-to-r from-purple-800 to-black relative">
+    <div class="flex justify-center space-x-6 mb-4">
+      <a href="#" class="hover:text-purple-400"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="hover:text-purple-400"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="hover:text-purple-400"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="hover:text-purple-400"><i class="fab fa-discord"></i></a>
+    </div>
+    <p class="text-gray-400">© 2025 GameStore - Todos los derechos reservados</p>
+    <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'})" class="absolute right-6 bottom-6 px-4 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition">↑</a>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function openModal(title) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("productModal").classList.remove("hidden");
+      document.getElementById("productModal").classList.add("flex");
+    }
+    function closeModal() {
+      document.getElementById("productModal").classList.remove("flex");
+      document.getElementById("productModal").classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
