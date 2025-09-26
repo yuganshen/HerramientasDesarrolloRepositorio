@@ -47,10 +47,7 @@ public class ControllersNavegacion {
 		return"teclado";
 	}
 	
-	@GetMapping("/tecladosgamer")
-	public String tecladiñosga() {
-		return"tecladogamer";
-	}
+	
 
 }
 
