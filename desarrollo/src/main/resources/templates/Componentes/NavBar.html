@@ -1,27 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GamingStore</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
-
+<div th:fragment="nav_bar">
   <!-- NAVBAR -->
-  <nav class="bg-gradient-to-r from-blue-900 to-black p-4 px-8 flex justify-between items-center text-white fixed top-0 left-0 w-full shadow-lg z-50">
-    <!-- Logo -->
-    <a href="/" class="logo text-yellow-400 font-bold text-xl inline-block opacity-0 animate-bounceIn">
-      🕹️ GamingStore
-    </a>
+  <nav 
+     class="bg-gradient-to-r from-blue-900 to-black p-4 px-8 flex justify-between items-center text-white fixed top-0 left-0 w-full shadow-lg z-50">
+  
+  <!-- Logo -->
+  <a href="/" class="text-yellow-400 font-bold text-xl">
+    🕹️ GamingStore
+  </a>
 
-    <!-- Links -->
-    <div class="nav-links flex gap-6">
-      <a href="/" class="opacity-0 animate-fadeInUp [animation-delay:0.5s] hover:text-yellow-400 transition">Inicio</a>
-      <a href="/catalogo" class="opacity-0 animate-fadeInUp [animation-delay:0.8s] hover:text-yellow-400 transition">Catálogo</a>
-      <a href="/cart" class="opacity-0 animate-fadeInUp [animation-delay:1.1s] hover:text-yellow-400 transition">Carrito (0)</a>
-    </div>
-  </nav>
+  <!-- Links -->
+  <div class="flex gap-6">
+    <a href="/" class="hover:text-yellow-400 transition">Inicio</a>
+    <a href="/catalogo" class="hover:text-yellow-400 transition">Catálogo</a>
+    <a href="/cart" class="hover:text-yellow-400 transition">Carrito (0)</a>
+  </div>
+</nav>
 
   <!-- CONTENEDOR DE PESTAÑAS -->
   <div class="max-w-6xl mx-auto mt-24 px-4">
@@ -72,5 +65,4 @@
       });
     });
   </script>
-</body>
-</html>
+  </div>
