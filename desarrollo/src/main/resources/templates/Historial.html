@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial de Compras</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a001f, #2a0033, #000);
+      background-size: 300% 300%;
+      animation: gradientMove 12s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  </style>
 </head>
-<body>
+<body class="text-white font-sans">
 
+  <!-- Header -->
+  <header class="backdrop-blur-md bg-white/10 border-b border-white/20 p-6 sticky top-0">
+    <h1 class="text-3xl font-extrabold text-purple-400">🛒 Historial de Compras</h1>
+    <p class="text-sm text-gray-300">Revisa los productos que has adquirido</p>
+  </header>
+
+  <!-- Contenido -->
+  <main class="max-w-6xl mx-auto p-6">
+    <div class="overflow-x-auto backdrop-blur-md bg-white/10 rounded-xl shadow-lg">
+      <table class="w-full text-sm text-left text-gray-300">
+        <thead class="text-xs uppercase bg-purple-900/40 text-purple-300">
+          <tr>
+            <th scope="col" class="px-6 py-3">Producto</th>
+            <th scope="col" class="px-6 py-3">Categoría</th>
+            <th scope="col" class="px-6 py-3">Fecha</th>
+            <th scope="col" class="px-6 py-3">Cantidad</th>
+            <th scope="col" class="px-6 py-3">Total</th>
+            <th scope="col" class="px-6 py-3">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-gray-700 hover:bg-purple-800/20 transition">
+            <td class="px-6 py-4 font-medium text-white">Teclado Mecánico RGB</td>
+            <td class="px-6 py-4">Periféricos</td>
+            <td class="px-6 py-4">10/09/2025</td>
+            <td class="px-6 py-4">1</td>
+            <td class="px-6 py-4 text-green-400">S/ 350.00</td>
+            <td class="px-6 py-4"><span class="bg-green-600 text-xs px-3 py-1 rounded-full">Completado</span></td>
+          </tr>
+          <tr class="border-b border-gray-700 hover:bg-purple-800/20 transition">
+            <td class="px-6 py-4 font-medium text-white">Mouse Gamer HyperX</td>
+            <td class="px-6 py-4">Periféricos</td>
+            <td class="px-6 py-4">05/09/2025</td>
+            <td class="px-6 py-4">2</td>
+            <td class="px-6 py-4 text-green-400">S/ 260.00</td>
+            <td class="px-6 py-4"><span class="bg-yellow-500 text-xs px-3 py-1 rounded-full">Pendiente</span></td>
+          </tr>
+          <tr class="hover:bg-purple-800/20 transition">
+            <td class="px-6 py-4 font-medium text-white">Monitor 27" Curvo</td>
+            <td class="px-6 py-4">Pantallas</td>
+            <td class="px-6 py-4">20/08/2025</td>
+            <td class="px-6 py-4">1</td>
+            <td class="px-6 py-4 text-green-400">S/ 1,200.00</td>
+            <td class="px-6 py-4"><span class="bg-green-600 text-xs px-3 py-1 rounded-full">Completado</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="backdrop-blur-md bg-white/10 border-t border-white/20 p-6 text-center text-gray-400">
+    © 2025 Tu Tienda Gamer - Todos los derechos reservados
+  </footer>
 </body>
 </html>
