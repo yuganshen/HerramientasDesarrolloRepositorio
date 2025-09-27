@@ -48,6 +48,10 @@ public class ControllersNavegacion {
 	public String productos() {
 		return"productos";
 	}
+	@GetMapping("/mouse")
+	public String produ() {
+		return"Mouses";
+	}
 	
 	
 
