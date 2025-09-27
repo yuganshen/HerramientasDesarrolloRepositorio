@@ -44,6 +44,10 @@ public class ControllersNavegacion {
 	public String tecladiños() {
 		return"teclado";
 	}
+	@GetMapping("/producto")
+	public String productos() {
+		return"productos";
+	}
 	
 	
 
