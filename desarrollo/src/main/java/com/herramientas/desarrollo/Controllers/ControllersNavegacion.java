@@ -5,8 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
-import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
-
 
 @Controller
 public class ControllersNavegacion {
