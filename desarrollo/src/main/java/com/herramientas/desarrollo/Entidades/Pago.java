@@ -7,6 +7,7 @@ import javax.persistence.Id;
 public class Pago {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPago;                
     private double monto;                 
     private String moneda;                

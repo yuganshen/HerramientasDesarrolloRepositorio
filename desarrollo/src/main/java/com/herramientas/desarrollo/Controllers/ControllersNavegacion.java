@@ -5,8 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
-import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
-
 
 @Controller
 public class ControllersNavegacion {
@@ -44,11 +42,18 @@ public class ControllersNavegacion {
 
 	@GetMapping("/teclados")
 	public String tecladiños() {
-		return"teclado";
-	}
+		return"teclado;
 	
 	
 		
+	
+	@GetMapping("/producto")
+	public String productos() {
+		return"productos";
+	}
+	@GetMapping("/mouse")
+	public String produ() {
+		return"Mouses";
 	
 	
 	

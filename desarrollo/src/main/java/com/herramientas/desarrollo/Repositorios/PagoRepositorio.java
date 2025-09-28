@@ -1,5 +1,8 @@
 package com.herramientas.desarrollo.Repositorios;
 
-public interface PagoRepositorio {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.herramientas.desarrollo.Entidades.Pago;
+public interface PagoRepositorio extends JpaRepository<Pago,Long>{
 
 }

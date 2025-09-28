@@ -1,10 +1,207 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Equipos en la web</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipos Gamer</title>
+  <style>
+    /* Fondo animado */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #1a0033, #4a148c, #000, #7b1fa2);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+      color: white;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+      color: #d1a9ff;
+      text-shadow: 0 0 20px #a855f7;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #eee;
+    }
+
+    /* Categorías */
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px;
+    }
+    nav button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      color: white;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+      transition: background 0.3s, transform 0.3s;
+    }
+    nav button:hover {
+      background: #6a1b9a;
+      transform: scale(1.1);
+    }
+
+    /* Grid de productos */
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 30px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(170, 85, 255, 0.7);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .card h2 {
+      margin: 15px 0 8px;
+      font-size: 1.4rem;
+      color: #d1a9ff;
+    }
+    .price {
+      font-size: 1.3rem;
+      color: #ffd54f;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #6a1b9a, #ab47bc, #8e24aa, #000);
+      background-size: 300% 300%;
+      animation: gradientBtn 5s infinite alternate;
+      padding: 12px 25px;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: transform 0.3s;
+      text-decoration: none;
+    }
+    .btn:hover {
+      transform: scale(1.1);
+    }
+    @keyframes gradientBtn {
+      0% {background-position: left;}
+      100% {background-position: right;}
+    }
+
+    /* Opiniones */
+    .reviews {
+      margin: 50px 20px;
+      padding: 30px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      text-align: center;
+    }
+    .reviews h2 {
+      color: #ffd54f;
+      margin-bottom: 20px;
+    }
+    .review {
+      font-style: italic;
+      margin: 10px 0;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.7);
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
+
+  <header>
+    <h1>Equipos Gamer</h1>
+    <p>Encuentra la mejor tecnología para llevar tu setup al siguiente nivel</p>
+  </header>
+
+  <!-- Categorías -->
+  <nav>
+    <button>PC Gamer</button>
+    <button>Consolas</button>
+    <button>Laptops</button>
+    <button>Accesorios</button>
+  </nav>
+
+  <main>
+    <!-- Producto 1 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/350x200?text=PC+Gamer" alt="PC Gamer">
+      <h2>PC Gamer RTX 4070</h2>
+      <p>Procesador Ryzen 7, 32GB RAM, SSD 1TB.</p>
+      <p class="price">S/ 6,499.00</p>
+      <a href="#" class="btn">🛒 Comprar</a>
+    </div>
+
+    <!-- Producto 2 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/350x200?text=PlayStation+5" alt="PS5">
+      <h2>PlayStation 5</h2>
+      <p>Edición estándar con mando DualSense incluido.</p>
+      <p class="price">S/ 3,299.00</p>
+      <a href="#" class="btn">🛒 Comprar</a>
+    </div>
+
+    <!-- Producto 3 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/350x200?text=Laptop+Gamer" alt="Laptop Gamer">
+      <h2>Laptop Gamer i7</h2>
+      <p>RTX 4060, pantalla 144Hz, teclado RGB.</p>
+      <p class="price">S/ 5,499.00</p>
+      <a href="#" class="btn">🛒 Comprar</a>
+    </div>
+  </main>
+
+  <section class="reviews">
+    <h2>Opiniones de Clientes</h2>
+    <p class="review">“El mejor PC gamer que he comprado, corre todo al máximo.” – Diego A.</p>
+    <p class="review">“Entrega rápida y excelente atención.” – Karen R.</p>
+    <p class="review">“La PS5 llegó impecable y con garantía.” – Javier M.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 GameStore - Todos los derechos reservados
+  </footer>
 
 </body>
 </html>

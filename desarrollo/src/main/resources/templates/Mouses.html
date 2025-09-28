@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Mouses</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
+  <style>
+    /* Fondo animado */
+    body {
+      background: linear-gradient(135deg, #0f0f1f, #1a082d, #000);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Glow dinámico */
+    .card-glow:hover {
+      box-shadow: 0 0 30px rgba(186, 85, 255, 0.8), 0 0 60px rgba(138, 43, 226, 0.6);
+      transform: scale(1.05) rotate3d(1, 1, 0, 5deg);
+      transition: all 0.4s ease;
+    }
+
+    /* Gradiente animado en precios */
+    .price-gradient {
+      background: linear-gradient(90deg, #a855f7, #ec4899, #9333ea, #a855f7);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+    }
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* Etiqueta de oferta animada */
+    .offer-badge {
+      position: absolute;
+      top: 10px;
+      right: -20px;
+      transform: rotate(15deg);
+      background: linear-gradient(to right, #ff0080, #7928ca);
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 8px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: rotate(15deg) scale(1); }
+      50% { opacity: 0.7; transform: rotate(15deg) scale(1.1); }
+    }
+
+    /* Modal Glassmorphism */
+    .modal-glass {
+      background: rgba(20, 20, 35, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: zoomIn 0.4s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Botón neon */
+    .btn-neon {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .btn-neon:hover {
+      box-shadow: 0 0 20px #9333ea, 0 0 40px #a855f7;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen flex flex-col">
+
+  <!-- ✅ Navbar desde fragmento -->
+  <div th:replace="Componentes/NavBar :: nav_bar"></div>
+
+  <!-- HEADER -->
+  <header class="text-center py-24 relative mt-16">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-purple-400 drop-shadow-lg">Mouses Exclusivos</h1>
+    <p class="mt-4 text-gray-300">Encuentra el mouse ideal para tu setup gamer o profesional</p>
+    <div class="absolute top-10 left-10 w-32 h-32 bg-purple-700 rounded-full blur-3xl opacity-40"></div>
+    <div class="absolute bottom-10 right-10 w-40 h-40 bg-pink-600 rounded-full blur-3xl opacity-40"></div>
+  </header>
+
+  <!-- GRID DE PRODUCTOS -->
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-16 flex-grow">
+    
+    <!-- CARD 1 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-15%</div>
+      <img src="https://cdn.memorykings.pe/files/2025/04/01/352665-MK039053C.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-purple-600 px-2 py-1 rounded-full">Gamer</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Mouse HyperX Pulsefire</h2>
+        <p class="text-gray-300 mt-2">Sensor Pixart 3327, RGB dinámico y diseño ergonómico.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$59.99</span>
+          <button onclick="openModal('Mouse HyperX Pulsefire')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://cdn.memorykings.pe/files/2023/02/16/346550-MK033923B.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-pink-600 px-2 py-1 rounded-full">Inalámbrico</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Mouse Logitech G Pro X</h2>
+        <p class="text-gray-300 mt-2">Conexión Lightspeed, sensor HERO 25K y 80h de batería.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$129.99</span>
+          <button onclick="openModal('Mouse Logitech G Pro X')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://cdn.memorykings.pe/files/2024/11/14/351210-MK038049-A.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Profesional</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Mouse Razer DeathAdder</h2>
+        <p class="text-gray-300 mt-2">Clásico diseño ergonómico, switches ópticos y RGB Chroma.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$89.99</span>
+          <button onclick="openModal('Mouse Razer DeathAdder')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div id="productModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+    <div class="modal-glass rounded-2xl p-8 w-96 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl">&times;</button>
+      <h3 id="modalTitle" class="text-2xl font-bold text-purple-300 mb-4"></h3>
+      <p class="text-gray-300">¿Quieres agregar este producto a tu carrito?</p>
+      <div class="mt-6 flex justify-between">
+        <button onclick="closeModal()" class="px-4 py-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition">Cancelar</button>
+        <button class="px-4 py-2 rounded-lg btn-neon">Agregar al Carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Footer desde fragmento -->
+    <footer th:replace="Componentes/Footer :: footer"> </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function openModal(title) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("productModal").classList.remove("hidden");
+      document.getElementById("productModal").classList.add("flex");
+    }
+    function closeModal() {
+      document.getElementById("productModal").classList.remove("flex");
+      document.getElementById("productModal").classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
