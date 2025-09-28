@@ -42,8 +42,11 @@ public class ControllersNavegacion {
 
 	@GetMapping("/teclados")
 	public String tecladiños() {
-		return"teclado";
-	}
+		return"teclado;
+	
+	
+		
+	
 	@GetMapping("/producto")
 	public String productos() {
 		return"productos";
@@ -51,7 +54,7 @@ public class ControllersNavegacion {
 	@GetMapping("/mouse")
 	public String produ() {
 		return"Mouses";
-	}
+	
 	
 	
 
