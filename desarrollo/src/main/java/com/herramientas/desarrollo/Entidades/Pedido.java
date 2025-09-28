@@ -8,6 +8,7 @@ public class Pedido {
 
 //Atributos
 @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 public int idPedido;
 public int idUsuario;
 public int idProducto;
