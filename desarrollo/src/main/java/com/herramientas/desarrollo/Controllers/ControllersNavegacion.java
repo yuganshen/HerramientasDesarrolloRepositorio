@@ -45,14 +45,20 @@ public class ControllersNavegacion {
 		return"teclado";
 	}
 	
-	
 	@GetMapping("/producto")
 	public String productos() {
 		return"productos";
 	}
+	
 	@GetMapping("/mouse")
 	public String produ() {
 		return"Mouses";
-}
+    }
+	
+	@GetMapping("/impresora")
+	public String impre() {
+		return"Impresoras";
+    }
+	
 }
 
