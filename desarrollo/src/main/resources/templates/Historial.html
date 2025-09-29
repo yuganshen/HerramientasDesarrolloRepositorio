@@ -6,64 +6,122 @@
   <title>Historial de Compras</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* Fondo animado morado */
     body {
-      background: linear-gradient(135deg, #1a001f, #2a0033, #000);
+      background: linear-gradient(135deg, #120018, #220033, #000);
       background-size: 300% 300%;
-      animation: gradientMove 12s ease infinite;
+      animation: gradientMove 15s ease infinite;
+      overflow-x: hidden;
     }
     @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+    /* Partículas */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(186, 85, 255, 0.6);
+      filter: blur(6px);
+      animation: float 10s infinite ease-in-out;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    /* Animación filas */
+    tr:hover {
+      transform: scale(1.02);
+      transition: 0.3s ease;
+      background-color: rgba(138, 43, 226, 0.15);
+    }
+    /* Barra de estado */
+    .progress {
+      height: 8px;
+      border-radius: 9999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.1);
+    }
+    .progress-bar {
+      height: 100%;
+      animation: progressAnim 2s ease-out forwards;
+    }
+    @keyframes progressAnim {
+      from { width: 0; }
+    }
   </style>
 </head>
-<body class="text-white font-sans">
+<body class="text-white font-sans relative">
+
+  <!-- Partículas decorativas -->
+  <div class="particle w-10 h-10 top-20 left-10"></div>
+  <div class="particle w-16 h-16 bottom-32 right-20"></div>
+  <div class="particle w-8 h-8 top-1/3 right-1/4"></div>
 
   <!-- Header -->
-  <header class="backdrop-blur-md bg-white/10 border-b border-white/20 p-6 sticky top-0">
+  <header class="backdrop-blur-md bg-white/10 border-b border-white/20 p-6 sticky top-0 z-10">
     <h1 class="text-3xl font-extrabold text-purple-400">🛒 Historial de Compras</h1>
-    <p class="text-sm text-gray-300">Revisa los productos que has adquirido</p>
+    <p class="text-sm text-gray-300">Consulta y gestiona todas tus adquisiciones</p>
   </header>
 
-  <!-- Contenido -->
+  <!-- Buscador y filtros -->
+  <section class="max-w-6xl mx-auto p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <input id="searchInput" type="text" placeholder="🔍 Buscar producto..." class="px-4 py-2 rounded-lg w-full md:w-1/2 bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500">
+    <select id="filterSelect" class="px-4 py-2 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-purple-500">
+      <option value="all">Todos</option>
+      <option value="completado">Completados</option>
+      <option value="pendiente">Pendientes</option>
+    </select>
+  </section>
+
+  <!-- Tabla -->
   <main class="max-w-6xl mx-auto p-6">
     <div class="overflow-x-auto backdrop-blur-md bg-white/10 rounded-xl shadow-lg">
-      <table class="w-full text-sm text-left text-gray-300">
+      <table id="purchaseTable" class="w-full text-sm text-left text-gray-300">
         <thead class="text-xs uppercase bg-purple-900/40 text-purple-300">
           <tr>
-            <th scope="col" class="px-6 py-3">Producto</th>
-            <th scope="col" class="px-6 py-3">Categoría</th>
-            <th scope="col" class="px-6 py-3">Fecha</th>
-            <th scope="col" class="px-6 py-3">Cantidad</th>
-            <th scope="col" class="px-6 py-3">Total</th>
-            <th scope="col" class="px-6 py-3">Estado</th>
+            <th class="px-6 py-3">Producto</th>
+            <th class="px-6 py-3">Categoría</th>
+            <th class="px-6 py-3">Fecha</th>
+            <th class="px-6 py-3">Cantidad</th>
+            <th class="px-6 py-3">Total</th>
+            <th class="px-6 py-3">Estado</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="border-b border-gray-700 hover:bg-purple-800/20 transition">
+          <tr data-status="completado" class="border-b border-gray-700">
             <td class="px-6 py-4 font-medium text-white">Teclado Mecánico RGB</td>
             <td class="px-6 py-4">Periféricos</td>
             <td class="px-6 py-4">10/09/2025</td>
             <td class="px-6 py-4">1</td>
             <td class="px-6 py-4 text-green-400">S/ 350.00</td>
-            <td class="px-6 py-4"><span class="bg-green-600 text-xs px-3 py-1 rounded-full">Completado</span></td>
+            <td class="px-6 py-4">
+              <div class="progress"><div class="progress-bar bg-green-500" style="width: 100%"></div></div>
+              <span class="text-xs text-green-400">Completado</span>
+            </td>
           </tr>
-          <tr class="border-b border-gray-700 hover:bg-purple-800/20 transition">
+          <tr data-status="pendiente" class="border-b border-gray-700">
             <td class="px-6 py-4 font-medium text-white">Mouse Gamer HyperX</td>
             <td class="px-6 py-4">Periféricos</td>
             <td class="px-6 py-4">05/09/2025</td>
             <td class="px-6 py-4">2</td>
             <td class="px-6 py-4 text-green-400">S/ 260.00</td>
-            <td class="px-6 py-4"><span class="bg-yellow-500 text-xs px-3 py-1 rounded-full">Pendiente</span></td>
+            <td class="px-6 py-4">
+              <div class="progress"><div class="progress-bar bg-yellow-500" style="width: 50%"></div></div>
+              <span class="text-xs text-yellow-400">Pendiente</span>
+            </td>
           </tr>
-          <tr class="hover:bg-purple-800/20 transition">
+          <tr data-status="completado">
             <td class="px-6 py-4 font-medium text-white">Monitor 27" Curvo</td>
             <td class="px-6 py-4">Pantallas</td>
             <td class="px-6 py-4">20/08/2025</td>
             <td class="px-6 py-4">1</td>
             <td class="px-6 py-4 text-green-400">S/ 1,200.00</td>
-            <td class="px-6 py-4"><span class="bg-green-600 text-xs px-3 py-1 rounded-full">Completado</span></td>
+            <td class="px-6 py-4">
+              <div class="progress"><div class="progress-bar bg-green-500" style="width: 100%"></div></div>
+              <span class="text-xs text-green-400">Completado</span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -74,5 +132,30 @@
   <footer class="backdrop-blur-md bg-white/10 border-t border-white/20 p-6 text-center text-gray-400">
     © 2025 Tu Tienda Gamer - Todos los derechos reservados
   </footer>
+
+  <!-- Script para búsqueda y filtro -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const filterSelect = document.getElementById("filterSelect");
+    const rows = document.querySelectorAll("#purchaseTable tbody tr");
+
+    function filterTable() {
+      const searchText = searchInput.value.toLowerCase();
+      const filter = filterSelect.value;
+
+      rows.forEach(row => {
+        const product = row.cells[0].innerText.toLowerCase();
+        const status = row.getAttribute("data-status");
+
+        const matchSearch = product.includes(searchText);
+        const matchFilter = filter === "all" || status === filter;
+
+        row.style.display = matchSearch && matchFilter ? "" : "none";
+      });
+    }
+
+    searchInput.addEventListener("input", filterTable);
+    filterSelect.addEventListener("change", filterTable);
+  </script>
 </body>
 </html>
