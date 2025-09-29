@@ -60,5 +60,10 @@ public class ControllersNavegacion {
 		return"Impresoras";
     }
 	
+	@GetMapping("/historial")
+	public String historial() {
+		return"Historial";
+    }
+	
 }
 
