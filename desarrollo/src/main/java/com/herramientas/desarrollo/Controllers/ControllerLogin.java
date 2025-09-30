@@ -16,8 +16,6 @@ public class ControllerLogin {
 	
 	@PostMapping("/sesion")
     public String login(@ModelAttribute DTOUsuario dto) {
-        System.out.println(dto.getUser());
-        System.out.println(dto.getPassword());
         System.out.println(dto);
         return "inicio"; 
 	}

@@ -8,21 +8,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DTOUsuario {
-private String user;
-private String password;
-
-public String getUser() {
-	return user;
-}
-public void setUser(String user) {
-	this.user = user;
-}
-public String getPassword() {
-	return password;
-}
-public void setPassword(String password) {
-	this.password = password;
-}
-
-
+	private String nombre;
+    private String apellido;
+    private String usuario;
+    private String email;
+    private String telefono;
+    private String pais;
+    private String password;
 }
