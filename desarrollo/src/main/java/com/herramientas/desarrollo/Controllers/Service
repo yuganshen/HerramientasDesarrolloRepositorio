@@ -15,6 +15,8 @@ update faild se tiene que cambiar las versiones de las dependencias de los valid
 Hoy vi el tema de @transsacciones, util para optimizar el contacto con la base de datos, de igual manera ya se tiene claro que tendremos por lo menos 2 roles, sping segurity proxima dependecia en adicion. 
 mañana intentare implementar.
 
+Viaje por boda de familiares, trataré de subir algo. Enfermo hace 2 días. :(
+
 //Conexion base de datos mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_gamer?useSSL=false&serverTimezone=UTC
 spring.datasource.username=root
