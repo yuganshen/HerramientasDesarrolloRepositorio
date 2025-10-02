@@ -65,5 +65,9 @@ public class ControllersNavegacion {
 		return"Historial";
     }
 	
+	@GetMapping("/monitores")
+	public String moni() {
+		return"Monitores";
+    }
 }
 
