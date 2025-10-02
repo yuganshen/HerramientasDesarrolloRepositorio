@@ -64,6 +64,14 @@ public class ControllersNavegacion {
 	public String historial() {
 		return"Historial";
     }
+
+
+	/*
+	@GetMapping("/Asus")
+	public String asumon() {
+		return"monitorAsus";
+	} */
+
 	
 	@GetMapping("/monitores")
 	public String moni() {
