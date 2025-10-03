@@ -16,6 +16,7 @@ Hoy vi el tema de @transsacciones, util para optimizar el contacto con la base d
 mañana intentare implementar.
 
 Viaje por boda de familiares, trataré de subir algo. Enfermo hace 2 días. :(
+Llegando a AQP, no prepare nada para subir, James Out
 
 //Conexion base de datos mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_gamer?useSSL=false&serverTimezone=UTC
