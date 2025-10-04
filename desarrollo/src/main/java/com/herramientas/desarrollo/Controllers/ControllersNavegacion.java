@@ -70,5 +70,9 @@ public class ControllersNavegacion {
 	public String moni() {
 		return"Monitores";
     }
+	@GetMapping("/formRegistros")
+	public String formulario () {
+		return"Formulario_Registros";
+	}
 }
 
