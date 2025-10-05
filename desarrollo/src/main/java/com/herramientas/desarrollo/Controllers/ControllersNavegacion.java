@@ -14,7 +14,7 @@ public class ControllersNavegacion {
 		return"Login";
 	}
 	
-	@GetMapping("/registrar")
+	@PostMapping("/registrar")
 	public String registrarNuevoUsuario(Model model){
 		model.addAttribute("registroUsuarioDto", new RegistroUsuarioDto());
 		return"Form_Registro";
@@ -70,7 +70,7 @@ public class ControllersNavegacion {
 	public String moni() {
 		return"Monitores";
     }
-	@GetMapping("/formRegistros")
+	@PostMapping("/formRegistros")
 	public String formulario () {
 		return"Formulario_Registros";
 	}
