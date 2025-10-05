@@ -1,9 +1,11 @@
 package com.herramientas.desarrollo.DTOs;
 
 public class DTOHistorial {
+	
 	private String fecha;
 	private String producto;
 	private String precio;
+	private String observaciones;  
 	
 	public String getFecha() {
 		return fecha;
@@ -23,6 +25,15 @@ public class DTOHistorial {
 	public void setPrecio(String precio) {
 		this.precio = precio;
 	}
+	public String getObservaciones() {
+		return observaciones;
+	}
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+	
+	
+	
 	
 	
 }
