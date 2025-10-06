@@ -80,5 +80,10 @@ public class ControllersNavegacion {
 		return"Laptops";
 	}
 	
+	@GetMapping("/equipos")
+	public String equipo() {
+		return"Equipos";
+	}
+	
 }
 
