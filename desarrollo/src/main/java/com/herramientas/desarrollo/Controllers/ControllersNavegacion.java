@@ -66,7 +66,6 @@ public class ControllersNavegacion {
 		return"Historial";
     }
 
-	
 	@GetMapping("/monitores")
 	public String moni() {
 		return"Monitores";
@@ -75,5 +74,11 @@ public class ControllersNavegacion {
 	public String formulario () {
 		return"Formulario_Registros";
 	}
+	
+	@GetMapping("/laptops")
+	public String laptop() {
+		return"Laptops";
+	}
+	
 }
 
