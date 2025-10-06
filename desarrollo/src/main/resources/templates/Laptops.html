@@ -1,56 +1,252 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Laptops</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Laptops</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f0f1f, #1a082d, #000);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card-glow:hover {
+      box-shadow: 0 0 30px rgba(186, 85, 255, 0.8), 0 0 60px rgba(138, 43, 226, 0.6);
+      transform: scale(1.05) rotate3d(1, 1, 0, 5deg);
+      transition: all 0.4s ease;
+    }
+
+    .price-gradient {
+      background: linear-gradient(90deg, #a855f7, #ec4899, #9333ea, #a855f7);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+    }
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: 10px;
+      right: -20px;
+      transform: rotate(15deg);
+      background: linear-gradient(to right, #ff0080, #7928ca);
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 8px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: rotate(15deg) scale(1); }
+      50% { opacity: 0.7; transform: rotate(15deg) scale(1.1); }
+    }
+
+    .modal-glass {
+      background: rgba(20, 20, 35, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: zoomIn 0.4s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .btn-neon {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .btn-neon:hover {
+      box-shadow: 0 0 20px #9333ea, 0 0 40px #a855f7;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
-<body>
-    <h1>Laptops que se van a agregar</h1>
-    <nav>
-    </nav>
-    <main>
-        <!-- Contenido principal -->
-        <article>
-            <h2>Artículo Principal</h2>
-            <p>Este es un párrafo de texto.</p>
-        </article>
-    </main>
-    
-    <div>
-        <h2>Laptop 1</h2>
-        <p>Marca: Dell</p>
-        <p>Modelo: XPS 13</p>
-        <p>Procesador: Intel Core i7</p>
-        <p>RAM: 16 GB</p>
-        <p>Precio: $1200</p>
-        <button>Ver detalles</button>
+<body class="text-white min-h-screen flex flex-col">
+
+  <!-- ✅ Navbar desde fragmento -->
+  <div th:replace="Componentes/NavBar :: nav_bar"></div>
+
+  <!-- HEADER -->
+  <header class="text-center py-24 relative mt-16">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-purple-400 drop-shadow-lg">Laptops Exclusivas</h1>
+    <p class="mt-4 text-gray-300">Encuentra la laptop ideal para tu trabajo, estudio o gaming</p>
+    <div class="absolute top-10 left-10 w-32 h-32 bg-purple-700 rounded-full blur-3xl opacity-40"></div>
+    <div class="absolute bottom-10 right-10 w-40 h-40 bg-pink-600 rounded-full blur-3xl opacity-40"></div>
+  </header>
+
+  <!-- GRID DE PRODUCTOS (9) -->
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-16 flex-grow">
+
+    <!-- CARD 1 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-10%</div>
+      <img src="https://dlcdnwebimgs.asus.com/gain/58f2cba2-5edb-4704-9236-c1ccdbb8c0ef/" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-purple-600 px-2 py-1 rounded-full">Gamer</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">ASUS TUF Gaming F15</h2>
+        <p class="text-gray-300 mt-2">Intel i7 | RTX 4060 | 16GB RAM | 1TB SSD</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/ 6,499</span>
+          <button onclick="openModal('ASUS TUF Gaming F15')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
     </div>
 
-    <hr>
-
-    <div>
-        <h2>Laptop 2</h2>
-        <p>Marca: HP</p>
-        <p>Modelo: Spectre x360</p>
-        <p>Procesador: Intel Core i5</p>
-        <p>RAM: 8 GB</p>
-        <p>Precio: $999</p>
-        <button>Ver detalles</button>
+    <!-- CARD 2 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://tiendasishop.com/media/catalog/product/m/b/mbp14-m3-pro-spaceblack-gallery2-202310_2_1.png" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-pink-600 px-2 py-1 rounded-full">Premium</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">MacBook Pro 14"</h2>
+        <p class="text-gray-300 mt-2">Chip M3 Pro | 18GB RAM | 512GB SSD</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/ 10,499</span>
+          <button onclick="openModal('MacBook Pro 14')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
     </div>
 
-    <hr>
-
-    <div>
-        <h2>Laptop 3</h2>
-        <p>Marca: Apple</p>
-        <p>Modelo: MacBook Air M2</p>
-        <p>Procesador: Apple M2</p>
-        <p>RAM: 8 GB</p>
-        <p>Precio: $1099</p>
-        <button>Ver detalles</button>
+    <!-- CARD 3 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://assets.hp.com/is/image/hp/nz-en-omen-16-laptop-pdp-hero-1?$responsive$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Gamer</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">HP Omen 16</h2>
+        <p class="text-gray-300 mt-2">Ryzen 7 | RTX 4050 | 512GB SSD</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/ 5,899</span>
+          <button onclick="openModal('HP Omen 16')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
     </div>
-    <footer>
-        <!-- Pie de página -->
-    </footer>
+
+    <!-- CARD 4 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://p1-ofp.static.pub/ShareResource/na/products/laptop/legion-5-pro/lenovo-legion-5-pro-hero.png" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-blue-600 px-2 py-1 rounded-full">Gamer</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Lenovo Legion 5 Pro</h2>
+        <p class="text-gray-300 mt-2">Ryzen 7 | RTX 4060 | 16GB RAM</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/ 6,799</span>
+          <button onclick="openModal('Lenovo Legion 5 Pro')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-15%</div>
+      <img src="https://www.notebookcheck.net/uploads/tx_nbc2/AcerNitro5AN515-58__1__01.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-red-600 px-2 py-1 rounded-full">Oferta</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Acer Nitro 5</h2>
+        <p class="text-gray-300 mt-2">Intel i5 | RTX 3050 | 8GB RAM</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/ 4,299</span>
+          <button onclick="openModal('Acer Nitro 5')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://dlcdnwebimgs.asus.com/gain/e8dbf3fa-0ec3-42f7-9e6f-64e30393cfd4/" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-teal-600 px-2 py-1 rounded-full">Ultraportátil</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">ASUS ZenBook 14</h2>
+        <p class="text-gray-300 mt-2">Intel i7 | 1TB SSD | 16GB RAM</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/ 6,499</span>
+          <button onclick="openModal('ASUS ZenBook 14')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/laptops/matebook-d-15-2023/list-image/grey.png" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-green-600 px-2 py-1 rounded-full">Estudio</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Huawei MateBook D15</h2>
+        <p class="text-gray-300 mt-2">Intel i5 | 512GB SSD | 8GB RAM</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/ 3,299</span>
+          <button onclick="openModal('Huawei MateBook D15')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://asset.msi.com/resize/image/global/product/product_16927760678393054d2c3d3d82a5f6a7f58ef62a35.png" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-blue-600 px-2 py-1 rounded-full">Gamer</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">MSI Katana 15</h2>
+        <p class="text-gray-300 mt-2">Intel i7 | RTX 4050 | 16GB RAM</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/ 6,199</span>
+          <button onclick="openModal('MSI Katana 15')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 9 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://dlcdnwebimgs.dell.com/images/products/large/latitude-9440-2-in-1-laptop-campaign-hero-800x620.png" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-yellow-600 px-2 py-1 rounded-full">Empresarial</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Dell Latitude 9440</h2>
+        <p class="text-gray-300 mt-2">Intel Evo i7 | 32GB RAM | 1TB SSD</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/ 8,799</span>
+          <button onclick="openModal('Dell Latitude 9440')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL -->
+  <div id="productModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+    <div class="modal-glass rounded-2xl p-8 w-96 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl">&times;</button>
+      <h3 id="modalTitle" class="text-2xl font-bold text-purple-300 mb-4"></h3>
+      <p class="text-gray-300">¿Quieres agregar este producto a tu carrito?</p>
+      <div class="mt-6 flex justify-between">
+        <button onclick="closeModal()" class="px-4 py-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition">Cancelar</button>
+        <button class="px-4 py-2 rounded-lg btn-neon">Agregar al Carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("productModal").classList.remove("hidden");
+      document.getElementById("productModal").classList.add("flex");
+    }
+    function closeModal() {
+      document.getElementById("productModal").classList.remove("flex");
+      document.getElementById("productModal").classList.add("hidden");
+    }
+  </script>
 </body>
 </html>
