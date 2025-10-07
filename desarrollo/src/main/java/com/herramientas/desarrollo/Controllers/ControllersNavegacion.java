@@ -85,5 +85,10 @@ public class ControllersNavegacion {
 		return"Equipos";
 	}
 	
+	@GetMapping("/ofertas")
+	public String ofertas() {
+		return"Oferta";
+	}
+	
 }
 
