@@ -7,7 +7,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
   <style>
-    /* Fondo animado */
     body {
       background: linear-gradient(135deg, #0f0f1f, #1a082d, #000);
       background-size: 400% 400%;
@@ -19,14 +18,12 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Glow dinámico */
     .card-glow:hover {
       box-shadow: 0 0 30px rgba(186, 85, 255, 0.8), 0 0 60px rgba(138, 43, 226, 0.6);
       transform: scale(1.05) rotate3d(1, 1, 0, 5deg);
       transition: all 0.4s ease;
     }
 
-    /* Gradiente animado en precios */
     .price-gradient {
       background: linear-gradient(90deg, #a855f7, #ec4899, #9333ea, #a855f7);
       background-size: 300% 300%;
@@ -39,7 +36,6 @@
       100% { background-position: 100% 50%; }
     }
 
-    /* Etiqueta de oferta animada */
     .offer-badge {
       position: absolute;
       top: 10px;
@@ -58,7 +54,6 @@
       50% { opacity: 0.7; transform: rotate(15deg) scale(1.1); }
     }
 
-    /* Modal Glassmorphism */
     .modal-glass {
       background: rgba(20, 20, 35, 0.85);
       backdrop-filter: blur(12px);
@@ -70,7 +65,6 @@
       to { transform: scale(1); opacity: 1; }
     }
 
-    /* Botón neon */
     .btn-neon {
       background: linear-gradient(to right, #6a11cb, #2575fc);
       border: none;
@@ -92,25 +86,25 @@
   <!-- HEADER -->
   <header class="text-center py-24 relative mt-16">
     <h1 class="text-5xl md:text-6xl font-extrabold text-purple-400 drop-shadow-lg">Mouses Exclusivos</h1>
-    <p class="mt-4 text-gray-300">Encuentra el mouse ideal para tu setup gamer o profesional</p>
+    <p class="mt-4 text-gray-300">Descubre precisión, diseño y comodidad para cada tipo de usuario</p>
     <div class="absolute top-10 left-10 w-32 h-32 bg-purple-700 rounded-full blur-3xl opacity-40"></div>
     <div class="absolute bottom-10 right-10 w-40 h-40 bg-pink-600 rounded-full blur-3xl opacity-40"></div>
   </header>
 
   <!-- GRID DE PRODUCTOS -->
   <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-16 flex-grow">
-    
+
     <!-- CARD 1 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
       <div class="offer-badge">-15%</div>
       <img src="https://cdn.memorykings.pe/files/2025/04/01/352665-MK039053C.jpg" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
         <span class="text-xs uppercase bg-purple-600 px-2 py-1 rounded-full">Gamer</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Mouse HyperX Pulsefire</h2>
-        <p class="text-gray-300 mt-2">Sensor Pixart 3327, RGB dinámico y diseño ergonómico.</p>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">HyperX Pulsefire FPS Pro</h2>
+        <p class="text-gray-300 mt-2">Sensor Pixart 3389 y RGB personalizable para máximo control.</p>
         <div class="flex justify-between items-center mt-5">
           <span class="text-xl font-extrabold price-gradient">$59.99</span>
-          <button onclick="openModal('Mouse HyperX Pulsefire')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <button onclick="openModal('HyperX Pulsefire FPS Pro')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
@@ -120,11 +114,11 @@
       <img src="https://cdn.memorykings.pe/files/2023/02/16/346550-MK033923B.jpg" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
         <span class="text-xs uppercase bg-pink-600 px-2 py-1 rounded-full">Inalámbrico</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Mouse Logitech G Pro X</h2>
-        <p class="text-gray-300 mt-2">Conexión Lightspeed, sensor HERO 25K y 80h de batería.</p>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Logitech G Pro X Superlight</h2>
+        <p class="text-gray-300 mt-2">Peso ultraligero y tecnología Lightspeed para máximo rendimiento.</p>
         <div class="flex justify-between items-center mt-5">
           <span class="text-xl font-extrabold price-gradient">$129.99</span>
-          <button onclick="openModal('Mouse Logitech G Pro X')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <button onclick="openModal('Logitech G Pro X Superlight')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
@@ -133,15 +127,101 @@
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
       <img src="https://cdn.memorykings.pe/files/2024/11/14/351210-MK038049-A.jpg" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Profesional</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Mouse Razer DeathAdder</h2>
-        <p class="text-gray-300 mt-2">Clásico diseño ergonómico, switches ópticos y RGB Chroma.</p>
+        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Ergonómico</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Razer DeathAdder V3</h2>
+        <p class="text-gray-300 mt-2">Diseño clásico, switches ópticos y sensor Focus Pro 30K.</p>
         <div class="flex justify-between items-center mt-5">
           <span class="text-xl font-extrabold price-gradient">$89.99</span>
-          <button onclick="openModal('Mouse Razer DeathAdder')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <button onclick="openModal('Razer DeathAdder V3')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
+
+    <!-- CARD 4 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://cdn.memorykings.pe/files/2024/06/28/350305-MK037186A.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-blue-600 px-2 py-1 rounded-full">Bluetooth</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Microsoft Surface Mouse</h2>
+        <p class="text-gray-300 mt-2">Diseño minimalista, conexión rápida y autonomía prolongada.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$49.99</span>
+          <button onclick="openModal('Microsoft Surface Mouse')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-10%</div>
+      <img src="https://cdn.memorykings.pe/files/2023/03/14/347280-MK034241B.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-red-600 px-2 py-1 rounded-full">RGB</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Cooler Master MM711</h2>
+        <p class="text-gray-300 mt-2">Ultraligero con iluminación RGB y cable ultraflexible.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$69.99</span>
+          <button onclick="openModal('Cooler Master MM711')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://cdn.memorykings.pe/files/2024/03/08/348970-MK035128B.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-yellow-600 px-2 py-1 rounded-full">Oficina</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">HP 280 Silent Mouse</h2>
+        <p class="text-gray-300 mt-2">Diseño silencioso, conexión inalámbrica y sensor óptico.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$24.99</span>
+          <button onclick="openModal('HP 280 Silent Mouse')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://cdn.memorykings.pe/files/2024/12/21/351880-MK038715B.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-green-600 px-2 py-1 rounded-full">Compacto</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Logitech Pebble M350</h2>
+        <p class="text-gray-300 mt-2">Silencioso, portátil y con diseño moderno en varios colores.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$29.99</span>
+          <button onclick="openModal('Logitech Pebble M350')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://cdn.memorykings.pe/files/2023/09/04/349210-MK035575A.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-teal-600 px-2 py-1 rounded-full">Gamer</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Corsair Harpoon RGB</h2>
+        <p class="text-gray-300 mt-2">6 botones programables y sensor óptico de 12,000 DPI.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$39.99</span>
+          <button onclick="openModal('Corsair Harpoon RGB')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 9 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://cdn.memorykings.pe/files/2025/01/04/351950-MK038780C.jpg" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-orange-600 px-2 py-1 rounded-full">Pro</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">SteelSeries Aerox 5</h2>
+        <p class="text-gray-300 mt-2">Ultra ligero, RGB Prism y tecnología Quantum 2.0 Wireless.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$99.99</span>
+          <button onclick="openModal('SteelSeries Aerox 5')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- MODAL -->
@@ -157,9 +237,9 @@
     </div>
   </div>
 
+  <!-- ✅ Footer desde fragmento -->
+  <footer th:replace="Componentes/Footer :: footer"></footer>
 
-
-  <!-- SCRIPT -->
   <script>
     function openModal(title) {
       document.getElementById("modalTitle").innerText = title;
