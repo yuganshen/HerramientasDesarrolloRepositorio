@@ -18,6 +18,55 @@ mañana intentare implementar.
 viendo lo que nos pidio, tenemos que cambiar de tailwind a boostrap >:V 
 tenemos que cambiar todas las templates
 
+Lista de templates a reacer segun requisitos VIstas de Usuario y de Administrador:
+1 Inicio (Home)
+
+Presenta productos destacados, promociones, banners de ofertas y acceso rápido a categorías.
+
+
+2 Catálogo de productos
+
+Muestra todos los productos con filtros (marca, precio, categoría, valoración, etc.).
+
+
+3 Detalle del producto
+
+Información completa del producto: descripción, especificaciones técnicas, precio, stock, reseñas, imágenes y opción de añadir al carrito.
+
+4 Carrito de compras
+
+Lista de productos seleccionados con cantidad, subtotal, impuestos, costo de envío y total.
+
+Permite modificar cantidades o eliminar productos.
+
+5 Checkout / Pago
+
+Paso final de compra: datos personales, dirección, método de pago (tarjeta, transferencia, contra entrega, etc.) y confirmación del pedido.
+
+6 Mi cuenta / Perfil de usuario
+
+Permite al cliente actualizar datos personales, direcciones, métodos de pago y ver historial de compras.
+
+7 Seguimiento de pedidos
+
+Muestra el estado de los pedidos (pendiente, enviado, entregado, cancelado).
+
+Puede incluir número de guía y detalles del envío.
+
+8 Panel de administración (Dashboard)
+
+Resumen de ventas, usuarios, productos, y métricas (gráficos, ingresos, pedidos del día, etc.).
+
+9 Gestión de productos
+
+CRUD completo (crear, editar, eliminar, listar(.
+
+10 Gestión de usuarios y pedidos
+
+Permite al administrador revisar pedidos, cambiar estados, contactar al cliente, y administrar cuentas de usuario (roles, permisos).
+
+
+
 
 //Conexion base de datos mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_gamer?useSSL=false&serverTimezone=UTC
