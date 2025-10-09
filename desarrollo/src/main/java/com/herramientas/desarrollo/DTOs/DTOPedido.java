@@ -7,6 +7,18 @@ public class DTOPedido {
 	public String estado;
 	public double total;
 	public String fecha;
+	
+	
+	public DTOPedido(int idPedido, int idUsuario, int idProducto, String estado, double total, String fecha) {
+		super();
+		this.idPedido = idPedido;
+		this.idUsuario = idUsuario;
+		this.idProducto = idProducto;
+		this.estado = estado;
+		this.total = total;
+		this.fecha = fecha;
+	}
+	
 	public int getIdPedido() {
 		return idPedido;
 	}
