@@ -29,4 +29,14 @@ public class ProductoService {
             throw new RuntimeException("El producto con ID " + id + " no existe.");
         }
     }
+    public Producto actualizarProducto(Long id, Producto productoActualizado) {
+        return productoRepository.findById(id)
+                .map(productoExistente -> {
+                    productoExistente.setNombre(productoActualizado.getNombre());
+                    productoExistente.setPrecio(productoActualizado.getPrecio());
+                    productoExistente.setStock(productoActualizado.getStock());
+                    return productoRepository.save(productoExistente);
+                })
+                .orElseThrow(() -> new RuntimeException("No se encontró el producto con ID " + id));
+    }
 }
