@@ -3,219 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Historial de Compras</title>
+  <title>Historial de Compras - GameStore</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Fondo morado animado */
-    body {
-      background: radial-gradient(circle at top left, #2a003f, #0a0015, #000);
-      overflow-x: hidden;
-      height: 100vh;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-    /* Hover filas */
-    tbody tr {
-      transition: transform 0.3s ease, background 0.3s ease;
-      cursor: pointer;
-    }
-    tbody tr:hover {
-      transform: scale(1.02) translateY(-3px);
-      background: rgba(138, 43, 226, 0.15);
-      box-shadow: 0 0 20px rgba(186, 85, 255, 0.6);
-    }
-    /* Barra de estado */
-    .progress {
-      height: 8px;
-      border-radius: 9999px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.1);
-    }
-    .progress-bar {
-      height: 100%;
-      animation: progressAnim 2s ease-out forwards;
-    }
-    @keyframes progressAnim {
-      from { width: 0; }
-    }
-    /* Modal animado */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 50;
-    }
-    .modal-content {
-      transform: scale(0.7);
-      transition: 0.3s ease;
-    }
-    .modal.show .modal-content {
-      transform: scale(1);
-    }
-    /* Toast */
-    #toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: linear-gradient(90deg,#9333ea,#a855f7);
-      padding: 12px 20px;
-      border-radius: 12px;
-      color: white;
-      font-weight: bold;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: 0.5s ease;
-      z-index: 100;
-    }
-    #toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
 </head>
-<body class="text-white font-sans relative">
 
-  <!-- Lienzo partículas -->
-  <canvas id="particles"></canvas>
+<body class="bg-gradient-to-br from-black via-gray-900 to-purple-950 text-white font-sans min-h-screen flex flex-col items-center p-6">
 
-  <!-- Header -->
-  <header class="backdrop-blur-md bg-white/10 border-b border-white/20 p-6 sticky top-0 z-10">
-    <h1 class="text-3xl font-extrabold text-purple-400">🛒 Historial de Compras</h1>
-    <p class="text-sm text-gray-300">Consulta y gestiona todas tus adquisiciones</p>
+  <!-- Encabezado -->
+  <header class="text-center mt-10">
+    <h1 class="text-5xl font-extrabold text-purple-400 drop-shadow-lg">Historial de Compras</h1>
+    <p class="mt-2 text-gray-300">Consulta los detalles de tus compras recientes 💳</p>
   </header>
 
-  <!-- Tabla -->
-  <main class="max-w-6xl mx-auto p-6 relative z-10">
-    <div class="overflow-x-auto backdrop-blur-md bg-white/10 rounded-xl shadow-lg">
-      <table id="purchaseTable" class="w-full text-sm text-left text-gray-300">
-        <thead class="text-xs uppercase bg-purple-900/40 text-purple-300">
-          <tr>
-            <th class="px-6 py-3">Producto</th>
-            <th class="px-6 py-3">Fecha</th>
-            <th class="px-6 py-3">Cantidad</th>
-            <th class="px-6 py-3">Total</th>
-            <th class="px-6 py-3">Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr data-status="completado" data-product="Teclado Mecánico RGB" data-info="Switches rojos, retroiluminación RGB" data-total="S/ 350.00">
-            <td class="px-6 py-4 font-medium text-white">Teclado Mecánico RGB</td>
-            <td class="px-6 py-4">10/09/2025</td>
-            <td class="px-6 py-4">1</td>
-            <td class="px-6 py-4 text-green-400">S/ 350.00</td>
-            <td class="px-6 py-4 flex items-center gap-2">
-              <span class="text-green-400">✔️</span>
-              <span>Completado</span>
-            </td>
-          </tr>
-          <tr data-status="pendiente" data-product="Mouse Gamer HyperX" data-info="Sensor óptico 16000 DPI" data-total="S/ 260.00">
-            <td class="px-6 py-4 font-medium text-white">Mouse Gamer HyperX</td>
-            <td class="px-6 py-4">05/09/2025</td>
-            <td class="px-6 py-4">2</td>
-            <td class="px-6 py-4 text-green-400">S/ 260.00</td>
-            <td class="px-6 py-4 flex items-center gap-2">
-              <span class="text-yellow-400">⏳</span>
-              <span>Pendiente</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- Contenedor Glassmorphism -->
+  <section class="mt-10 w-full max-w-6xl bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl border border-purple-700 overflow-hidden">
+    
+    <!-- Encabezado de tabla -->
+    <div class="grid grid-cols-6 gap-4 py-4 px-6 bg-gradient-to-r from-purple-800/70 to-black text-sm font-semibold uppercase tracking-wide">
+      <div>Producto</div>
+      <div>Fecha</div>
+      <div>Método</div>
+      <div>Estado</div>
+      <div>Total</div>
+      <div>Acciones</div>
     </div>
-  </main>
 
-  <!-- Modal Detalles -->
-  <div id="modal" class="modal flex">
-    <div class="modal-content bg-gray-900 p-8 rounded-2xl shadow-2xl w-96">
-      <h3 id="modalTitle" class="text-2xl font-bold text-purple-300 mb-4"></h3>
-      <p id="modalInfo" class="text-gray-300 mb-4"></p>
-      <p id="modalTotal" class="text-green-400 font-bold text-lg mb-6"></p>
-      <div class="flex justify-between">
-        <button onclick="closeModal()" class="px-4 py-2 bg-gray-700 rounded-lg hover:bg-gray-600">Cerrar</button>
-        <button onclick="showToast()" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg hover:opacity-90">Confirmar</button>
+    <!-- Filas -->
+    <div class="divide-y divide-gray-700/40">
+
+      <!-- Fila 1 -->
+      <div class="grid grid-cols-6 gap-4 items-center py-4 px-6 hover:bg-purple-900/30 transition">
+        <div class="flex items-center gap-3">
+          <img src="https://cdn.pixabay.com/photo/2016/11/19/14/00/keyboard-1835735_1280.jpg" alt="Producto" class="w-12 h-12 rounded-lg object-cover">
+          <span class="font-medium">Teclado Mecánico RGB</span>
+        </div>
+        <div>05/10/2025</div>
+        <div class="flex items-center gap-2"><i class="fa-brands fa-cc-mastercard text-yellow-500"></i> Mastercard</div>
+        <div><span class="px-3 py-1 rounded-lg text-sm bg-green-600/40 text-green-300">Entregado</span></div>
+        <div class="font-semibold text-green-400">$89.99</div>
+        <div class="flex gap-3 text-lg">
+          <button class="hover:text-purple-400"><i class="fa-solid fa-eye"></i></button>
+          <button class="hover:text-red-400"><i class="fa-solid fa-trash"></i></button>
+        </div>
       </div>
+
+      <!-- Fila 2 -->
+      <div class="grid grid-cols-6 gap-4 items-center py-4 px-6 hover:bg-purple-900/30 transition">
+        <div class="flex items-center gap-3">
+          <img src="https://cdn.pixabay.com/photo/2018/01/15/07/51/laptop-3087585_1280.jpg" alt="Laptop" class="w-12 h-12 rounded-lg object-cover">
+          <span class="font-medium">Laptop Gaming Ultra</span>
+        </div>
+        <div>22/09/2025</div>
+        <div class="flex items-center gap-2"><i class="fa-brands fa-cc-visa text-blue-500"></i> Visa</div>
+        <div><span class="px-3 py-1 rounded-lg text-sm bg-yellow-600/40 text-yellow-300">En camino</span></div>
+        <div class="font-semibold text-green-400">$2,199.00</div>
+        <div class="flex gap-3 text-lg">
+          <button class="hover:text-purple-400"><i class="fa-solid fa-eye"></i></button>
+          <button class="hover:text-red-400"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      </div>
+
+      <!-- Fila 3 -->
+      <div class="grid grid-cols-6 gap-4 items-center py-4 px-6 hover:bg-purple-900/30 transition">
+        <div class="flex items-center gap-3">
+          <img src="https://cdn.pixabay.com/photo/2016/11/19/15/35/controller-1837121_1280.jpg" alt="Control" class="w-12 h-12 rounded-lg object-cover">
+          <span class="font-medium">Control Inalámbrico</span>
+        </div>
+        <div>12/08/2025</div>
+        <div class="flex items-center gap-2"><i class="fa-brands fa-paypal text-sky-400"></i> PayPal</div>
+        <div><span class="px-3 py-1 rounded-lg text-sm bg-red-600/40 text-red-300">Cancelado</span></div>
+        <div class="font-semibold text-green-400">$59.00</div>
+        <div class="flex gap-3 text-lg">
+          <button class="hover:text-purple-400"><i class="fa-solid fa-eye"></i></button>
+          <button class="hover:text-red-400"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
 
-  <!-- Toast -->
-  <div id="toast">✅ Compra confirmada</div>
-
-  <!-- Footer -->
-  <footer class="backdrop-blur-md bg-white/10 border-t border-white/20 p-6 text-center text-gray-400 relative z-10">
-    © 2025 Tu Tienda Gamer - Todos los derechos reservados
+  <!-- Sección final -->
+  <footer class="mt-12 text-center text-gray-400 text-sm">
+    <p>&copy; 2025 GameStore - Todos los derechos reservados</p>
   </footer>
 
-  <script>
-    // Partículas animadas
-    const canvas = document.getElementById("particles");
-    const ctx = canvas.getContext("2d");
-    let particlesArray;
-
-    function initParticles() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      particlesArray = [];
-      for (let i = 0; i < 60; i++) {
-        particlesArray.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          radius: Math.random() * 3 + 1,
-          dx: (Math.random() - 0.5) * 0.5,
-          dy: (Math.random() - 0.5) * 0.5
-        });
-      }
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(186,85,255,0.6)";
-      particlesArray.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      });
-      requestAnimationFrame(animateParticles);
-    }
-
-    initParticles();
-    animateParticles();
-    window.addEventListener("resize", initParticles);
-
-    // Modal
-    const modal = document.getElementById("modal");
-    const rows = document.querySelectorAll("#purchaseTable tbody tr");
-
-    rows.forEach(row => {
-      row.addEventListener("click", () => {
-        document.getElementById("modalTitle").innerText = row.dataset.product;
-        document.getElementById("modalInfo").innerText = row.dataset.info;
-        document.getElementById("modalTotal").innerText = row.dataset.total;
-        modal.classList.add("show");
-        modal.style.display = "flex";
-      });
-    });
-
-    function closeModal() {
-      modal.classList.remove("show");
-      setTimeout(() => modal.style.display = "none", 200);
-    }
-
-    // Toast
-    function showToast() {
-      const toast = document.getElementById("toast");
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2500);
-    }
-  </script>
 </body>
 </html>
