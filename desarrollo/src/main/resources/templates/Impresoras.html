@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Teclados</title>
+  <title>Catálogo de Impresoras</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
   <style>
@@ -86,69 +86,105 @@
 </head>
 <body class="text-white min-h-screen flex flex-col">
 
-  <!-- NAVBAR -->
-  <nav class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-black bg-opacity-60 backdrop-blur-lg shadow-lg z-50">
-    <h1 class="text-2xl font-extrabold text-purple-400">GameStore</h1>
-    <input type="text" placeholder="Buscar..." class="px-4 py-1 rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-purple-500 outline-none hidden md:block">
-    <div class="flex space-x-4">
-      <a href="#" class="hover:text-purple-400"><i class="fas fa-home"></i></a>
-      <a href="#" class="hover:text-purple-400"><i class="fas fa-shopping-cart"></i></a>
-    </div>
-  </nav>
+  <!-- ✅ Navbar desde fragmento -->
+  <div th:replace="Componentes/NavBar :: nav_bar"></div>
 
   <!-- HEADER -->
   <header class="text-center py-24 relative mt-16">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-purple-400 drop-shadow-lg">Teclados Exclusivos</h1>
-    <p class="mt-4 text-gray-300">Encuentra el teclado ideal para tu setup gamer o profesional</p>
+    <h1 class="text-5xl md:text-6xl font-extrabold text-purple-400 drop-shadow-lg">Impresoras Premium</h1>
+    <p class="mt-4 text-gray-300">La mejor calidad para tu oficina o uso personal</p>
     <div class="absolute top-10 left-10 w-32 h-32 bg-purple-700 rounded-full blur-3xl opacity-40"></div>
     <div class="absolute bottom-10 right-10 w-40 h-40 bg-pink-600 rounded-full blur-3xl opacity-40"></div>
   </header>
 
   <!-- GRID DE PRODUCTOS -->
   <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-16 flex-grow">
-    
-    <!-- CARD -->
+
+    <!-- CARD 1 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
       <div class="offer-badge">-20%</div>
-      <img src="https://cdn.pixabay.com/photo/2017/08/06/22/01/keyboard-2593010_1280.jpg" class="w-full h-48 object-cover">
+      <img src="https://media.alquimio.cloud/images/@thumbs_500_ed676471359c86f57ad508e786be5aaa2129b0a8.webp" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-purple-600 px-2 py-1 rounded-full">Gaming</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Teclado Mecánico RGB</h2>
-        <p class="text-gray-300 mt-2">Switches rojos, retroiluminación RGB y diseño compacto.</p>
+        <span class="text-xs uppercase bg-purple-600 px-2 py-1 rounded-full">Multifuncional</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">HP DeskJet Ink Advantage 2775</h2>
+        <p class="text-gray-300 mt-2">Impresión, copia y escaneo con conexión inalámbrica.</p>
         <div class="flex justify-between items-center mt-5">
           <span class="text-xl font-extrabold price-gradient">$89.99</span>
-          <button onclick="openModal('Teclado Mecánico RGB')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <button onclick="openModal('HP DeskJet Ink Advantage 2775')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 2 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <img src="https://cdn.pixabay.com/photo/2016/06/29/09/25/keyboard-1483099_1280.jpg" class="w-full h-48 object-cover">
+      <img src="https://mediaserver.goepson.com/ImConvServlet/imconv/19149835d19c96e7a8926f68cbf4822e506a73c2/515Wx515H?use=productpictures&hybrisId=B2C&assetDescr=L3250_SPT_C11CJ67301_384x286" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-pink-600 px-2 py-1 rounded-full">Inalámbrico</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Teclado Gaming Wireless</h2>
-        <p class="text-gray-300 mt-2">Batería de larga duración y conectividad Bluetooth.</p>
+        <span class="text-xs uppercase bg-pink-600 px-2 py-1 rounded-full">EcoTank</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Epson L3250</h2>
+        <p class="text-gray-300 mt-2">Sistema de tinta continua, ideal para impresiones económicas.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$119.99</span>
-          <button onclick="openModal('Teclado Gaming Wireless')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$179.99</span>
+          <button onclick="openModal('Epson L3250')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 3 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <img src="https://cdn.pixabay.com/photo/2014/11/26/15/28/computer-546939_1280.jpg" class="w-full h-48 object-cover">
+      <img src="https://tecnocostoec.com/wp-content/uploads/2024/09/G3110.png" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Profesional</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Teclado Ergonómico Pro</h2>
-        <p class="text-gray-300 mt-2">Diseño ergonómico para largas horas de trabajo.</p>
+        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Fotográfica</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Canon PIXMA G3110</h2>
+        <p class="text-gray-300 mt-2">Imprime fotos de alta calidad con tanque de tinta recargable.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$69.99</span>
-          <button onclick="openModal('Teclado Ergonómico Pro')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$159.99</span>
+          <button onclick="openModal('Canon PIXMA G3110')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
+
+    <!-- CARD 4 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://crdms.images.consumerreports.org/prod/products/cr/models/398175-all-in-one-printers-brother-dcp-l2550dw-10006311.png" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-green-600 px-2 py-1 rounded-full">Láser</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Brother DCP-L2550DW</h2>
+        <p class="text-gray-300 mt-2">Multifuncional láser monocromática, ideal para oficina.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$249.99</span>
+          <button onclick="openModal('Brother DCP-L2550DW')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://pe-media.hptiendaenlinea.com/catalog/product/W/1/W1A56A-1_T1679076349.png" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-yellow-600 px-2 py-1 rounded-full">Láser Pro</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">HP LaserJet Pro M404n</h2>
+        <p class="text-gray-300 mt-2">Impresión láser rápida, confiable y de alta calidad.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$299.99</span>
+          <button onclick="openModal('HP LaserJet Pro M404n')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://mediaserver.goepson.com/ImConvServlet/imconv/683760381a816c554cffc3fc7afdd0c2405481ee/1200Wx1200H?use=banner&hybrisId=B2C&assetDescr=L805_1" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-red-600 px-2 py-1 rounded-full">Fotográfica Pro</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Epson L805</h2>
+        <p class="text-gray-300 mt-2">Impresora fotográfica de alta calidad con sistema EcoTank.</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">$349.99</span>
+          <button onclick="openModal('Epson L805')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- MODAL -->

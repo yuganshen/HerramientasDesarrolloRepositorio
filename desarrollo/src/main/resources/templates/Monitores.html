@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Mouses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Monitores</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
   <style>
+    /* Fondo animado */
     body {
       background: linear-gradient(135deg, #0f0f1f, #1a082d, #000);
       background-size: 400% 400%;
@@ -18,12 +19,14 @@
       100% { background-position: 0% 50%; }
     }
 
+    /* Glow dinámico */
     .card-glow:hover {
       box-shadow: 0 0 30px rgba(186, 85, 255, 0.8), 0 0 60px rgba(138, 43, 226, 0.6);
       transform: scale(1.05) rotate3d(1, 1, 0, 5deg);
       transition: all 0.4s ease;
     }
 
+    /* Gradiente animado en precios */
     .price-gradient {
       background: linear-gradient(90deg, #a855f7, #ec4899, #9333ea, #a855f7);
       background-size: 300% 300%;
@@ -36,6 +39,7 @@
       100% { background-position: 100% 50%; }
     }
 
+    /* Etiqueta de oferta animada */
     .offer-badge {
       position: absolute;
       top: 10px;
@@ -54,6 +58,7 @@
       50% { opacity: 0.7; transform: rotate(15deg) scale(1.1); }
     }
 
+    /* Modal Glassmorphism */
     .modal-glass {
       background: rgba(20, 20, 35, 0.85);
       backdrop-filter: blur(12px);
@@ -65,6 +70,7 @@
       to { transform: scale(1); opacity: 1; }
     }
 
+    /* Botón neon */
     .btn-neon {
       background: linear-gradient(to right, #6a11cb, #2575fc);
       border: none;
@@ -85,139 +91,139 @@
 
   <!-- HEADER -->
   <header class="text-center py-24 relative mt-16">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-purple-400 drop-shadow-lg">Mouses Exclusivos</h1>
-    <p class="mt-4 text-gray-300">Descubre precisión, diseño y comodidad para cada tipo de usuario</p>
+    <h1 class="text-5xl md:text-6xl font-extrabold text-purple-400 drop-shadow-lg">Monitores Exclusivos</h1>
+    <p class="mt-4 text-gray-300">Elige el monitor perfecto para tu setup gamer o profesional</p>
     <div class="absolute top-10 left-10 w-32 h-32 bg-purple-700 rounded-full blur-3xl opacity-40"></div>
     <div class="absolute bottom-10 right-10 w-40 h-40 bg-pink-600 rounded-full blur-3xl opacity-40"></div>
   </header>
 
-  <!-- GRID DE PRODUCTOS -->
+  <!-- GRID DE PRODUCTOS (9) -->
   <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-16 flex-grow">
-
+    
     <!-- CARD 1 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <div class="offer-badge">-15%</div>
-      <img src="https://hassantech.pk/wp-content/uploads/2024/05/HyperX-Pulsefire-FPS-Pro.png" class="w-full h-56 object-contain bg-black">
+      <div class="offer-badge">-10%</div>
+      <img src="https://hca.pe/storage/media/large_S59HpPs2WCxWpeW0jJkL0N2BbeJrRYDnk6wyGZih.png" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
         <span class="text-xs uppercase bg-purple-600 px-2 py-1 rounded-full">Gamer</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">HyperX Pulsefire FPS Pro</h2>
-        <p class="text-gray-300 mt-2">Sensor Pixart 3389 y RGB personalizable para máximo control.</p>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Monitor ASUS TUF 27"</h2>
+        <p class="text-gray-300 mt-2">144Hz, 1ms, Full HD con FreeSync Premium.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$59.99</span>
-          <button onclick="openModal('HyperX Pulsefire FPS Pro')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$259.99</span>
+          <button onclick="openModal('Monitor ASUS TUF 27')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 2 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <img src="https://www.mmstoreperu.com/cdn/shop/products/2_bad88053-6a3f-4f18-a06a-2688be4d08ec_800x.png?v=1666385885" class="w-full h-56 object-contain bg-black">
+      <img src="https://i0.wp.com/www.aslanstoreuy.com/wp-content/uploads/2024/02/Monitor-LG-UltraFine-32-UHD-4K-Aslan-Store-1.png?w=900&ssl=1" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-pink-600 px-2 py-1 rounded-full">Inalámbrico</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Logitech G Pro X Superlight</h2>
-        <p class="text-gray-300 mt-2">Peso ultraligero y tecnología Lightspeed para máximo rendimiento.</p>
+        <span class="text-xs uppercase bg-pink-600 px-2 py-1 rounded-full">4K</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Monitor LG UltraFine 32"</h2>
+        <p class="text-gray-300 mt-2">Pantalla UHD 4K, HDR10 y amplia gama de colores.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$129.99</span>
-          <button onclick="openModal('Logitech G Pro X Superlight')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$399.99</span>
+          <button onclick="openModal('Monitor LG UltraFine 32')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 3 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <img src="https://assets3.razerzone.com/m0Sl9wE0TluSWRqhiKMw-6SZ0pE=/500x500/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fh79%2Fhaf%2F9529652674590%2Fdeathadder-v3-2-500x500.png" class="w-full h-56 object-contain bg-black">
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/ls34bg850snxza/gallery/pe-odyssey-oled-g8-g85sb-ls34bg850snxza-533977065?$684_547_PNG$" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Ergonómico</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Razer DeathAdder V3</h2>
-        <p class="text-gray-300 mt-2">Diseño clásico, switches ópticos y sensor Focus Pro 30K.</p>
+        <span class="text-xs uppercase bg-indigo-600 px-2 py-1 rounded-full">Curvo</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Samsung Odyssey 34"</h2>
+        <p class="text-gray-300 mt-2">Curvatura 1000R, QHD UltraWide, 165Hz.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$89.99</span>
-          <button onclick="openModal('Razer DeathAdder V3')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$649.99</span>
+          <button onclick="openModal('Samsung Odyssey 34')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 4 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <img src="https://msftstories.thesourcemediaassets.com/sites/243/2017/05/TQ_Gray-59088c08d2edf.png" class="w-full h-56 object-contain bg-black">
+      <img src="https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/peripherals/monitors/p-series/p2425h/mg/monitor-p2425h-black-gallery-1.psd?qlt=90,0&op_usm=1.75,0.3,2,0&resMode=sharp&pscan=auto&fmt=png-alpha&hei=500" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-blue-600 px-2 py-1 rounded-full">Bluetooth</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Microsoft Surface Mouse</h2>
-        <p class="text-gray-300 mt-2">Diseño minimalista, conexión rápida y autonomía prolongada.</p>
+        <span class="text-xs uppercase bg-yellow-600 px-2 py-1 rounded-full">Office</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">Monitor Dell 24"</h2>
+        <p class="text-gray-300 mt-2">Full HD, panel IPS con ajuste ergonómico completo.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$49.99</span>
-          <button onclick="openModal('Microsoft Surface Mouse')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$179.99</span>
+          <button onclick="openModal('Monitor Dell 24')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 5 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <div class="offer-badge">-10%</div>
-      <img src="https://a.storyblok.com/f/281110/74fa2c73e0/mm711-black-matte-gallery-1.png" class="w-full h-56 object-contain bg-black">
+      <div class="offer-badge">-20%</div>
+      <img src="https://storage.aoc.com/assets/8502/AOC_C32G2_PV_-FRONT-big.png" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-red-600 px-2 py-1 rounded-full">RGB</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Cooler Master MM711</h2>
-        <p class="text-gray-300 mt-2">Ultraligero con iluminación RGB y cable ultraflexible.</p>
+        <span class="text-xs uppercase bg-red-600 px-2 py-1 rounded-full">Pro</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">AOC Gaming 32"</h2>
+        <p class="text-gray-300 mt-2">QHD, 165Hz, FreeSync Premium y HDR400.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$69.99</span>
-          <button onclick="openModal('Cooler Master MM711')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$329.99</span>
+          <button onclick="openModal('AOC Gaming 32')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 6 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <img src="https://hp.widen.net/content/cd0ksihfpi/webp/cd0ksihfpi.png?dpi=72&color=ffffff00&w=270" class="w-full h-56 object-contain bg-black">
+      <img src="https://hca.pe/storage/media/large_vd6AKriit0GibJEfWbReALh3KrhtAjFt8SuAJeHu.png" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-yellow-600 px-2 py-1 rounded-full">Oficina</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">HP 280 Silent Mouse</h2>
-        <p class="text-gray-300 mt-2">Diseño silencioso, conexión inalámbrica y sensor óptico.</p>
+        <span class="text-xs uppercase bg-green-600 px-2 py-1 rounded-full">Económico</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">HP 22"</h2>
+        <p class="text-gray-300 mt-2">Panel IPS, Full HD y diseño ultradelgado.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$24.99</span>
-          <button onclick="openModal('HP 280 Silent Mouse')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$109.99</span>
+          <button onclick="openModal('HP 22')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 7 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <img src="https://www.logitech.com/content/dam/logitech/en/products/mice/m350/gallery/m350-blueberry-gallery-1.png" class="w-full h-56 object-contain bg-black">
+      <img src="https://image.benq.com/is/image/benqco/pd2700u-front-2?$ResponsivePreset$&fmt=png-alpha" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-green-600 px-2 py-1 rounded-full">Compacto</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Logitech Pebble M350</h2>
-        <p class="text-gray-300 mt-2">Silencioso, portátil y con diseño moderno en varios colores.</p>
+        <span class="text-xs uppercase bg-blue-600 px-2 py-1 rounded-full">Studio</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">BenQ PD2700U</h2>
+        <p class="text-gray-300 mt-2">27" 4K UHD, HDR y modos de diseño profesional.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$29.99</span>
-          <button onclick="openModal('Logitech Pebble M350')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$459.99</span>
+          <button onclick="openModal('BenQ PD2700U')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 8 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <img src="https://www.datacont.com/web/image/product.image/6433/image_1024/HARPOON%20RGB%20WIRELESS?unique=6bd10b8" class="w-full h-56 object-contain bg-black">
+      <img src="https://product.hstatic.net/1000296652/product/111_bbfa47164e12492ead5e797f8b732d9f_1024x1024.png" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-teal-600 px-2 py-1 rounded-full">Gamer</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">Corsair Harpoon RGB</h2>
-        <p class="text-gray-300 mt-2">6 botones programables y sensor óptico de 12,000 DPI.</p>
+        <span class="text-xs uppercase bg-teal-600 px-2 py-1 rounded-full">Ultrawide</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">LG 38WN95C</h2>
+        <p class="text-gray-300 mt-2">38" UltraWide QHD+, Thunderbolt 3, HDR600.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$39.99</span>
-          <button onclick="openModal('Corsair Harpoon RGB')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$1,099.99</span>
+          <button onclick="openModal('LG 38WN95C')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
 
     <!-- CARD 9 -->
     <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
-      <img src="https://quadrastores.com/cdn/shop/files/b771c1cb0f5174235ebde6695cf99e68.png?v=1756148804" class="w-full h-56 object-contain bg-black">
+      <img src="https://asset.msi.com/resize/image/global/product/product_10_20190920102903_5d84397059d77.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png" class="w-full h-56 object-contain bg-black">
       <div class="p-6">
-        <span class="text-xs uppercase bg-orange-600 px-2 py-1 rounded-full">Pro</span>
-        <h2 class="text-2xl font-bold text-purple-300 mt-3">SteelSeries Aerox 5</h2>
-        <p class="text-gray-300 mt-2">Ultra ligero, RGB Prism y tecnología Quantum 2.0 Wireless.</p>
+        <span class="text-xs uppercase bg-orange-600 px-2 py-1 rounded-full">HDR</span>
+        <h2 class="text-2xl font-bold text-purple-300 mt-3">MSI Optix MAG272C</h2>
+        <p class="text-gray-300 mt-2">27" Full HD, 165Hz, panel VA curvo con HDR.</p>
         <div class="flex justify-between items-center mt-5">
-          <span class="text-xl font-extrabold price-gradient">$99.99</span>
-          <button onclick="openModal('SteelSeries Aerox 5')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
+          <span class="text-xl font-extrabold price-gradient">$229.99</span>
+          <button onclick="openModal('MSI Optix MAG272C')" class="px-5 py-2 rounded-lg btn-neon">Comprar</button>
         </div>
       </div>
     </div>
@@ -238,6 +244,7 @@
   </div>
 
 
+  <!-- SCRIPT -->
   <script>
     function openModal(title) {
       document.getElementById("modalTitle").innerText = title;

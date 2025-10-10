@@ -3,10 +3,9 @@ package com.herramientas.desarrollo.Controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
-import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
-
 
 @Controller
 public class ControllersNavegacion {
@@ -16,7 +15,7 @@ public class ControllersNavegacion {
 		return"Login";
 	}
 	
-	@GetMapping("/registrar")
+	@PostMapping("/registrar")
 	public String registrarNuevoUsuario(Model model){
 		model.addAttribute("registroUsuarioDto", new RegistroUsuarioDto());
 		return"Form_Registro";
@@ -47,7 +46,49 @@ public class ControllersNavegacion {
 		return"teclado";
 	}
 	
+	@GetMapping("/producto")
+	public String productos() {
+		return"productos";
+	}
 	
+	@GetMapping("/mouse")
+	public String produ() {
+		return"Mouses";
+    }
+	
+	@GetMapping("/impresora")
+	public String impre() {
+		return"Impresoras";
+    }
+	
+	@GetMapping("/historial")
+	public String historial() {
+		return"Historial";
+    }
 
+	@GetMapping("/monitores")
+	public String moni() {
+		return"Monitores";
+    }
+	@PostMapping("/formRegistros")
+	public String formulario () {
+		return"Formulario_Registros";
+	}
+	
+	@GetMapping("/laptops")
+	public String laptop() {
+		return"Laptops";
+	}
+	
+	@GetMapping("/equipos")
+	public String equipo() {
+		return"Equipos";
+	}
+	
+	@GetMapping("/ofertas")
+	public String ofertas() {
+		return"Oferta";
+	}
+	
 }
 
