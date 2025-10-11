@@ -15,7 +15,7 @@ public class DTOHistorial {
 		this.precio = precio;
 		this.observaciones = observaciones;
 	}
-	
+	 
 	public String getFecha() {
 		return fecha;
 	}
