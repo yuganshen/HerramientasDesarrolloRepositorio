@@ -90,5 +90,10 @@ public class ControllersNavegacion {
 		return"Oferta";
 	}
 	
+	@GetMapping("/audifonos")
+	public String audifonos() {
+		return"Audifonos";
+	}
+	
 }
 
