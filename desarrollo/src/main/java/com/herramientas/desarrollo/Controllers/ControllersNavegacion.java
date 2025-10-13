@@ -95,5 +95,10 @@ public class ControllersNavegacion {
 		return"Audifonos";
 	}
 	
+	@GetMapping("/tarjetasgraficas")
+	public String tarjetasgraficas() {
+		return"TarjetasGraficas";
+	}
+	
 }
 
