@@ -68,7 +68,7 @@ Permite al administrador revisar pedidos, cambiar estados, contactar al cliente,
 Resumen clase 11 octubre
 Las aplicaciones de comunicación como Discord se han convertido en herramientas esenciales para la colaboración en equipos de desarrollo de software. 
 Permiten una comunicación fluida en tiempo real mediante canales de texto, voz y video, facilitando la coordinación entre programadores, diseñadores y líderes de proyecto, incluso si trabajan de forma remota.
-Además, Discord puede integrarse con plataformas como GitHub o Trello, lo que permite compartir avances, resolver dudas y mantener la organización del equipo dentro de un mismo entorno digital. 
+Además, Discord puede integrarse con plataformas como GitHub o Trello, lo que permite compartir avances, resolver dudas y mantener la organización del equipo dentro de un mismo entorno digital
 
 //Conexion base de datos mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_gamer?useSSL=false&serverTimezone=UTC
