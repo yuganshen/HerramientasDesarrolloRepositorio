@@ -15,6 +15,20 @@ public class DTOUsuario {
     private String telefono;
     private String pais;
     private String password;
+    
+    
+	public DTOUsuario(String nombre, String apellido, String usuario, String email, String telefono, String pais,
+			String password) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.usuario = usuario;
+		this.email = email;
+		this.telefono = telefono;
+		this.pais = pais;
+		this.password = password;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
