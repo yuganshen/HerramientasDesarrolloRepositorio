@@ -41,12 +41,12 @@ Puede incluir número de guía y detalles del envío.
 
 8 Panel de administración (Dashboard)
 
-Resumen de ventas, usuarios, productos, y métricas (gráficos, ingresos, pedidos del día, etc.).
+*Resumen de ventas*, usuarios, productos, y *métricas* (gráficos, ingresos, pedidos del día, etc.).
 
 
 9 Gestión de productos
 
-CRUD completo (crear, editar, eliminar, listar.
+CRUD completo (crear, editar, eliminar, listar).
 
 
 10 Gestión de usuarios y pedidos
