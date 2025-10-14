@@ -42,8 +42,24 @@ public class RegistroUsuarioDto {
 
     @NotNull(message = "Debe aceptar los términos y condiciones")
     private Boolean terms;
+    
+    
+    
 
-    // Getters y Setters
+    public RegistroUsuarioDto(String nombre, String apellido, String usuario, String email, String telefono,
+			String pais, String password, String confirm, Boolean terms) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.usuario = usuario;
+		this.email = email;
+		this.telefono = telefono;
+		this.pais = pais;
+		this.password = password;
+		this.confirm = confirm;
+		this.terms = terms;
+	}
+	// Getters y Setters
     public String getNombre() {
         return nombre;
     }
