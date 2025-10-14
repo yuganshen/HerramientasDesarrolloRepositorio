@@ -1,22 +1,3 @@
-ya se tiene la conexion a base de datos, aun se vera si es embebida, pero por el momento nos funciona para hacer las pruebas
-NOTA: Debemos implementar los service para la interaccion de los repositorios, separar la funcionalidad del controller
-
-
-Se implemento localmente las de as entidades pero aún nos falta las relaciones, aún no las fusionó porque están sin terminar 
-notaciones pendientes 
-many to many 
-one to one
-
-se tiene los repositorios pero aún no las relaciones
-update faild se tiene que cambiar las versiones de las dependencias de los validadores y del driver de myql no push hoy, riesgo de quebrar el proyecto, se contempla no subir de versión. xd
-
-
-
-Hoy vi el tema de @transsacciones, util para optimizar el contacto con la base de datos, de igual manera ya se tiene claro que tendremos por lo menos 2 roles, sping segurity proxima dependecia en adicion. 
-mañana intentare implementar.
-
-viendo lo que nos pidio, tenemos que cambiar de tailwind a boostrap >:V 
-tenemos que cambiar todas las templates
 
 Lista de templates a reacer segun requisitos VIstas de Usuario y de Administrador:
 1 Inicio (Home)
@@ -33,19 +14,23 @@ Muestra todos los productos con filtros (marca, precio, categoría, valoración,
 
 Información completa del producto: descripción, especificaciones técnicas, precio, stock, reseñas, imágenes y opción de añadir al carrito.
 
+
 4 Carrito de compras
 
 Lista de productos seleccionados con cantidad, subtotal, impuestos, costo de envío y total.
 
 Permite modificar cantidades o eliminar productos.
 
+
 5 Checkout / Pago
 
 Paso final de compra: datos personales, dirección, método de pago (tarjeta, transferencia, contra entrega, etc.) y confirmación del pedido.
 
+
 6 Mi cuenta / Perfil de usuario
 
 Permite al cliente actualizar datos personales, direcciones, métodos de pago y ver historial de compras.
+
 
 7 Seguimiento de pedidos
 
@@ -53,17 +38,21 @@ Muestra el estado de los pedidos (pendiente, enviado, entregado, cancelado).
 
 Puede incluir número de guía y detalles del envío.
 
+
 8 Panel de administración (Dashboard)
 
 Resumen de ventas, usuarios, productos, y métricas (gráficos, ingresos, pedidos del día, etc.).
 
+
 9 Gestión de productos
 
-CRUD completo (crear, editar, eliminar, listar(.
+CRUD completo (crear, editar, eliminar, listar.
+
 
 10 Gestión de usuarios y pedidos
 
 Permite al administrador revisar pedidos, cambiar estados, contactar al cliente, y administrar cuentas de usuario (roles, permisos).
+
 
 Resumen clase 11 octubre
 Las aplicaciones de comunicación como Discord se han convertido en herramientas esenciales para la colaboración en equipos de desarrollo de software. 
