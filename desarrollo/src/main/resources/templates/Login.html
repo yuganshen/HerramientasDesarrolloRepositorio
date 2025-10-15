@@ -29,9 +29,15 @@
 
     /* 🎮 Botón con gradiente animado morado-oscuro */
     .btn-animate {
-      background: linear-gradient(270deg, #4c1d95, #1c1c1c, #6d28d9, #0a0a0a);
+      background: linear-gradient(270deg, #7e22ce, #4c1d95, #6d28d9, #3b0764);
       background-size: 600% 600%;
-      animation: gradientShift 8s ease infinite;
+      animation: gradientShift 6s ease infinite;
+      box-shadow: 0 0 10px #a855f7, 0 0 30px #7e22ce inset;
+      transition: all 0.3s ease;
+    }
+    .btn-animate:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 20px #c084fc, 0 0 40px #a855f7 inset;
     }
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
@@ -81,16 +87,31 @@
         </div>
       </div>
 
+      <!-- Rol -->
+      <div>
+        <label class="block text-sm text-gray-200">Rol</label>
+        <div class="relative">
+          <select required
+            class="w-full pl-10 pr-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white focus:ring-2 focus:ring-purple-400 focus:outline-none appearance-none" name="opcion">
+            <option value="" disabled selected>Selecciona tu rol</option>
+            <option value="admin" class="text-black">Administrador</option>
+            <option value="usuario" class="text-black">Usuario</option>
+          </select>
+          <i class="fa-solid fa-user-gear absolute left-3 top-3 text-gray-300"></i>
+        </div>
+      </div>
+
       <!-- Recuperar -->
-      <div class="text-right" >
+      <div class="text-right">
         <a href="#" class="text-sm text-purple-300 hover:underline">¿Olvidaste tu contraseña?</a>
       </div>
 
       <!-- Botón LOGIN -->
-<a th:href="@{/inicioAdmin}" class="btn-animate w-full py-2 rounded-lg text-white font-semibold hover:scale-105 transition" style="width: 100%">
-  login
-</a>
+      <button  class="btn-animate w-full py-2 rounded-lg text-white font-semibold text-center block" type="submit">
+        LOGIN
+      </button>
     </form>
+
     <!-- Redes sociales -->
     <div class="mt-6">
       <p class="text-center text-gray-300 text-sm">O inicia sesión con</p>
