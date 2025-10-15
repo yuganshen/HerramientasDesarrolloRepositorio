@@ -12,15 +12,22 @@
     <title>Document</title>
 
 </head>
-
+<style>
+	body {
+		background: linear-gradient(135deg, #0f0f1f, #1a082d, #000);
+	}
+	.blanco {
+		color: #fff;
+	}
+</style>
 <body>
     <div th:replace="Componentes/navbar :: nav_bar"></div>
 
-    <div class="bg-light">
+    <div >
         <div class="container mt-5">
             <div class="p-4 mx-auto" style="max-width: 900px;">
-                <h4>Mi perfil</h4>
-                <p class="mb-4">Administra y actualiza tu información personal de forma sencilla.</p>
+                <h4 class="blanco">Mi perfil</h4>
+                <p class="mb-4 blanco">Administra y actualiza tu información personal de forma sencilla.</p>
 
                 <div class="card shadow p-4">
                     <!-- Añadí method y action como ejemplo -->

@@ -64,6 +64,9 @@
             object-fit: cover;
             border-radius: 8px;
         }
+        .blanco{
+        	color: #fff;
+        }
     </style>
 </head>
 
@@ -72,8 +75,8 @@
     <div th:replace="Componentes/navbar :: nav_bar"></div>
 
     <div class="container my-5">
-        <h3>Compras realizadas</h3>
-        <p class="mb-4">Verifica las compras que realizaste con el seguimiento que ofrecemos </p>
+        <h3 class="blanco">Compras realizadas</h3>
+        <p class="mb-4 blanco">Verifica las compras que realizaste con el seguimiento que ofrecemos </p>
         <form action="" class="mb-4">
             <input type="text" name="nombre" placeholder="Buscar por producto" required>
             <button type="submit">Buscar</button>
