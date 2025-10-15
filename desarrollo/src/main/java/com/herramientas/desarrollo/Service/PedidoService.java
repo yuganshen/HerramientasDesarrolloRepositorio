@@ -34,8 +34,7 @@ public class PedidoService {
     public Pedido actualizarPedido(Long id, Pedido pedidoDetalles) {
         return pedidoRepositorio.findById(id).map(pedido -> {
             // aquí actualizas los campos que necesites
-            pedido.setFecha(pedidoDetalles.getFecha());
-            pedido.setTotal(pedidoDetalles.getTotal());
+
             // agrega ms setters segun los campos de la entidad
             return pedidoRepositorio.save(pedido);
         }).orElseThrow(() -> new RuntimeException("Pedido no encontrado con id: " + id));
