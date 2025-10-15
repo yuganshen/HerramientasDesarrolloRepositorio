@@ -18,109 +18,42 @@ public class ControllersNavegacion {
 	
 	@PostMapping("/registrar")
 	public String registrarNuevoUsuario(Model model){
-		model.addAttribute("registroUsuarioDto", new RegistroUsuarioDto());
+		//model.addAttribute("registroUsuarioDto", new RegistroUsuarioDto());
 		return"Form_Registro";
 	}	
 	
-	@GetMapping("/catalogo")
-	public String catalogo() {
-		return"Catalogo";
-	}
-	
-	@GetMapping("/carro")
+	@GetMapping("/carrito")
 	public String carrito() {
-		return"Carrito";
+		return"carrito";
+	}
+	@GetMapping("/compras")
+	public String compras() {
+		return"Comprasrealizadas";
 	}
 	
-	@GetMapping("/pantallas")
-	public String pantallitas() {
-		return"Pantalla";
-	}
-
-	@GetMapping("/contactenos")
-	public String contactos() {
-		return"Contacto";
-	}
-
-	@GetMapping("/teclados")
-	public String tecladiños() {
-		return"teclado";
+	@GetMapping("/inicio")
+	public String Start() {
+		return"inicio";
 	}
 	
-	@GetMapping("/producto")
-	public String productos() {
-		return"productos";
+	@GetMapping("/perfil")
+	public String perfil() {
+		return"Perfilusuario";
 	}
 	
-	@GetMapping("/mouse")
-	public String produ() {
-		return"Mouses";
-    }
-	
-	@GetMapping("/impresora")
-	public String impre() {
-		return"Impresoras";
-    }
-	
-	@GetMapping("/historial")
-	public String historial() {
-		return"Historial";
-    }
-
-	@GetMapping("/monitores")
-	public String moni() {
-		return"Monitores";
-    }
-	@PostMapping("/formRegistros")
-	public String formulario () {
-		return"Formulario_Registros";
+	@GetMapping("/pago")
+	public String pago() {
+		return"Pago";
 	}
 	
-	@GetMapping("/laptops")
-	public String laptop() {
-		return"Laptops";
+	@GetMapping("/gestionproductos")
+	public String gestionproductos() {
+		return"Gestionproductos";
 	}
 	
-	@GetMapping("/equipos")
-	public String equipo() {
-		return"Equipos";
+	@GetMapping("/gestionusuarios")
+	public String gestionusuarios() {
+		return"Gestionusuarios";
 	}
 	
-	@GetMapping("/ofertas")
-	public String ofertas() {
-		return"Oferta";
-	}
-	
-	@GetMapping("/audifonos")
-	public String audifonos() {
-		return"Audifonos";
-	}
-	
-	@GetMapping("/tarjetasgraficas")
-	public String tarjetasgraficas() {
-		return"TarjetasGraficas";
-	}
-	
-	@GetMapping("/lapsLenovo")
-	public String lapsLenovo() {
-		return"LaptopLenovo";
-	}
-	
-	@GetMapping("/cases")
-	public String cases() {
-		return"Cases";
-	}
-	
-	@GetMapping("/catalogo2")
-	public String mostrarCatalogo(Model model) {
-		return"Catalogo2";
-	}
-	
-	@GetMapping("/detalle-producto")
-	public String mostrarDetalleProducto(@RequestParam("id") int id, Model model) {
-	    model.addAttribute("productoId", id);
-	    return "Detalle-producto"; // nombre del HTML (detalle-producto.html)
-	}
-
 }
-

@@ -1,107 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carrito de Compras</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Carrito</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .card-producto img {
+      width: 100px;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .resumen-compra {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+    } /* 🔹 ← esta llave faltaba */
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* asegura ocupar toda la altura */
+    }
+
+    main {
+      flex: 1; /* empuja el footer hacia abajo */
+    }
+
+    footer {
+      margin-top: auto; /* fuerza el footer al fondo */
+    }
+  </style>
 </head>
-<body class="bg-black text-white font-sans">
+<body class="bg-light">
+      <!-- Nav component -->
+    <div th:replace="Componentes/navbar :: nav_bar"></div>
+<main>
+  <div class="container py-4">
+    <h4 class="fw-bold mb-3">Mi carrito <span class="text-muted">(3 productos)</span></h4>
 
-   <!-- Icono carrito -->
-      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.6 8h13.2L17 13M7 13h10">
-        </path>
-      </svg>
-      <span id="cart-count"
-        class="absolute -top-2 -right-2 bg-blue-500 text-xs rounded-full px-2 py-0.5">0</span>
-    </button>
-  </nav>
+    <div class="row">
+      <!-- Lista de productos -->
+      <div class="col-lg-8">
+        <!-- Producto -->
+        <div class="card mb-3 card-producto p-3 d-flex flex-row align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <img src="https://via.placeholder.com/100x100" class="me-3" alt="Producto">
+            <div>
+              <h6 class="fw-bold mb-1">Celular Motorola Edge 50 Fusion</h6>
+              <p class="mb-0 text-muted">8GB RAM, 256GB, 50MP + 13MP, 32MP frontal</p>
+              <a href="#" class="text-danger small">Eliminar</a>
+            </div>
+          </div>
+          <div class="text-end">
+            <div class="d-flex align-items-center justify-content-end mb-2">
+              <button class="btn btn-outline-secondary btn-sm">−</button>
+              <span class="mx-2">1</span>
+              <button class="btn btn-outline-secondary btn-sm">+</button>
+            </div>
+            <p class="fw-bold mb-0 text-success">S/ 1,049.00</p>
+          </div>
+        </div>
+        
+         <div class="card mb-3 card-producto p-3 d-flex flex-row align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <img src="https://via.placeholder.com/100x100" class="me-3" alt="Producto">
+            <div>
+              <h6 class="fw-bold mb-1">Mouse TG4</h6>
+              <p class="mb-0 text-muted">12000 dpi, peso 50g</p>
+              <a href="#" class="text-danger small">Eliminar</a>
+            </div>
+          </div>
+          <div class="text-end">
+            <div class="d-flex align-items-center justify-content-end mb-2">
+              <button class="btn btn-outline-secondary btn-sm">−</button>
+              <span class="mx-2">1</span>
+              <button class="btn btn-outline-secondary btn-sm">+</button>
+            </div>
+            <p class="fw-bold mb-0 text-success">S/ 49.00</p>
+          </div>
+        </div>
+          <div class="card mb-3 card-producto p-3 d-flex flex-row align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <img src="https://via.placeholder.com/100x100" class="me-3" alt="Producto">
+            <div>
+              <h6 class="fw-bold mb-1">Teclado Redragon Kumara 552</h6>
+              <p class="mb-0 text-muted"> Color: Negro, RGB: SI, </p>
+              <a href="#" class="text-danger small">Eliminar</a>
+            </div>
+          </div>
+          <div class="text-end">
+            <div class="d-flex align-items-center justify-content-end mb-2">
+              <button class="btn btn-outline-secondary btn-sm">−</button>
+              <span class="mx-2">1</span>
+              <button class="btn btn-outline-secondary btn-sm">+</button>
+            </div>
+            <p class="fw-bold mb-0 text-success">S/ 149.00</p>
+          </div>
+        </div>
 
-  <!-- CONTENIDO -->
-  <main class="p-8">
-    <h2 class="text-3xl font-bold text-blue-400 mb-6">Productos Disponibles</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <!-- Producto -->
-      <div class="bg-gray-800 p-4 rounded-xl shadow hover:scale-105 transition">
-        <img src="https://via.placeholder.com/200" alt="Producto" class="rounded-lg mb-3">
-        <h3 class="text-xl font-semibold">Consola X</h3>
-        <p class="text-gray-400 text-sm">Nueva generación</p>
-        <p class="text-blue-400 font-bold mt-2">$500</p>
-        <button onclick="addToCart('Consola X', 500)" class="mt-3 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold">Agregar</button>
+        <!-- Copia de producto (ejemplo de varios) -->
+        <div class="card mb-3 card-producto p-3 d-flex flex-row align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <img src="https://via.placeholder.com/100x100" class="me-3" alt="Producto">
+            <div>
+              <h6 class="fw-bold mb-1">Auriculares Inalámbricos JBL Tune 510BT</h6>
+              <p class="mb-0 text-muted">Bluetooth, batería de 40 horas</p>
+              <a href="#" class="text-danger small">Eliminar</a>
+            </div>
+          </div>
+          <div class="text-end">
+            <div class="d-flex align-items-center justify-content-end mb-2">
+              <button class="btn btn-outline-secondary btn-sm">−</button>
+              <span class="mx-2">1</span>
+              <button class="btn btn-outline-secondary btn-sm">+</button>
+            </div>
+            <p class="fw-bold mb-0 text-success">S/ 249.00</p>
+          </div>
+        </div>
       </div>
+      
 
-      <!-- Producto -->
-      <div class="bg-gray-800 p-4 rounded-xl shadow hover:scale-105 transition">
-        <img src="https://via.placeholder.com/200" alt="Producto" class="rounded-lg mb-3">
-        <h3 class="text-xl font-semibold">Control Gamer</h3>
-        <p class="text-gray-400 text-sm">Inalámbrico</p>
-        <p class="text-blue-400 font-bold mt-2">$60</p>
-        <button onclick="addToCart('Control Gamer', 60)" class="mt-3 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold">Agregar</button>
+      <!-- Resumen de compra -->
+      <div class="col-lg-4">
+        <div class="resumen-compra shadow-sm">
+          <h5 class="fw-bold">Resumen de compra</h5>
+          <div class="d-flex justify-content-between mt-3">
+            <span>Productos</span>
+            <span>S/ 1,496.00</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>Gastos de entrega</span>
+            <span>S/0</span>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between fw-bold fs-5">
+            <span>Total</span>
+            <span>S/ 1,496.0</span>
+          </div>
+         <a th:href="@{/pago}" class="btn btn-danger w-100 mt-3">Ir a Pagar</a>
+        </div>
       </div>
-
-    </div>
-  </main>
-
-  <!-- CARRITO (OCULTO) -->
-  <div id="cart-panel" class="fixed right-0 top-0 h-full w-80 bg-gray-900 shadow-xl transform translate-x-full transition-transform duration-300 z-50">
-    <div class="flex justify-between items-center px-4 py-3 bg-gray-800">
-      <h2 class="text-xl font-bold">Tu Carrito</h2>
-      <button onclick="toggleCart()" class="text-red-400 hover:text-red-600">✕</button>
-    </div>
-    <div id="cart-items" class="p-4 space-y-3"></div>
-    <div class="p-4 border-t border-gray-700">
-      <div class="flex justify-between font-semibold">
-        <span>Total:</span>
-        <span id="cart-total" class="text-blue-400">$0</span>
-      </div>
-      <button class="mt-4 w-full bg-blue-500 hover:bg-blue-600 rounded-lg py-2 font-semibold">Pagar</button>
     </div>
   </div>
+  </main>
+  
+  <footer th:replace="Componentes/Footer :: footer"> </footer>
 
-  <script>
-    let cart = [];
-    const cartBtn = document.getElementById("cart-btn");
-    const cartPanel = document.getElementById("cart-panel");
-    const cartCount = document.getElementById("cart-count");
-    const cartItems = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
-
-    cartBtn.addEventListener("click", toggleCart);
-
-    function toggleCart() {
-      cartPanel.classList.toggle("translate-x-full");
-    }
-
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      updateCart();
-    }
-
-    function updateCart() {
-      cartItems.innerHTML = "";
-      let total = 0;
-      cart.forEach((item, index) => {
-        total += item.price;
-        cartItems.innerHTML += `
-          <div class="flex justify-between items-center bg-gray-800 p-3 rounded-lg">
-            <div>
-              <p class="font-semibold">${item.name}</p>
-              <p class="text-sm text-gray-400">$${item.price}</p>
-            </div>
-            <button onclick="removeItem(${index})" class="text-red-400 hover:text-red-600">✕</button>
-          </div>`;
-      });
-      cartTotal.textContent = "$" + total;
-      cartCount.textContent = cart.length;
-    }
-
-    function removeItem(index) {
-      cart.splice(index, 1);
-      updateCart();
-    }
-  </script>
 </body>
 </html>

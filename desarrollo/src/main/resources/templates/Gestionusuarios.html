@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Productos</title>
+    <style>
+      :root {
+        --bg-1: #0f0c13;
+        --bg-2: #1b0f2b;
+        --accent-1: #9a4dff;
+        --accent-2: #6f2dbd;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      header {
+        background: rgba(154, 77, 255, 0.15);
+        padding: 1rem 2rem;
+        width: 100%;
+        text-align: center;
+        font-size: 1.8rem;
+        color: var(--accent-1);
+        border-bottom: 2px solid rgba(154, 77, 255, 0.3);
+      }
+
+      .container {
+        background: rgba(111, 45, 189, 0.08);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-top: 2rem;
+        width: 90%;
+        max-width: 800px;
+        box-shadow: 0 0 15px rgba(154, 77, 255, 0.3);
+      }
+
+      input,
+      button {
+        padding: 0.7rem;
+        margin: 0.5rem;
+        border-radius: 10px;
+        border: none;
+      }
+
+      input {
+        width: calc(100% - 1rem);
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        outline: none;
+      }
+
+      button {
+        background: var(--accent-1);
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: var(--accent-2);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid rgba(154, 77, 255, 0.3);
+        padding: 0.7rem;
+        text-align: center;
+      }
+
+      th {
+        color: var(--accent-1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>Gestión de Productos</header>
+    <div class="container">
+      <input id="productName" placeholder="Nombre del producto" />
+      <input id="productPrice" type="number" placeholder="Precio" />
+      <button onclick="addProduct()">Agregar</button>
+
+      <table id="productTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script>
+      let products = JSON.parse(localStorage.getItem("products")) || [];
+
+      function renderProducts() {
+        const tbody = document.querySelector("#productTable tbody");
+        tbody.innerHTML = "";
+        products.forEach((p, i) => {
+          tbody.innerHTML += `
+          <tr>
+            <td>${i + 1}</td>
+            <td>${p.name}</td>
+            <td>$${p.price}</td>
+            <td>
+              <button onclick="editProduct(${i})">Editar</button>
+              <button onclick="deleteProduct(${i})">Eliminar</button>
+            </td>
+          </tr>`;
+        });
+      }
+
+      function addProduct() {
+        const name = document.getElementById("productName").value;
+        const price = document.getElementById("productPrice").value;
+        if (!name || !price) return alert("Completa todos los campos");
+        products.push({ name, price });
+        localStorage.setItem("products", JSON.stringify(products));
+        renderProducts();
+      }
+
+      function editProduct(index) {
+        const newName = prompt("Nuevo nombre:", products[index].name);
+        const newPrice = prompt("Nuevo precio:", products[index].price);
+        if (newName && newPrice) {
+          products[index] = { name: newName, price: newPrice };
+          localStorage.setItem("products", JSON.stringify(products));
+          renderProducts();
+        }
+      }
+
+      function deleteProduct(index) {
+        products.splice(index, 1);
+        localStorage.setItem("products", JSON.stringify(products));
+        renderProducts();
+      }
+
+      renderProducts();
+    </script>
+  </body>
+</html>
