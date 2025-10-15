@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión de Usuarios y Pedidos</title>
+    <title>Gestión de Productos</title>
     <style>
       :root {
         --bg-1: #0f0c13;
@@ -40,14 +40,34 @@
         border-radius: 15px;
         margin-top: 2rem;
         width: 90%;
-        max-width: 900px;
+        max-width: 800px;
         box-shadow: 0 0 15px rgba(154, 77, 255, 0.3);
       }
 
-      h2 {
-        color: var(--accent-1);
-        border-bottom: 1px solid rgba(154, 77, 255, 0.3);
-        padding-bottom: 5px;
+      input,
+      button {
+        padding: 0.7rem;
+        margin: 0.5rem;
+        border-radius: 10px;
+        border: none;
+      }
+
+      input {
+        width: calc(100% - 1rem);
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        outline: none;
+      }
+
+      button {
+        background: var(--accent-1);
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: var(--accent-2);
       }
 
       table {
@@ -63,46 +83,24 @@
         text-align: center;
       }
 
-      button {
-        background: var(--accent-1);
-        color: #fff;
-        border: none;
-        border-radius: 10px;
-        padding: 0.5rem 0.8rem;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      button:hover {
-        background: var(--accent-2);
+      th {
+        color: var(--accent-1);
       }
     </style>
   </head>
   <body>
-    <header>Gestión de Usuarios y Pedidos</header>
+    <header>Gestión de Productos</header>
     <div class="container">
-      <h2>Usuarios</h2>
-      <table id="userTable">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Rol</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <input id="productName" placeholder="Nombre del producto" />
+      <input id="productPrice" type="number" placeholder="Precio" />
+      <button onclick="addProduct()">Agregar</button>
 
-      <h2>Pedidos</h2>
-      <table id="orderTable">
+      <table id="productTable">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Cliente</th>
             <th>Producto</th>
-            <th>Estado</th>
+            <th>Precio</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -111,74 +109,51 @@
     </div>
 
     <script>
-      const users = [
-        { id: 1, name: "Carlos", role: "Admin", active: true },
-        { id: 2, name: "Lucía", role: "Cliente", active: false },
-      ];
+      let products = JSON.parse(localStorage.getItem("products")) || [];
 
-      const orders = [
-        { id: 101, client: "Lucía", product: "Laptop", status: "Pendiente" },
-        { id: 102, client: "Carlos", product: "Celular", status: "Enviado" },
-      ];
-
-      function renderUsers() {
-        const tbody = document.querySelector("#userTable tbody");
+      function renderProducts() {
+        const tbody = document.querySelector("#productTable tbody");
         tbody.innerHTML = "";
-        users.forEach((u) => {
+        products.forEach((p, i) => {
           tbody.innerHTML += `
           <tr>
-            <td>${u.id}</td>
-            <td>${u.name}</td>
-            <td>${u.role}</td>
-            <td>${u.active ? "Activo" : "Inactivo"}</td>
+            <td>${i + 1}</td>
+            <td>${p.name}</td>
+            <td>$${p.price}</td>
             <td>
-              <button onclick=\"toggleUser(${u.id})\">${
-            u.active ? "Desactivar" : "Activar"
-          }</button>
+              <button onclick="editProduct(${i})">Editar</button>
+              <button onclick="deleteProduct(${i})">Eliminar</button>
             </td>
           </tr>`;
         });
       }
 
-      function renderOrders() {
-        const tbody = document.querySelector("#orderTable tbody");
-        tbody.innerHTML = "";
-        orders.forEach((o) => {
-          tbody.innerHTML += `
-          <tr>
-            <td>${o.id}</td>
-            <td>${o.client}</td>
-            <td>${o.product}</td>
-            <td>${o.status}</td>
-            <td>
-              <button onclick=\"changeOrderStatus(${o.id})\">Cambiar Estado</button>
-              <button onclick=\"contactClient('${o.client}')\">Contactar</button>
-            </td>
-          </tr>`;
-        });
+      function addProduct() {
+        const name = document.getElementById("productName").value;
+        const price = document.getElementById("productPrice").value;
+        if (!name || !price) return alert("Completa todos los campos");
+        products.push({ name, price });
+        localStorage.setItem("products", JSON.stringify(products));
+        renderProducts();
       }
 
-      function toggleUser(id) {
-        const user = users.find((u) => u.id === id);
-        user.active = !user.active;
-        renderUsers();
-      }
-
-      function changeOrderStatus(id) {
-        const order = orders.find((o) => o.id === id);
-        const newStatus = prompt("Nuevo estado:", order.status);
-        if (newStatus) {
-          order.status = newStatus;
-          renderOrders();
+      function editProduct(index) {
+        const newName = prompt("Nuevo nombre:", products[index].name);
+        const newPrice = prompt("Nuevo precio:", products[index].price);
+        if (newName && newPrice) {
+          products[index] = { name: newName, price: newPrice };
+          localStorage.setItem("products", JSON.stringify(products));
+          renderProducts();
         }
       }
 
-      function contactClient(name) {
-        alert(`Contactando al cliente: ${name}`);
+      function deleteProduct(index) {
+        products.splice(index, 1);
+        localStorage.setItem("products", JSON.stringify(products));
+        renderProducts();
       }
 
-      renderUsers();
-      renderOrders();
+      renderProducts();
     </script>
   </body>
 </html>
