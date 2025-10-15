@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago y Entrega</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .resumen-compra {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+    <div th:replace="Componentes/navbar :: nav_bar"></div>
+
+
+  <div class="container py-4">
+    <h4 class="fw-bold mb-4">Pago</h4>
+
+    <div class="row">
+      <!-- Sección izquierda -->
+      <div class="col-lg-8">
+
+        <!-- Comprobante -->
+        <div class="mb-4">
+          <h6 class="fw-bold">Selecciona tu comprobante de pago</h6>
+          <div class="btn-group w-100" role="group">
+            <input type="radio" class="btn-check" name="comprobante" id="boleta" checked>
+            <label class="btn btn-outline-primary" for="boleta">Boleta</label>
+
+            <input type="radio" class="btn-check" name="comprobante" id="factura">
+            <label class="btn btn-outline-primary" for="factura">Factura</label>
+          </div>
+        </div>
+
+        <!-- Modalidad de entrega -->
+        <div class="mb-4">
+          <h6 class="fw-bold">Selecciona modalidad de entrega</h6>
+          <div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="radio" name="entrega" id="recojo" checked>
+              <label class="form-check-label" for="recojo">Recojo en tienda</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="entrega" id="delivery">
+              <label class="form-check-label" for="delivery">Entrega por delivery</label>
+            </div>
+          </div>
+
+          <!-- Formulario de entrega -->
+          <form id="form-delivery" class="mt-3 hidden">
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" placeholder="Ej: James Quispe">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Teléfono</label>
+                <input type="text" class="form-control" placeholder="999999999">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Dirección</label>
+                <input type="text" class="form-control" placeholder="Calle, número, referencia">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Ciudad</label>
+                <input type="text" class="form-control" placeholder="Ciudad">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Provincia</label>
+                <input type="text" class="form-control" placeholder="Provincia">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Métodos de pago -->
+        <div>
+          <h6 class="fw-bold">Selecciona tu método de pago</h6>
+
+          <div class="list-group">
+            <label class="list-group-item">
+              <input class="form-check-input me-2 metodo-pago" type="radio" name="pago" value="credito"> 
+              Tarjeta de crédito
+            </label>
+            <label class="list-group-item">
+              <input class="form-check-input me-2 metodo-pago" type="radio" name="pago" value="debito"> 
+              Tarjeta de débito
+            </label>
+            <label class="list-group-item">
+              <input class="form-check-input me-2 metodo-pago" type="radio" name="pago" value="billeteras"> 
+              Billeteras digitales
+            </label>
+            <label class="list-group-item">
+              <input class="form-check-input me-2 metodo-pago" type="radio" name="pago" value="efectivo"> 
+              PagoEfectivo
+            </label>
+          </div>
+
+          <!-- Formulario de tarjeta -->
+          <form id="form-tarjeta" class="mt-3 hidden">
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label class="form-label">Número de tarjeta</label>
+                <input type="text" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Vencimiento</label>
+                <input type="text" class="form-control" placeholder="MM/AA">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">CVV</label>
+                <input type="text" class="form-control" placeholder="123">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Nombre del titular</label>
+                <input type="text" class="form-control" placeholder="Nombre como figura en la tarjeta">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Resumen de compra -->
+      <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="resumen-compra shadow-sm">
+          <h5 class="fw-bold">Resumen de compra</h5>
+          <div class="d-flex justify-content-between mt-3">
+            <span>Productos</span>
+            <span>S/ 1,496.00</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>Gastos de entrega</span>
+            <span>S/ 30.90</span>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between fw-bold fs-5">
+            <span>Total</span>
+            <span>S/ 1,536.90</span>
+          </div>
+          <a th:href="@{/inicio}" class="btn btn-danger w-100 mt-3">Finalizar Compra</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer th:replace="Componentes/Footer :: footer"> </footer>
+
+  <script>
+    // Mostrar formulario de entrega si se elige delivery
+    const recojo = document.getElementById('recojo');
+    const delivery = document.getElementById('delivery');
+    const formDelivery = document.getElementById('form-delivery');
+
+    recojo.addEventListener('change', () => formDelivery.classList.add('hidden'));
+    delivery.addEventListener('change', () => formDelivery.classList.remove('hidden'));
+
+    // Mostrar formulario de tarjeta si se elige crédito o débito
+    const metodos = document.querySelectorAll('.metodo-pago');
+    const formTarjeta = document.getElementById('form-tarjeta');
+
+    metodos.forEach(m => {
+      m.addEventListener('change', () => {
+        if (m.value === 'credito' || m.value === 'debito') {
+          formTarjeta.classList.remove('hidden');
+        } else {
+          formTarjeta.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
