@@ -13,14 +13,17 @@
   <style>
     /* -------- NAVBAR -------- */
     nav.navbar {
-      background: linear-gradient(90deg, #1e3a8a, black);
+      background: linear-gradient(90deg,#3a027b, black);
       padding: 1rem 2rem;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .navbar-brand {
       font-weight: bold;
-      color: #facc15 !important;
+     /*color: #9a4dff !important;*/
+     color: #6f2dbd !important;
+      /*color: #ffffff !important;*/
+      /*color: #facc15 !important;*/
       font-size: 1.5rem;
       opacity: 0;
       animation: bounceIn 1s ease forwards;
@@ -38,6 +41,7 @@
       opacity: 0;
       transform: translateY(-10px);
       animation: fadeIn 1s ease forwards;
+      font-size: 1.2rem;
     }
 
     .navbar-nav .nav-link:nth-child(1) { animation-delay: 0.5s; }
@@ -50,20 +54,21 @@
     }
 
     .navbar-nav .nav-link:hover {
-      color: #fbbf24 !important;
+     /* color: #dc2626 !important;*/
+      color: #6f2dbd !important;
     }
 
 
-    /* Dropdown personalizado para el tema azul/dorado */
+    /* Dropdown personalizado*/
     .dropdown-menu {
-      background: linear-gradient(180deg, #111827, #1e3a8a);
-      border: 1px solid #fbbf24;
+      background: linear-gradient(180deg, #111827, #6f2dbd);
+      border: 1px solid #9a4dff;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       min-width: 200px;
     }
     .dropdown-header {
-      color: #facc15;
+      color: #9a4dff;
       font-weight: bold;
     }
     .dropdown-item {
@@ -71,7 +76,7 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     .dropdown-item:hover {
-      background-color: #fbbf24;
+      background-color: rgba(154, 77, 255, 0.15);
       color: black;
     }
     .dropdown-item.text-danger {
@@ -126,18 +131,18 @@
     }
 
     .tab-button:hover {
-      color: #fbbf24;
-      border-bottom: 3px solid #fbbf24;
+      color: #6f2dbd;
+      border-bottom: 3px solid #6f2dbd;
     }
 
     .tab-button:hover::after,
     .tab-button.active::after {
-      border-top-color: #fbbf24;
+      border-top-color: #6f2dbd;
     }
 
     .tab-button.active {
-      color: #fbbf24;
-      border-bottom: 3px solid #fbbf24;
+      color: #6f2dbd;
+      border-bottom: 3px solid #6f2dbd;
     }
 
     /* -------- SUBPESTAÑAS -------- */
@@ -156,7 +161,7 @@
     }
 
     .tab-content-custom a {
-      background-color: #1e3a8a;
+      background-color: #6f2dbd;
       color: white;
       padding: 8px 16px;
       border-radius: 8px;
@@ -166,9 +171,9 @@
     }
 
     .tab-content-custom a:hover {
-      background-color: #fbbf24;
+      background-color: rgba(154, 77, 255, 0.15);
       color: black;
-       border-color: #fbbf24;
+       border-color: rgba(154, 77, 255, 0.15);
     }
 
     /* Fondo general */
