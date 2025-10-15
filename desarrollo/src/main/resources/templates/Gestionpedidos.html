@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Pedidos</title>
+    <style>
+      :root {
+        --bg-1: #0f0c13;
+        --bg-2: #1b0f2b;
+        --accent-1: #9a4dff;
+        --accent-2: #6f2dbd;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      header {
+        background: rgba(154, 77, 255, 0.15);
+        padding: 1rem 2rem;
+        width: 100%;
+        text-align: center;
+        font-size: 1.8rem;
+        color: var(--accent-1);
+        border-bottom: 2px solid rgba(154, 77, 255, 0.3);
+      }
+
+      .container {
+        background: rgba(111, 45, 189, 0.08);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-top: 2rem;
+        width: 90%;
+        max-width: 900px;
+        box-shadow: 0 0 15px rgba(154, 77, 255, 0.3);
+      }
+
+      h2 {
+        color: var(--accent-1);
+        border-bottom: 1px solid rgba(154, 77, 255, 0.3);
+        padding-bottom: 5px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid rgba(154, 77, 255, 0.3);
+        padding: 0.7rem;
+        text-align: center;
+      }
+
+      button {
+        background: var(--accent-1);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem 0.8rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: var(--accent-2);
+      }
+    </style>
+  </head>
+  <body>
+    <header>Gestión de Pedidos</header>
+    <div class="container">
+      <h2>Lista de Pedidos</h2>
+      <table id="orderTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Producto</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script>
+      const orders = [
+        { id: 101, client: "Lucía", product: "Laptop", status: "Pendiente" },
+        { id: 102, client: "Carlos", product: "Celular", status: "Enviado" },
+      ];
+
+      function renderOrders() {
+        const tbody = document.querySelector("#orderTable tbody");
+        tbody.innerHTML = "";
+        orders.forEach((o) => {
+          tbody.innerHTML += `
+          <tr>
+            <td>${o.id}</td>
+            <td>${o.client}</td>
+            <td>${o.product}</td>
+            <td>${o.status}</td>
+            <td>
+              <button onclick="changeOrderStatus(${o.id})">Cambiar Estado</button>
+              <button onclick="contactClient('${o.client}')">Contactar</button>
+            </td>
+          </tr>`;
+        });
+      }
+
+      function changeOrderStatus(id) {
+        const order = orders.find((o) => o.id === id);
+        const newStatus = prompt("Nuevo estado:", order.status);
+        if (newStatus) {
+          order.status = newStatus;
+          renderOrders();
+        }
+      }
+
+      function contactClient(name) {
+        alert(`Contactando al cliente: ${name}`);
+      }
+
+      renderOrders();
+    </script>
+  </body>
+</html>
