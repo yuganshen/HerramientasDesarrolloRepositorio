@@ -1,6 +1,5 @@
 package com.herramientas.desarrollo.Entidades;
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -75,7 +74,8 @@ public class Pago {
 	public void setIdUsuario(String idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-    
-    
-    
+     
 }
+
+
+

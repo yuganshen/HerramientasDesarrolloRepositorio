@@ -24,3 +24,7 @@ public class DetallePedido {
 
     // Getters y setters
 }
+
+
+
+	

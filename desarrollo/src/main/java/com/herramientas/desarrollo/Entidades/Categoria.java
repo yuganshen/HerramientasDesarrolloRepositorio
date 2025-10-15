@@ -2,7 +2,6 @@ package com.herramientas.desarrollo.Entidades;
 
 
 import java.util.List;
-
 import javax.persistence.*;
 
 @Entity

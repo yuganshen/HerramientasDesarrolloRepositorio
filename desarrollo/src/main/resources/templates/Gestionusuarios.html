@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Gestión de Productos</title>
       <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    
+
+    <title>Gestión de Usuarios</title>
+
     <style>
       :root {
         --bg-1: #0f0c13;
@@ -49,30 +52,10 @@
         box-shadow: 0 0 15px rgba(154, 77, 255, 0.3);
       }
 
-      input,
-      button {
-        padding: 0.7rem;
-        margin: 0.5rem;
-        border-radius: 10px;
-        border: none;
-      }
-
-      input {
-        width: calc(100% - 1rem);
-        background-color: rgba(255, 255, 255, 0.1);
-        color: #fff;
-        outline: none;
-      }
-
-      button {
-        background: var(--accent-1);
-        color: #fff;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      button:hover {
-        background: var(--accent-2);
+      h2 {
+        color: var(--accent-1);
+        border-bottom: 1px solid rgba(154, 77, 255, 0.3);
+        padding-bottom: 5px;
       }
 
       table {
@@ -88,26 +71,33 @@
         text-align: center;
       }
 
-      th {
-        color: var(--accent-1);
+      button {
+        background: var(--accent-1);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 0.5rem 0.8rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: var(--accent-2);
       }
     </style>
   </head>
   <body>
-        <div th:replace="Componentes/navbarAdmin :: nav_barAdm"></div>
-  
-    <header>Gestión de Productos</header>
+  <div th:replace="Componentes/navbarAdmin :: nav_barAdm"></div>
+    <header>Gestión de Usuarios</header>
     <div class="container">
-      <input id="productName" placeholder="Nombre del producto" />
-      <input id="productPrice" type="number" placeholder="Precio" />
-      <button onclick="addProduct()">Agregar</button>
-
-      <table id="productTable">
+      <h2>Lista de Usuarios</h2>
+      <table id="userTable">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Producto</th>
-            <th>Precio</th>
+            <th>Nombre</th>
+            <th>Rol</th>
+            <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -116,51 +106,37 @@
     </div>
 
     <script>
-      let products = JSON.parse(localStorage.getItem("products")) || [];
+      const users = [
+        { id: 1, name: "Carlos", role: "Admin", active: true },
+        { id: 2, name: "Lucía", role: "Cliente", active: false },
+      ];
 
-      function renderProducts() {
-        const tbody = document.querySelector("#productTable tbody");
+      function renderUsers() {
+        const tbody = document.querySelector("#userTable tbody");
         tbody.innerHTML = "";
-        products.forEach((p, i) => {
+        users.forEach((u) => {
           tbody.innerHTML += `
           <tr>
-            <td>${i + 1}</td>
-            <td>${p.name}</td>
-            <td>$${p.price}</td>
+            <td>${u.id}</td>
+            <td>${u.name}</td>
+            <td>${u.role}</td>
+            <td>${u.active ? "Activo" : "Inactivo"}</td>
             <td>
-              <button onclick="editProduct(${i})">Editar</button>
-              <button onclick="deleteProduct(${i})">Eliminar</button>
+              <button onclick="toggleUser(${u.id})">
+                ${u.active ? "Desactivar" : "Activar"}
+              </button>
             </td>
           </tr>`;
         });
       }
 
-      function addProduct() {
-        const name = document.getElementById("productName").value;
-        const price = document.getElementById("productPrice").value;
-        if (!name || !price) return alert("Completa todos los campos");
-        products.push({ name, price });
-        localStorage.setItem("products", JSON.stringify(products));
-        renderProducts();
+      function toggleUser(id) {
+        const user = users.find((u) => u.id === id);
+        user.active = !user.active;
+        renderUsers();
       }
 
-      function editProduct(index) {
-        const newName = prompt("Nuevo nombre:", products[index].name);
-        const newPrice = prompt("Nuevo precio:", products[index].price);
-        if (newName && newPrice) {
-          products[index] = { name: newName, price: newPrice };
-          localStorage.setItem("products", JSON.stringify(products));
-          renderProducts();
-        }
-      }
-
-      function deleteProduct(index) {
-        products.splice(index, 1);
-        localStorage.setItem("products", JSON.stringify(products));
-        renderProducts();
-      }
-
-      renderProducts();
+      renderUsers();
     </script>
   </body>
 </html>
