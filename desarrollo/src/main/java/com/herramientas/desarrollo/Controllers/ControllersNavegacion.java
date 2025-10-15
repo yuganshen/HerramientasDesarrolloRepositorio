@@ -77,4 +77,11 @@ public class ControllersNavegacion {
 	public String nav() {
 		return"navbarAdmin";
 	}
+	
+	
+	@GetMapping("/detalle-compra")
+	public String detalleCompra() {
+		return "Detalle-compra";
+	}
+	 	
 }
