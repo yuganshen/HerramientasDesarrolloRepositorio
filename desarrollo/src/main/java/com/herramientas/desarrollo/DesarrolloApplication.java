@@ -16,9 +16,6 @@ public class DesarrolloApplication {
     @Bean
     public CommandLineRunner demo(ProductoRepositorio repo) {
         return (args) -> {
-            repo.save(new Producto(null, "Teclado mecánico RGB", 150.0, 20));
-            repo.save(new Producto(null, "Mouse gamer inalámbrico", 90.0, 15));
-            repo.save(new Producto(null, "Audífonos HyperX Cloud", 220.0, 10));
         };
     }
 }

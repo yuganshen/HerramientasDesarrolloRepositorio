@@ -68,6 +68,10 @@ public class ControllersNavegacion {
 	public String detalles() {
 		return"Detalle-producto";
 	}
+	@GetMapping("/gestionpedidos")
+	public String ga() {
+		return"Gestionpedidos";
+	}
 	
 	@GetMapping("/nav")
 	public String nav() {

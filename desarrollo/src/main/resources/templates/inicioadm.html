@@ -112,6 +112,8 @@
     </style>
   </head>
   <body>
+      <div th:replace="Componentes/navbarAdmin :: nav_barAdm"></div>
+  
     <!-- Header -->
     <header class="mt-5 pt-5">
       <h1>Panel de Administración</h1>
@@ -125,7 +127,7 @@
           <div class="card">
             <h4>Gestión de Productos</h4>
             <p>Agrega, edita o elimina productos del catálogo.</p>
-            <a href="products.html" class="btn btn-custom">Ir a Productos</a>
+            <a href="gestionproductos" class="btn btn-custom">Ir a Productos</a>
           </div>
         </div>
 
@@ -133,7 +135,7 @@
           <div class="card">
             <h4>Gestión de Pedidos</h4>
             <p>Monitorea pedidos, cambia su estado y organiza entregas.</p>
-            <a href="admin_users_orders.html" class="btn btn-custom"
+            <a href="gestionpedidos" class="btn btn-custom"
               >Ir a Pedidos</a
             >
           </div>
@@ -143,7 +145,7 @@
           <div class="card">
             <h4>Gestión de Usuarios</h4>
             <p>Administra cuentas, roles y permisos fácilmente.</p>
-            <a href="admin_users_orders.html" class="btn btn-custom"
+            <a href="gestionusuarios" class="btn btn-custom"
               >Ir a Usuarios</a
             >
           </div>
