@@ -1,68 +1,333 @@
-6<div th:fragment="nav_bar">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GamingStore</title>
+
+<div th:fragment="nav_bar">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* -------- NAVBAR -------- */
+    nav.navbar {
+      background: linear-gradient(90deg, #1e3a8a, black);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #facc15 !important;
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: bounceIn 1s ease forwards;
+    }
+
+    /* Logo rebote */
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      opacity: 0;
+      transform: translateY(-10px);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .navbar-nav .nav-link:nth-child(1) { animation-delay: 0.5s; }
+    .navbar-nav .nav-link:nth-child(2) { animation-delay: 0.8s; }
+    .navbar-nav .nav-link:nth-child(3) { animation-delay: 1.1s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #fbbf24 !important;
+    }
+
+
+    /* Dropdown personalizado para el tema azul/dorado */
+    .dropdown-menu {
+      background: linear-gradient(180deg, #111827, #1e3a8a);
+      border: 1px solid #fbbf24;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      min-width: 200px;
+    }
+    .dropdown-header {
+      color: #facc15;
+      font-weight: bold;
+    }
+    .dropdown-item {
+      color: white;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .dropdown-item:hover {
+      background-color: #fbbf24;
+      color: black;
+    }
+    .dropdown-item.text-danger {
+      color: #f87171 !important;
+    }
+    .dropdown-item.text-danger:hover {
+      background-color: #dc2626 !important;
+      color: white !important;
+    }
+
+
+    /* -------- PESTAÑAS PRINCIPALES -------- */
+    .tabs-container {
+      margin-top: 100px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1.5rem;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .tab-button {
+      color: black; /* Azul oscuro */
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s, border-color 0.3s;
+  padding: 10px 15px;
+  border-bottom: 3px solid transparent;
+  display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tab-button::after {
+       content: "";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid currentColor; /* Usa el mismo color del texto */
+  margin-left: 6px;
+  transition: transform 0.3s, color 0.3s;
+    }
+
+    .tab-button:hover {
+      color: #fbbf24;
+      border-bottom: 3px solid #fbbf24;
+    }
+
+    .tab-button:hover::after,
+    .tab-button.active::after {
+      border-top-color: #fbbf24;
+    }
+
+    .tab-button.active {
+      color: #fbbf24;
+      border-bottom: 3px solid #fbbf24;
+    }
+
+    /* -------- SUBPESTAÑAS -------- */
+    .tab-content-custom {
+      display: none;
+      margin-top: 0;
+      padding-left: 20px;
+    }
+
+    .tab-content-custom.active {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .tab-content-custom a {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .tab-content-custom a:hover {
+      background-color: #fbbf24;
+      color: black;
+       border-color: #fbbf24;
+    }
+
+    /* Fondo general */
+    body {
+      background-color: #f3f4f6;
+    }
+  </style>
+</head>
+
+<body>
+
+<div th:fragment="nav_bar">
   <!-- NAVBAR -->
-  <nav 
-     class="bg-gradient-to-r from-blue-900 to-black p-4 px-8 flex justify-between items-center text-white fixed top-0 left-0 w-full shadow-lg z-50">
-  
-  <!-- Logo -->
-  <a href="/" class="text-yellow-400 font-bold text-xl">
-    🕹️ GamingStore
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">🕹️ GamingStore</a>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="catalogo">Inicio</a></li>
+          <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">
+    Yo
   </a>
-
-  <!-- Links -->
-  <div class="flex gap-6">
-    <a href="/" class="hover:text-yellow-400 transition">Inicio</a>
-    <a href="/catalogo" class="hover:text-yellow-400 transition">Catálogo</a>
-    <a href="/cart" class="hover:text-yellow-400 transition">Carrito (0)</a>
-  </div>
-</nav>
-
-  <!-- CONTENEDOR DE PESTAÑAS -->
-  <div class="max-w-6xl mx-auto mt-24 px-4">
-    <div class="flex gap-4 border-b-2 border-gray-300 mb-4">
-      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="laptops">Laptops</button>
-      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="computadoras">Computadoras</button>
-      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="zona-gamer">Zona Gamer</button>
-      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="partes-pc">Partes de PC</button>
-      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="monitores">Monitores y más</button>
-      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="impresoras">Impresoras</button>
-    </div>
-
-    <!-- Ejemplo de contenido de pestaña -->
-    <div id="laptops" class="tab-content hidden animate-fadeInUp">
-      <h2 class="text-xl font-bold mb-2">Laptops</h2>
-      <div class="flex flex-wrap gap-3 mb-4">
-        <a href="/laptops/asus" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-black transition">Asus</a>
-        <a href="/laptops/hp" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-black transition">HP</a>
-        <a href="/laptops/lenovo" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-black transition">Lenovo</a>
-        <a href="/laptops/dell" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-black transition">Dell</a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+    <li><h6 class="dropdown-header text-center">¡Bienvenido!</h6></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="perfil">Mi perfil</a></li>
+    <li><a class="dropdown-item" href="compras">Historial</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item text-danger" href="#">Cerrar sesión</a></li>
+  </ul>
+</li>
+          <li class="nav-item"><a class="nav-link" href="catalogo">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="carrito">Carrito (4) </a></li>
+        </ul>
       </div>
     </div>
+  </nav>
+
+  <!-- CONTENEDOR DE PESTAÑAS -->
+  <div class="tabs-container">
+    <div class="tabs">
+      <button class="tab-button" data-tab="laptops">Laptops</button>
+      <button class="tab-button" data-tab="computadoras">Computadoras</button>
+      <button class="tab-button" data-tab="zona-gamer">Zona Gamer</button>
+      <button class="tab-button" data-tab="partes-pc">Partes de PC</button>
+      <button class="tab-button" data-tab="monitores">Monitores y más</button>
+      <button class="tab-button" data-tab="impresoras">Impresoras</button>
+    </div>
+
+    <!-- Laptops -->
+    <div class="tab-content-custom" id="laptops">
+      <h5 class="w-100 fw-bold">Laptops</h5>
+      <a href="#">Asus</a>
+      <a href="#">HP</a>
+      <a href="#">Lenovo</a>
+      <a href="#">Dell</a>
+
+      <h5 class="w-100 fw-bold mt-3">Laptops Gamer</h5>
+      <a href="#">Asus</a>
+      <a href="#">HP</a>
+      <a href="#">Lenovo</a>
+      <a href="#">Dell</a>
+    </div>
+
+    <!-- Computadoras -->
+    <div class="tab-content-custom" id="computadoras">
+      <h5 class="w-100 fw-bold">Hogar & Oficina</h5>
+      <a href="#">AMD Series</a>
+      <a href="#">Intel Series</a>
+
+      <h5 class="w-100 fw-bold mt-3">PC'S Gamers</h5>
+      <a href="#">Línea baja</a>
+      <a href="#">Línea ultra</a>
+      <a href="#">Línea extrema</a>
+    </div>
+
+    <!-- Zona Gamer -->
+    <div class="tab-content-custom" id="zona-gamer">
+      <h5 class="w-100 fw-bold">Zona Gamer</h5>
+      <a href="#">Teclado Gamer</a>
+      <a href="#">Mouse Gamer</a>
+      <a href="#">Audífonos Gamer</a>
+      <a href="#">Sillas Gamer</a>
+      <a href="#">Pantallas Gamer</a>
+    </div>
+
+    <!-- Partes de PC -->
+    <div class="tab-content-custom" id="partes-pc">
+      <h5 class="w-100 fw-bold">Partes de PC</h5>
+      <a href="#">Tarjetas de video</a>
+      <a href="#">Discos</a>
+      <a href="#">Procesadores</a>
+      <a href="#">Memoria RAM</a>
+      <a href="#">Fuentes de poder</a>
+      <a href="#">Cooler</a>
+    </div>
+
+    <!-- Monitores -->
+    <div class="tab-content-custom" id="monitores">
+      <h5 class="w-100 fw-bold">Monitores</h5>
+      <a href="#">LG</a>
+      <a href="#">Samsung</a>
+      <a href="#">Asus</a>
+      <a href="#">Teros</a>
+
+      <h5 class="w-100 fw-bold mt-3">Proyectores</h5>
+      <a href="#">View Sonic</a>
+      <a href="#">Epson</a>
+      <a href="#">Havit</a>
+    </div>
+
+    <!-- Impresoras -->
+    <div class="tab-content-custom" id="impresoras">
+      <h5 class="w-100 fw-bold">Impresoras</h5>
+      <a href="#">Brother</a>
+      <a href="#">Epson</a>
+      <a href="#">Canon</a>
+      <a href="#">HP</a>
+    </div>
   </div>
 
-  <!-- SCRIPT -->
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script para pestañas -->
   <script>
-    const tabs = document.querySelectorAll('.tab-button');
-    const contents = document.querySelectorAll('.tab-content');
-    let activeTab = null;
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabs = document.querySelectorAll('.tab-button');
+      const contents = document.querySelectorAll('.tab-content-custom');
+      let activeTab = null;
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabId = tab.getAttribute('data-tab');
-        const content = document.getElementById(tabId);
+      // Asegura que ninguna empiece abierta
+      contents.forEach(c => c.classList.remove('active'));
+      tabs.forEach(t => t.classList.remove('active'));
 
-        if (activeTab === tab) {
-          tab.classList.remove('text-yellow-400', 'border-yellow-400');
-          content.classList.add('hidden');
-          activeTab = null;
-        } else {
-          tabs.forEach(t => t.classList.remove('text-yellow-400', 'border-yellow-400'));
-          contents.forEach(c => c.classList.add('hidden'));
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const tabId = tab.getAttribute('data-tab');
+          const content = document.getElementById(tabId);
 
-          tab.classList.add('text-yellow-400', 'border-yellow-400');
-          content.classList.remove('hidden');
-          activeTab = tab;
-        }
+          if (activeTab === tab) {
+            tab.classList.remove('active');
+            content.classList.remove('active');
+            activeTab = null;
+          } else {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            tab.classList.add('active');
+            content.classList.add('active');
+            activeTab = tab;
+          }
+        });
       });
     });
   </script>
-  </div>
+</body>
+</div>
+
+</html>

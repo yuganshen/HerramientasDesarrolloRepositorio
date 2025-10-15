@@ -56,4 +56,21 @@ public class ControllersNavegacion {
 		return"Gestionusuarios";
 	}
 	
+	@GetMapping("/inicioAdmin")
+	public String inicioiAdmin() {
+		return"inicioadm";
+	}
+	@GetMapping("/catalogo")
+	public String catalogo() {
+		return"catalogo";
+	}
+	@GetMapping("/Detalle-producto.html")
+	public String detalles() {
+		return"Detalle-producto";
+	}
+	
+	@GetMapping("/nav")
+	public String nav() {
+		return"navbarAdmin";
+	}
 }
