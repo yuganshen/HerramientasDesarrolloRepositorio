@@ -72,4 +72,5 @@ public class ControllersNavegacion {
 	public String ga() {
 		return"Gestionpedidos";
 	}
+
 }
