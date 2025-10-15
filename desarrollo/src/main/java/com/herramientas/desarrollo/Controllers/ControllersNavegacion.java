@@ -64,13 +64,18 @@ public class ControllersNavegacion {
 	public String catalogo() {
 		return"catalogo";
 	}
-	@GetMapping("/detalle-producto")
+	@GetMapping("/Detalle-producto.html")
 	public String detalles() {
 		return"Detalle-producto";
 	}
 	@GetMapping("/gestionpedidos")
 	public String ga() {
 		return"Gestionpedidos";
+	}
+	
+	@GetMapping("/detallecompra")
+	public String detallecompra() {
+		return"Detalle-compra";
 	}
 
 }
