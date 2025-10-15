@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.herramientas.desarrollo.DTOs.DTOUsuario;
 import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
@@ -14,12 +15,22 @@ import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
 @Controller
 public class ControllerLogin {
 	
-	@PostMapping("/sesion")
-    public String login(@ModelAttribute DTOUsuario dto) {
-        System.out.println(dto);
-        return "inicio"; 
-	}
+//	@PostMapping("/sesion")
+//    public String login(@ModelAttribute DTOUsuario dto) {
+//        System.out.println(dto);
+//        return "inicio"; 
+//	}
 	 
+	@PostMapping("/sesion")
+    public String recibirSeleccion(@RequestParam(name="opcion") String opcion) {
+		if(opcion.equals("admin")) {
+			return "redirect:/inicioAdmin";
+		}else if(opcion.equals("usuario")){
+			return "Catalogo";
+		}
+        System.out.println("Opción seleccionada: " + opcion);
+        return "Login"; // redirige a otra vista o podrías volver al formulario
+    }
 	
 	//Controller de registro de ususarios + validacion de campos
 	@PostMapping("/registro")
