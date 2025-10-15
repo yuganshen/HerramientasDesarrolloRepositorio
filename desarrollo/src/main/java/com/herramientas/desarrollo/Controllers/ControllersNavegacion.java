@@ -64,7 +64,7 @@ public class ControllersNavegacion {
 	public String catalogo() {
 		return"catalogo";
 	}
-	@GetMapping("/Detalle-producto.html")
+	@GetMapping("/detalle-producto")
 	public String detalles() {
 		return"Detalle-producto";
 	}
@@ -72,16 +72,5 @@ public class ControllersNavegacion {
 	public String ga() {
 		return"Gestionpedidos";
 	}
-	
-	@GetMapping("/nav")
-	public String nav() {
-		return"navbarAdmin";
-	}
-	
-	
-	@GetMapping("/detalle-compra")
-	public String detalleCompra() {
-		return "Detalle-compra";
-	}
-	 	
+
 }
