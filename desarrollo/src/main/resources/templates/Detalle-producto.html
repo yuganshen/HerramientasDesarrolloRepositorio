@@ -86,7 +86,7 @@
           imagen:
             "https://i.blogs.es/5ce726/logitech_1/1366_521.jpg",
           descripcion:
-            "Sensor HERO 25K, peso ajustable y 11 botones programables.",
+            "Sensor HERO 25K, peso ajustable, bonito diseño gamer y 11 botones programables.",
           especificaciones: [
             "Sensor HERO 25K con precisión avanzada",
             "11 botones programables",
@@ -219,7 +219,16 @@
         <ul class="text-gray-300 text-left mb-6 space-y-2 max-w-md mx-auto">
           ${producto.especificaciones.map((e) => `<li>• ${e}</li>`).join("")}
         </ul>
-        <a href="catalogo" class="btn-neon px-6 py-2 rounded-lg">⬅ Volver al Catálogo</a>
+        
+        <!-- 🛒 Botón de añadir al carrito -->
+        <button class="btn-neon px-6 py-2 rounded-lg" onclick="añadirAlCarrito(${producto.id})">
+          🛒 Añadir al carrito
+        </button>
+
+        <div class="mt-6">
+          <a href="catalogo" class="btn-neon px-6 py-2 rounded-lg">⬅ Volver al Catálogo</a>
+        </div>
+        
       `;
       } else {
         document.getElementById(
