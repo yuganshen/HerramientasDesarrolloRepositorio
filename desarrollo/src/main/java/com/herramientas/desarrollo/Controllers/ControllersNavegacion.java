@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
 
@@ -105,5 +106,21 @@ public class ControllersNavegacion {
 		return"LaptopLenovo";
 	}
 	
+	@GetMapping("/cases")
+	public String cases() {
+		return"Cases";
+	}
+	
+	@GetMapping("/catalogo2")
+	public String mostrarCatalogo(Model model) {
+		return"Catalogo2";
+	}
+	
+	@GetMapping("/detalle-producto")
+	public String mostrarDetalleProducto(@RequestParam("id") int id, Model model) {
+	    model.addAttribute("productoId", id);
+	    return "Detalle-producto"; // nombre del HTML (detalle-producto.html)
+	}
+
 }
 
