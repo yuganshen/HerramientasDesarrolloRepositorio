@@ -17,7 +17,7 @@ public class ControllersNavegacion {
 	
 	@PostMapping("/registrar")
 	public String registrarNuevoUsuario(Model model){
-		model.addAttribute("registroUsuarioDto", new RegistroUsuarioDto());
+		//model.addAttribute("registroUsuarioDto", new RegistroUsuarioDto());
 		return"Form_Registro";
 	}	
 	
@@ -26,9 +26,9 @@ public class ControllersNavegacion {
 		return"Catalogo";
 	}
 	
-	@GetMapping("/carro")
+	@GetMapping("/carrito")
 	public String carrito() {
-		return"Carrito";
+		return"carrito";
 	}
 	
 	@GetMapping("/pantallas")
@@ -105,5 +105,11 @@ public class ControllersNavegacion {
 		return"LaptopLenovo";
 	}
 	
+	@GetMapping("/inicio")
+	public String Start() {
+		return"inicio";
+	}
+	
+
 }
 
