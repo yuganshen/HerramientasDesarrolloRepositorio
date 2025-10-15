@@ -21,94 +21,40 @@ public class ControllersNavegacion {
 		return"Form_Registro";
 	}	
 	
-	@GetMapping("/catalogo")
-	public String catalogo() {
-		return"Catalogo";
-	}
-	
 	@GetMapping("/carrito")
 	public String carrito() {
 		return"carrito";
 	}
-	
-	@GetMapping("/pantallas")
-	public String pantallitas() {
-		return"Pantalla";
-	}
-
-	@GetMapping("/contactenos")
-	public String contactos() {
-		return"Contacto";
-	}
-
-	@GetMapping("/teclados")
-	public String tecladiños() {
-		return"teclado";
-	}
-	
-	@GetMapping("/producto")
-	public String productos() {
-		return"productos";
-	}
-	
-	@GetMapping("/mouse")
-	public String produ() {
-		return"Mouses";
-    }
-	
-	@GetMapping("/impresora")
-	public String impre() {
-		return"Impresoras";
-    }
-	
-	@GetMapping("/historial")
-	public String historial() {
-		return"Historial";
-    }
-
-	@GetMapping("/monitores")
-	public String moni() {
-		return"Monitores";
-    }
-	@PostMapping("/formRegistros")
-	public String formulario () {
-		return"Formulario_Registros";
-	}
-	
-	@GetMapping("/laptops")
-	public String laptop() {
-		return"Laptops";
-	}
-	
-	@GetMapping("/equipos")
-	public String equipo() {
-		return"Equipos";
-	}
-	
-	@GetMapping("/ofertas")
-	public String ofertas() {
-		return"Oferta";
-	}
-	
-	@GetMapping("/audifonos")
-	public String audifonos() {
-		return"Audifonos";
-	}
-	
-	@GetMapping("/tarjetasgraficas")
-	public String tarjetasgraficas() {
-		return"TarjetasGraficas";
-	}
-	
-	@GetMapping("/lapsLenovo")
-	public String lapsLenovo() {
-		return"LaptopLenovo";
+	@GetMapping("/compras")
+	public String compras() {
+		return"Comprasrealizadas";
 	}
 	
 	@GetMapping("/inicio")
 	public String Start() {
 		return"inicio";
 	}
+	
+	@GetMapping("/perfil")
+	public String perfil() {
+		return"Perfilusuario";
+	}
+	
+	@GetMapping("/pago")
+	public String pago() {
+		return"Pago";
+	}
+	
+	@GetMapping("/gestionproductos")
+	public String gestionproductos() {
+		return"Gestionproductos";
+	}
+	
+	@GetMapping("/gestionusuarios")
+	public String gestionusuarios() {
+		return"Gestionusuarios";
+	}
+	
 	
 
 }
