@@ -1,12 +1,8 @@
 package com.herramientas.desarrollo.Entidades;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.*;
-
-
-
 
 @Entity
 @Table(name = "usuarios")

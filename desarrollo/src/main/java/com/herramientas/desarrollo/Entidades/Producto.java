@@ -1,7 +1,6 @@
 package com.herramientas.desarrollo.Entidades;
 
 import javax.persistence.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -27,3 +26,7 @@ public class Producto {
     private Categoria categoria;
     // Getters y setters
 }
+
+
+
+

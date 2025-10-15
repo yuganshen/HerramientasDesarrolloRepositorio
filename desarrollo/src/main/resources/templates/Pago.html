@@ -36,6 +36,9 @@
     .hidden {
       display: none;
     }
+    .blanco{
+    	color:#fff;
+    }
   </style>
 </head>
 <body class="bg-light">
@@ -44,7 +47,7 @@
 
 
   <div class="container py-4">
-    <h4 class="fw-bold mb-4">Pago</h4>
+    <h4 class="fw-bold mb-4 blanco">Pago</h4>
 
     <div class="row">
       <!-- Sección izquierda -->
@@ -52,7 +55,7 @@
 
         <!-- Comprobante -->
         <div class="mb-4">
-          <h6 class="fw-bold">Selecciona tu comprobante de pago</h6>
+          <h6 class="fw-bold blanco">Selecciona tu comprobante de pago</h6>
           <div class="btn-group w-100" role="group">
             <input type="radio" class="btn-check" name="comprobante" id="boleta" checked>
             <label class="btn btn-outline-primary" for="boleta">Boleta</label>
@@ -64,15 +67,15 @@
 
         <!-- Modalidad de entrega -->
         <div class="mb-4">
-          <h6 class="fw-bold">Selecciona modalidad de entrega</h6>
+          <h6 class="fw-bold blanco">Selecciona modalidad de entrega</h6>
           <div>
             <div class="form-check mb-2">
               <input class="form-check-input" type="radio" name="entrega" id="recojo" checked>
-              <label class="form-check-label" for="recojo">Recojo en tienda</label>
+              <label class="form-check-label blanco" for="recojo">Recojo en tienda</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="entrega" id="delivery">
-              <label class="form-check-label" for="delivery">Entrega por delivery</label>
+              <label class="form-check-label blanco" for="delivery">Entrega por delivery</label>
             </div>
           </div>
 
@@ -80,23 +83,23 @@
           <form id="form-delivery" class="mt-3 hidden">
             <div class="row g-2">
               <div class="col-md-6">
-                <label class="form-label">Nombre completo</label>
+                <label class="form-label blanco">Nombre completo</label>
                 <input type="text" class="form-control" placeholder="Ej: James Quispe">
               </div>
               <div class="col-md-6">
-                <label class="form-label">Teléfono</label>
+                <label class="form-label blanco">Teléfono</label>
                 <input type="text" class="form-control" placeholder="999999999">
               </div>
               <div class="col-12">
-                <label class="form-label">Dirección</label>
+                <label class="form-label blanco">Dirección</label>
                 <input type="text" class="form-control" placeholder="Calle, número, referencia">
               </div>
               <div class="col-md-6">
-                <label class="form-label">Ciudad</label>
+                <label class="form-label blanco">Ciudad</label>
                 <input type="text" class="form-control" placeholder="Ciudad">
               </div>
               <div class="col-md-6">
-                <label class="form-label">Provincia</label>
+                <label class="form-label blanco">Provincia</label>
                 <input type="text" class="form-control" placeholder="Provincia">
               </div>
             </div>
@@ -105,23 +108,23 @@
 
         <!-- Métodos de pago -->
         <div>
-          <h6 class="fw-bold">Selecciona tu método de pago</h6>
+          <h6 class="fw-bold blanco">Selecciona tu método de pago</h6>
 
           <div class="list-group">
             <label class="list-group-item">
-              <input class="form-check-input me-2 metodo-pago" type="radio" name="pago" value="credito"> 
+              <input class="form-check-input me-2 metodo-pago blanco" type="radio" name="pago" value="credito"> 
               Tarjeta de crédito
             </label>
             <label class="list-group-item">
-              <input class="form-check-input me-2 metodo-pago" type="radio" name="pago" value="debito"> 
+              <input class="form-check-input me-2 metodo-pago blanco" type="radio" name="pago" value="debito"> 
               Tarjeta de débito
             </label>
             <label class="list-group-item">
-              <input class="form-check-input me-2 metodo-pago" type="radio" name="pago" value="billeteras"> 
+              <input class="form-check-input me-2 metodo-pago blanco" type="radio" name="pago" value="billeteras"> 
               Billeteras digitales
             </label>
             <label class="list-group-item">
-              <input class="form-check-input me-2 metodo-pago" type="radio" name="pago" value="efectivo"> 
+              <input class="form-check-input me-2 metodo-pago blanco" type="radio" name="pago" value="efectivo"> 
               PagoEfectivo
             </label>
           </div>
@@ -130,19 +133,19 @@
           <form id="form-tarjeta" class="mt-3 hidden">
             <div class="row g-2">
               <div class="col-md-6">
-                <label class="form-label">Número de tarjeta</label>
+                <label class="form-label blanco">Número de tarjeta</label>
                 <input type="text" class="form-control" placeholder="XXXX-XXXX-XXXX-XXXX">
               </div>
               <div class="col-md-3">
-                <label class="form-label">Vencimiento</label>
+                <label class="form-label blanco">Vencimiento</label>
                 <input type="text" class="form-control" placeholder="MM/AA">
               </div>
               <div class="col-md-3">
-                <label class="form-label">CVV</label>
+                <label class="form-label blanco">CVV</label>
                 <input type="text" class="form-control" placeholder="123">
               </div>
               <div class="col-12">
-                <label class="form-label">Nombre del titular</label>
+                <label class="form-label blanco">Nombre del titular</label>
                 <input type="text" class="form-control" placeholder="Nombre como figura en la tarjeta">
               </div>
             </div>
