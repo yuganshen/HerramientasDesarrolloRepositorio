@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitores Samsung - GamingStore</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/da157044bb.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f0f1f, #1a082d, #000);
+      background-size: 400% 400%;
+      animation: gradientMove 12s ease infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card-glow:hover {
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 200, 255, 0.6);
+      transform: scale(1.05) rotate3d(1, 1, 0, 5deg);
+      transition: all 0.4s ease;
+    }
+
+    .price-gradient {
+      background: linear-gradient(90deg, #00ffff, #00bcd4, #007bff, #00ffff);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
+    }
+    @keyframes shine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: 10px;
+      right: -20px;
+      transform: rotate(15deg);
+      background: linear-gradient(to right, #00ffff, #007bff);
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 8px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: rotate(15deg) scale(1); }
+      50% { opacity: 0.7; transform: rotate(15deg) scale(1.1); }
+    }
+
+    .modal-glass {
+      background: rgba(20, 20, 35, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: zoomIn 0.4s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .btn-neon {
+      background: linear-gradient(to right, #00bcd4, #2196f3);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .btn-neon:hover {
+      box-shadow: 0 0 20px #00bcd4, 0 0 40px #00ffff;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="text-white min-h-screen flex flex-col">
+
+  <div th:replace="Componentes/NavBar :: nav_bar"></div>
+
+  <header class="text-center py-20 relative mt-16">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-cyan-400 drop-shadow-lg">Monitores Samsung</h1>
+    <p class="mt-4 text-gray-300">Descubre la mejor calidad en pantallas gaming y profesionales</p>
+    <div class="absolute top-10 left-10 w-32 h-32 bg-cyan-700 rounded-full blur-3xl opacity-40"></div>
+    <div class="absolute bottom-10 right-10 w-40 h-40 bg-blue-600 rounded-full blur-3xl opacity-40"></div>
+  </header>
+
+  <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 md:px-16 flex-grow">
+
+    <!-- Ejemplo de 9 monitores Samsung -->
+    <!-- CARD 1 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-10%</div>
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/lf24t350fhlxpe/gallery/pe-t35f-lf24t350fhlxpe-430382865?$650_519_PNG$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-cyan-600 px-2 py-1 rounded-full">Samsung</span>
+        <h2 class="text-2xl font-bold text-cyan-300 mt-3">Monitor T35F 24"</h2>
+        <p class="text-gray-300 mt-2">IPS, Full HD, 75Hz, FreeSync, HDMI/VGA</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/.549.00</span>
+          <button onclick="openModal('Monitor T35F 24&quot;')" class="px-5 py-2 rounded-lg btn-neon">Ver Detalles</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/lc24f390fhlnxpe/gallery/pe-curved-cf390-lc24f390fhlnxpe-430144255?$650_519_PNG$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-cyan-600 px-2 py-1 rounded-full">Samsung</span>
+        <h2 class="text-2xl font-bold text-cyan-300 mt-3">Monitor Curvo CF390 24"</h2>
+        <p class="text-gray-300 mt-2">Curvo 1800R, VA, 60Hz, HDMI, FreeSync</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/.589.00</span>
+          <button onclick="openModal('Monitor Curvo CF390 24&quot;')" class="px-5 py-2 rounded-lg btn-neon">Ver Detalles</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-7%</div>
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/lc27r500fhlxpe/gallery/pe-curved-c27r500-lc27r500fhlxpe-430244516?$650_519_PNG$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-cyan-600 px-2 py-1 rounded-full">Samsung</span>
+        <h2 class="text-2xl font-bold text-cyan-300 mt-3">C27R500 27"</h2>
+        <p class="text-gray-300 mt-2">Curvo Full HD, 75Hz, HDMI/VGA, FreeSync</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/.799.00</span>
+          <button onclick="openModal('C27R500 27&quot;')" class="px-5 py-2 rounded-lg btn-neon">Ver Detalles</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/lf27t350fhlxpe/gallery/pe-t35f-lf27t350fhlxpe-430382873?$650_519_PNG$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-cyan-600 px-2 py-1 rounded-full">Samsung</span>
+        <h2 class="text-2xl font-bold text-cyan-300 mt-3">T35F 27"</h2>
+        <p class="text-gray-300 mt-2">Full HD, 75Hz, FreeSync, HDMI/VGA</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/.699.00</span>
+          <button onclick="openModal('T35F 27&quot;')" class="px-5 py-2 rounded-lg btn-neon">Ver Detalles</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-15%</div>
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/lc32g55tqwlxpe/gallery/pe-odyssey-g5-lc32g55tqwlxpe-430286221?$650_519_PNG$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-cyan-600 px-2 py-1 rounded-full">Samsung</span>
+        <h2 class="text-2xl font-bold text-cyan-300 mt-3">Odyssey G5 32"</h2>
+        <p class="text-gray-300 mt-2">WQHD, Curvo 1000R, 144Hz, HDR10</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/.1,499.00</span>
+          <button onclick="openModal('Odyssey G5 32&quot;')" class="px-5 py-2 rounded-lg btn-neon">Ver Detalles</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/lc27r350fhlxpe/gallery/pe-curved-c27r350-lc27r350fhlxpe-430243732?$650_519_PNG$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-cyan-600 px-2 py-1 rounded-full">Samsung</span>
+        <h2 class="text-2xl font-bold text-cyan-300 mt-3">C27R350 27"</h2>
+        <p class="text-gray-300 mt-2">Curvo, Full HD, 75Hz, HDMI/VGA</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/.729.00</span>
+          <button onclick="openModal('C27R350 27&quot;')" class="px-5 py-2 rounded-lg btn-neon">Ver Detalles</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-8%</div>
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/lc24rg50fqmxpe/gallery/pe-odyssey-g3-lc24rg50fqmxpe-430233692?$650_519_PNG$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-cyan-600 px-2 py-1 rounded-full">Samsung</span>
+        <h2 class="text-2xl font-bold text-cyan-300 mt-3">Odyssey G3 24"</h2>
+        <p class="text-gray-300 mt-2">Full HD, 144Hz, FreeSync Premium</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/.799.00</span>
+          <button onclick="openModal('Odyssey G3 24&quot;')" class="px-5 py-2 rounded-lg btn-neon">Ver Detalles</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/lf27g35tfwexpe/gallery/pe-odyssey-g3-lf27g35tfwexpe-430233688?$650_519_PNG$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-cyan-600 px-2 py-1 rounded-full">Samsung</span>
+        <h2 class="text-2xl font-bold text-cyan-300 mt-3">Odyssey G3 27"</h2>
+        <p class="text-gray-300 mt-2">Full HD, 165Hz, FreeSync Premium</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/.899.00</span>
+          <button onclick="openModal('Odyssey G3 27&quot;')" class="px-5 py-2 rounded-lg btn-neon">Ver Detalles</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 9 -->
+    <div class="bg-gray-900 rounded-2xl shadow-lg overflow-hidden relative card-glow">
+      <div class="offer-badge">-12%</div>
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/pe/lc49g95tssnxpe/gallery/pe-odyssey-g9-lc49g95tssnxpe-430322182?$650_519_PNG$" class="w-full h-56 object-contain bg-black">
+      <div class="p-6">
+        <span class="text-xs uppercase bg-cyan-600 px-2 py-1 rounded-full">Samsung</span>
+        <h2 class="text-2xl font-bold text-cyan-300 mt-3">Odyssey G9 49"</h2>
+        <p class="text-gray-300 mt-2">QHD Doble, 240Hz, G-Sync Compatible</p>
+        <div class="flex justify-between items-center mt-5">
+          <span class="text-xl font-extrabold price-gradient">S/.5,999.00</span>
+          <button onclick="openModal('Odyssey G9 49&quot;')" class="px-5 py-2 rounded-lg btn-neon">Ver Detalles</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL -->
+  <div id="productModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+    <div class="modal-glass rounded-2xl p-8 w-96 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-2xl">&times;</button>
+      <h3 id="modalTitle" class="text-2xl font-bold text-cyan-300 mb-4"></h3>
+      <p class="text-gray-300">Aquí puedes ver los detalles completos del producto o añadirlo al carrito.</p>
+      <div class="mt-6 flex justify-between">
+        <button onclick="closeModal()" class="px-4 py-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition">Cerrar</button>
+        <button class="px-4 py-2 rounded-lg btn-neon">Ver Detalles</button>
+      </div>
+    </div>
+  </div>
+
+  <footer th:replace="Componentes/Footer :: footer"></footer>
+
+  <script>
+    function openModal(title) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("productModal").classList.remove("hidden");
+      document.getElementById("productModal").classList.add("flex");
+    }
+    function closeModal() {
+      document.getElementById("productModal").classList.remove("flex");
+      document.getElementById("productModal").classList.add("hidden");
+    }
+  </script>
+
+</body>
+</html>
