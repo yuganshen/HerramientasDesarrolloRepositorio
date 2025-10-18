@@ -77,5 +77,10 @@ public class ControllersNavegacion {
 	public String detallecompra() {
 		return"Detalle-compra";
 	}
+	
+	@GetMapping("/monitoressamsung")
+	public String monitoressamsung() {
+		return"MonitoresSamsung";
+	}
 
 }
