@@ -14,7 +14,6 @@ public class DTOPago {
     
 	public DTOPago(Long idPago, double monto, String moneda, String fechaPago, String metodoPago, String estado,
 			String referencia, String descripcion, String idUsuario) {
-		super();
 		this.idPago = idPago;
 		this.monto = monto;
 		this.moneda = moneda;

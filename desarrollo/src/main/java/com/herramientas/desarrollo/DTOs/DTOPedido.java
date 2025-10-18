@@ -10,7 +10,7 @@ public class DTOPedido {
 	
 	
 	public DTOPedido(int idPedido, int idUsuario, int idProducto, String estado, double total, String fecha) {
-		super();
+
 		this.idPedido = idPedido;
 		this.idUsuario = idUsuario;
 		this.idProducto = idProducto;

@@ -27,5 +27,5 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
-    // Getters y setters
+    
 }

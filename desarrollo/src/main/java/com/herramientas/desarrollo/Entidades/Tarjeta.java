@@ -23,7 +23,7 @@ public class Tarjeta {
     @OneToMany(mappedBy = "tarjeta", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
 
-    // Getters y setters
+  
 }
 
 
