@@ -59,7 +59,8 @@ Las aplicaciones de comunicación como Discord se han convertido en herramientas
 Permiten una comunicación fluida en tiempo real mediante canales de texto, voz y video, facilitando la coordinación entre programadores, diseñadores y líderes de proyecto, incluso si trabajan de forma remota.
 Además, Discord puede integrarse con plataformas como GitHub o Trello, lo que permite compartir avances, resolver dudas y mantener la organización del equipo dentro de un mismo entorno digital.
 
-16 de octubre, la primera presentacion salio bien, controller basicos de navegacion casi al 100%
+16 de octubre, la primera presentacion salio bien, controller basicos de navegacion casi al 100%.
+Para el rol de administrador se agregara un crud para agregar y quitar productos de la pagina, asi como tambien se contempla la funcion de administrar a los usuarios (para contactos ya que se ve una opcion de delivery)
 
 //Conexion base de datos mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_gamer?useSSL=false&serverTimezone=UTC
