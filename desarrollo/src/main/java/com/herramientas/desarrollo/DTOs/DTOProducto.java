@@ -8,7 +8,6 @@ public class DTOProducto {
     
     
 	public DTOProducto(String nombre, Double precio, Integer stock) {
-		super();
 		this.nombre = nombre;
 		this.precio = precio;
 		this.stock = stock;

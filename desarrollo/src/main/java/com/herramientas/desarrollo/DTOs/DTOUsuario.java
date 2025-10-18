@@ -19,7 +19,7 @@ public class DTOUsuario {
     
 	public DTOUsuario(String nombre, String apellido, String usuario, String email, String telefono, String pais,
 			String password) {
-		super();
+
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.usuario = usuario;

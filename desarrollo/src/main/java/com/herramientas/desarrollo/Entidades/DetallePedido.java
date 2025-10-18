@@ -22,7 +22,6 @@ public class DetallePedido {
     @JoinColumn(name = "producto_id")
     private Producto producto;
 
-    // Getters y setters
 }
 
 

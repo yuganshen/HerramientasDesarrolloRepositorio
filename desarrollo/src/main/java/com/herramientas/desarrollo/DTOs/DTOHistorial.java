@@ -9,7 +9,6 @@ public class DTOHistorial {
 	
 	
 	public DTOHistorial(String fecha, String producto, String precio, String observaciones) {
-		super();
 		this.fecha = fecha;
 		this.producto = producto;
 		this.precio = precio;
