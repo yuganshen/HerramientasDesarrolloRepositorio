@@ -78,4 +78,6 @@ public class ControllersNavegacion {
 		return"Detalle-compra";
 	}
 
+	//Nuevos controladores 
+
 }
