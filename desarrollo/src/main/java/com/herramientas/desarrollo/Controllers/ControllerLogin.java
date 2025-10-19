@@ -15,11 +15,7 @@ import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
 @Controller
 public class ControllerLogin {
 	
-//	@PostMapping("/sesion")
-//    public String login(@ModelAttribute DTOUsuario dto) {
-//        System.out.println(dto);
-//        return "inicio"; 
-//	}
+
 	 
 	@PostMapping("/sesion")
     public String recibirSeleccion(@RequestParam(name="opcion") String opcion) {
