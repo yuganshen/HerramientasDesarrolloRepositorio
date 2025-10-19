@@ -83,4 +83,6 @@ public class ControllersNavegacion {
 		return"MonitoresSamsung";
 	}
 
+	//Nuevos controladores 
+
 }
