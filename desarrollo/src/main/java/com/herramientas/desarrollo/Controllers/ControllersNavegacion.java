@@ -89,5 +89,10 @@ public class ControllersNavegacion {
 	public String memoriasram() {
 		return"Memorias-ram";
 	}
+	
+	@GetMapping("/panelAdmin")
+	public String dashboard() {
+		return"dashboard";
 
+}
 }
