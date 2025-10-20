@@ -84,5 +84,10 @@ public class ControllersNavegacion {
 	}
 
 	//Nuevos controladores 
+	
+	@GetMapping("/memorias-ram")
+	public String memoriasram() {
+		return"Memorias-ram";
+	}
 
 }
