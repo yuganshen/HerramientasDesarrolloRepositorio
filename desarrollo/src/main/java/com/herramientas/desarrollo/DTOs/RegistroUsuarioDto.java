@@ -59,7 +59,7 @@ public class RegistroUsuarioDto {
 		this.confirm = confirm;
 		this.terms = terms;
 	}
-	// Getters y Setters
+
     public String getNombre() {
         return nombre;
     }
