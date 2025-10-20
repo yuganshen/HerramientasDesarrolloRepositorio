@@ -18,7 +18,7 @@ public class ControllersNavegacion {
 	
 	@PostMapping("/registrar")
 	public String registrarNuevoUsuario(Model model){
-		//model.addAttribute("registroUsuarioDto", new RegistroUsuarioDto());
+
 		return"Form_Registro";
 	}	
 	
