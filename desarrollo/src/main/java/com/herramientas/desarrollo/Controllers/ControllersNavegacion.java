@@ -95,4 +95,8 @@ public class ControllersNavegacion {
 		return"dashboard";
 
 }
+	@GetMapping("/procesadores")
+	public String pro() {
+		return"Procesadores";
+	}
 }
