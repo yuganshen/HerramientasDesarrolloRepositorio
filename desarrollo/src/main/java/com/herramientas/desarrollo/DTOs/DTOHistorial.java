@@ -8,12 +8,6 @@ public class DTOHistorial {
 	private String observaciones;  
 	
 	
-	public DTOHistorial(String fecha, String producto, String precio, String observaciones) {
-		this.fecha = fecha;
-		this.producto = producto;
-		this.precio = precio;
-		this.observaciones = observaciones;
-	}
 	 
 	public String getFecha() {
 		return fecha;
