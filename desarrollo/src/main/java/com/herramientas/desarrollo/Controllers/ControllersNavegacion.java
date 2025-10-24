@@ -93,11 +93,16 @@ public class ControllersNavegacion {
 	@GetMapping("/panelAdmin")
 	public String dashboard() {
 		return"dashboard";
-
-}
+    }
+	
 	@GetMapping("/procesadores")
 	public String pro() {
 		return"Procesadores";
+	}
+	
+	@GetMapping("/fuentesdepoder")
+	public String fuentes() {
+		return"FuentesPoder";
 	}
 	
 }
