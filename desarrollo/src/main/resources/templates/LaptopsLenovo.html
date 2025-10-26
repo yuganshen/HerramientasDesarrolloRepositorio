@@ -1,9 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
- <title>Laptops Lenovo - GamingStore</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laptops Lenovo - GamingStore</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
+  <style>
+    /* Animaciones personalizadas */
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-bounceIn { animation: bounceIn 1s ease forwards; }
+    .animate-fadeInUp { animation: fadeInUp 1s ease forwards; }
+  </style>
+</head>
+
 <body class="bg-gray-100 text-gray-900 font-sans">
 
   <!-- NAVBAR -->
