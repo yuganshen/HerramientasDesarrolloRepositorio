@@ -105,4 +105,10 @@ public class ControllersNavegacion {
 		return"FuentesPoder";
 	}
 	
+	@GetMapping("/tarjetasgraficas")
+	public String tarjetas() {
+		return"TarjetasGraficas";
+	}
+	
+	
 }
