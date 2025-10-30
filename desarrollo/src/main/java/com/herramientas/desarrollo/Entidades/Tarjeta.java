@@ -23,7 +23,23 @@ public class Tarjeta {
     @OneToMany(mappedBy = "tarjeta", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
 
-  
+	public Long getIdTarjeta() {
+		return idTarjeta;
+	}
+
+	public void setIdTarjeta(Long idTarjeta) {
+		this.idTarjeta = idTarjeta;
+	}
+
+	public String getFechaVencimiento() {
+		return fechaVencimiento;
+	}
+
+	public void setFechaVencimiento(String fechaVencimiento) {
+		this.fechaVencimiento = fechaVencimiento;
+	}
+
+    
 }
 
 
