@@ -67,6 +67,7 @@ ID del ticket: es un número o código único que permite identificar y rastrear
 Descripción del problema: explica claramente qué error ocurrió, en qué parte del sistema se presentó y, si es posible, cómo reproducirlo.
 Estado: indica el progreso del ticket, como “abierto”, “en proceso”, “resuelto” o “cerrado”, para conocer en qué etapa se encuentra la solución del bug.
 
+Creando Jira para la colaboración en equipo
 
 //Conexion base
 de datos mysql
