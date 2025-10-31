@@ -110,5 +110,8 @@ public class ControllersNavegacion {
 		return"TarjetasGraficas";
 	}
 	
-	
+	@GetMapping("/laptopsLenovo")
+	public String lapsLenovo() {
+		return"LaptopsLenovo";
+	}
 }
