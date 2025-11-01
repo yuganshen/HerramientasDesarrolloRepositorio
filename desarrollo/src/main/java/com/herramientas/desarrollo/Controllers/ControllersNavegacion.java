@@ -114,8 +114,9 @@ public class ControllersNavegacion {
 	public String lapsLenovo() {
 		return"LaptopsLenovo";
 	}
-	@GetMapping("/laptopsLenovo")
-	public String lapsLenovo() {
-		return"LaptopsLenovo";
+	
+	@GetMapping("/coolers")
+	public String coolers() {
+		return"Coolers";
 	}
 }
