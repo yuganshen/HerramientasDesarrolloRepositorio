@@ -115,4 +115,10 @@ public class ControllersNavegacion {
 		return"LaptopsLenovo";
 	}
 	
+
+	@GetMapping("/coolers")
+	public String coolers() {
+		return"Coolers";
+	}
+
 }

@@ -22,6 +22,23 @@ public class DetallePedido {
     @JoinColumn(name = "producto_id")
     private Producto producto;
 
+	public Long getIdDetallePedido() {
+		return idDetallePedido;
+	}
+
+	public void setIdDetallePedido(Long idDetallePedido) {
+		this.idDetallePedido = idDetallePedido;
+	}
+
+	public int getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+
+    
 }
 
 

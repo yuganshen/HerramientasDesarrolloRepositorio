@@ -43,5 +43,21 @@ public class Usuario {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getDireccionPrincipal() {
+		return direccionPrincipal;
+	}
+
+	public void setDireccionPrincipal(String direccionPrincipal) {
+		this.direccionPrincipal = direccionPrincipal;
+	}
     
 }
