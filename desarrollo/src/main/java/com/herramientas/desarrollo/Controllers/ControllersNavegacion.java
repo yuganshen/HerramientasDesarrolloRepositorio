@@ -120,5 +120,11 @@ public class ControllersNavegacion {
 	public String coolers() {
 		return"Coolers";
 	}
+	
+	@GetMapping("/impresoras")
+	public String impresoras() {
+		return"Impresoras";
+	}
+
 
 }
