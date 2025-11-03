@@ -72,6 +72,8 @@ Creando Jira para la colaboración en equipo
 Para implementar Jira en mi equipo de cinco personas que desarrolla un proyecto de software, primero definí la metodología de trabajo, eligiendo Scrum para organizar el desarrollo por sprints.
 Luego creé el proyecto en Jira usando la plantilla de desarrollo de software y asigné los roles entre nosotros: Product Owner, Scrum Master y desarrolladores.
 ANGULAR para font end, ya se tiene el proyecto en angular 18 pero aun fallan los componentes, lo intentamos arreglar mañana, cambio y fuera.
+Problemas con el angular, no push
+
 //Conexion base
 de datos mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_gamer?useSSL=false&serverTimezone=UTC
