@@ -126,5 +126,8 @@ public class ControllersNavegacion {
 		return"Impresoras";
 	}
 
-
+	@GetMapping("/teclados")
+	public String teclados() {
+		return"Teclados";
+	}
 }
