@@ -39,6 +39,22 @@ public class Tarjeta {
 		this.fechaVencimiento = fechaVencimiento;
 	}
 
+	public String getNumeroEnmascarado() {
+		return numeroEnmascarado;
+	}
+
+	public void setNumeroEnmascarado(String numeroEnmascarado) {
+		this.numeroEnmascarado = numeroEnmascarado;
+	}
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
     
 	
 }
