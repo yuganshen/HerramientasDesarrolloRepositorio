@@ -129,4 +129,9 @@ public class ControllersNavegacion {
 	public String teclados() {
 		return"Teclados";
 	}
+	
+	@GetMapping("/mouses")
+	public String mouses() {
+		return"Mouses";
+	}
 }
