@@ -76,7 +76,9 @@ ANGULAR para font end, ya se tiene el proyecto en angular 18 pero aun fallan los
 Trabajando en los incidentes que puedan pasar y como manejarlos con JIRA.
 Arreglando cosas del angular, ademas atendiendo incidentes y aprendiendo como funcionan los tickes, sus fases y tiempo de vida.
 (Oscar si estas leendo esto, vas a caer)
-
+Resumen de la clase de  hoy 8 de noviembre
+Las herrameintas de integracion continua son servicios o programas que, cada vez que alguien sube cambios al repositorio, descargan automáticamente el código, lo
+compilan, ejecutan las pruebas y generan un informe.
 //Conexion base
 de datos mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_gamer?useSSL=false&serverTimezone=UTC
