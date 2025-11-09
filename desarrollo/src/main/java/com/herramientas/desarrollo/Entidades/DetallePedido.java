@@ -37,7 +37,15 @@ public class DetallePedido {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-8
+
+	public Double getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(Double subtotal) {
+		this.subtotal = subtotal;
+	}
+	
     
 }
 
