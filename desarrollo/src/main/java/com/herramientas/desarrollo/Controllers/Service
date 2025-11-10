@@ -79,6 +79,8 @@ Arreglando cosas del angular, ademas atendiendo incidentes y aprendiendo como fu
 Resumen de la clase de  hoy 8 de noviembre
 Las herrameintas de integracion continua son servicios o programas que, cada vez que alguien sube cambios al repositorio, descargan automáticamente el código, lo
 compilan, ejecutan las pruebas y generan un informe.
+I'll do the same as yesterday.
+
 //Conexion base
 de datos mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_gamer?useSSL=false&serverTimezone=UTC
