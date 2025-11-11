@@ -81,9 +81,6 @@ Las herrameintas de integracion continua son servicios o programas que, cada vez
 compilan, ejecutan las pruebas y generan un informe.
 I'll do the same as yesterday.
 
-Link Jira: 
-https://jamesvqo2003.atlassian.net/jira/servicedesk/projects/HER/queues/custom/4?atlOrigin=eyJpIjoiM2VmOGJhMTNmNjRhNDYjk4YTY1YzU5YjA1NzlkZWUiLCJwIjoiaiJ9 
-
 //Conexion base
 de datos mysql
 spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_gamer?useSSL=false&serverTimezone=UTC
