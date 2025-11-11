@@ -22,6 +22,19 @@ public class DetallePedido {
     @JoinColumn(name = "producto_id")
     private Producto producto;
 
+    
+    
+	public DetallePedido(Long idDetallePedido, int cantidad, Double precioUnitario, Double subtotal, Pedido pedido,
+			Producto producto) {
+		super();
+		this.idDetallePedido = idDetallePedido;
+		this.cantidad = cantidad;
+		this.precioUnitario = precioUnitario;
+		this.subtotal = subtotal;
+		this.pedido = pedido;
+		this.producto = producto;
+	}
+
 	public Long getIdDetallePedido() {
 		return idDetallePedido;
 	}

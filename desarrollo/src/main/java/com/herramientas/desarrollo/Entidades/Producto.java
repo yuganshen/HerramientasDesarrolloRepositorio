@@ -25,6 +25,7 @@ public class Producto {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+    
 	public String getDescripcion() {
 		return descripcion;
 	}
