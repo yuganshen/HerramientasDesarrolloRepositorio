@@ -59,4 +59,5 @@ public class Usuario {
 	public void setDireccionPrincipal(String direccionPrincipal) {
 		this.direccionPrincipal = direccionPrincipal;
 	}
-    lYH/LU %%$}
+	
+}
