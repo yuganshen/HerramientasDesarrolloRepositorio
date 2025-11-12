@@ -37,6 +37,25 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetallePedido> detalles;
+    
+    
+
+	public Pedido(Long idPedido, LocalDateTime fechaPedido, Double total, String estado, String metodoPago,
+			String tipoComprobante, String direccionEnvio, String tipoEntrega, Usuario usuario, Tarjeta tarjeta,
+			List<DetallePedido> detalles) {
+		super();
+		this.idPedido = idPedido;
+		this.fechaPedido = fechaPedido;
+		this.total = total;
+		this.estado = estado;
+		this.metodoPago = metodoPago;
+		this.tipoComprobante = tipoComprobante;
+		this.direccionEnvio = direccionEnvio;
+		this.tipoEntrega = tipoEntrega;
+		this.usuario = usuario;
+		this.tarjeta = tarjeta;
+		this.detalles = detalles;
+	}
 
 	public Long getIdPedido() {
 		return idPedido;
