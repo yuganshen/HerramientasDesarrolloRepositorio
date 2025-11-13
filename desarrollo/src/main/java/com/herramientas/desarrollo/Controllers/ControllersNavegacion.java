@@ -134,9 +134,15 @@ public class ControllersNavegacion {
 	public String mouses() {
 		return"Mouses";
 	}
+	
 	@GetMapping("/sillas")
 	public String silla() {
 		return"Sillas";
+	}
+	
+	@GetMapping("/audifonos")
+	public String audifonos() {
+		return"Audifonos";
 	}
 	
 }
