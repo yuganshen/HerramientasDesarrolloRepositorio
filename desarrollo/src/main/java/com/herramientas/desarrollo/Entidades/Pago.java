@@ -19,7 +19,21 @@ public class Pago {
     private String descripcion;          
     private String idUsuario;            
 
-
+    
+	public Pago(Long idPago, double monto, String moneda, String fechaPago, String metodoPago, String estado,
+			String referencia, String descripcion, String idUsuario) {
+		super();
+		this.idPago = idPago;
+		this.monto = monto;
+		this.moneda = moneda;
+		this.fechaPago = fechaPago;
+		this.metodoPago = metodoPago;
+		this.estado = estado;
+		this.referencia = referencia;
+		this.descripcion = descripcion;
+		this.idUsuario = idUsuario;
+	}
+	
 	public Long getIdPago() {
 		return idPago;
 	}
