@@ -23,6 +23,19 @@ public class Tarjeta {
     @OneToMany(mappedBy = "tarjeta", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
 
+    
+	public Tarjeta(Long idTarjeta, String tipo, String numeroEnmascarado, String titular, String fechaVencimiento,
+			Usuario usuario, List<Pedido> pedidos) {
+		super();
+		this.idTarjeta = idTarjeta;
+		this.tipo = tipo;
+		this.numeroEnmascarado = numeroEnmascarado;
+		this.titular = titular;
+		this.fechaVencimiento = fechaVencimiento;
+		this.usuario = usuario;
+		this.pedidos = pedidos;
+	}
+
 	public Long getIdTarjeta() {
 		return idTarjeta;
 	}
