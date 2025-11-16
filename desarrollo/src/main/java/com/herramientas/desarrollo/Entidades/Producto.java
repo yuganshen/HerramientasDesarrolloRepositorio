@@ -25,21 +25,7 @@ public class Producto {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    
-	public Producto(Long idProducto, String nombre, String descripcion, Double precio, Integer stock,
-			String imagenPrincipal, String marca, String estado, LocalDateTime fechaCreacion, Categoria categoria) {
-		super();
-		this.idProducto = idProducto;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.precio = precio;
-		this.stock = stock;
-		this.imagenPrincipal = imagenPrincipal;
-		this.marca = marca;
-		this.estado = estado;
-		this.fechaCreacion = fechaCreacion;
-		this.categoria = categoria;
-	}
+
 
 	public String getDescripcion() {
 		return descripcion;
