@@ -1,5 +1,12 @@
 package com.herramientas.desarrollo.DTOs;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DTOPago {
 	
 	private Long idPago;                
@@ -12,7 +19,8 @@ public class DTOPago {
     private String descripcion;          
     private String idUsuario;
     
-	public DTOPago(Long idPago, double monto, String moneda, String fechaPago, String metodoPago, String estado,
+	/*
+    public DTOPago(Long idPago, double monto, String moneda, String fechaPago, String metodoPago, String estado,
 			String referencia, String descripcion, String idUsuario) {
 		this.idPago = idPago;
 		this.monto = monto;
@@ -80,6 +88,6 @@ public class DTOPago {
 		this.idUsuario = idUsuario;
 	}            
 
-    
+    */
 	
 }
