@@ -148,5 +148,8 @@ public class ControllersNavegacion {
 	public String audifonos() {
 		return"Audifonos";
 	}
-	
+	@GetMapping("/audifonos")
+	public String audifonos() {
+		return"Audifonos";
+	}
 }
