@@ -1,137 +1,68 @@
-
-
- <div th:fragment="nav_bar"> 
- 
- <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">🕹️ GamingStore</a>
-      <div class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="catalogo">Inicio</a></li>
-          <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-     data-bs-toggle="dropdown" aria-expanded="false">
-    Yo
+6<div th:fragment="nav_bar">
+  <!-- NAVBAR -->
+  <nav 
+     class="bg-gradient-to-r from-blue-900 to-black p-4 px-8 flex justify-between items-center text-white fixed top-0 left-0 w-full shadow-lg z-50">
+  
+  <!-- Logo -->
+  <a href="/" class="text-yellow-400 font-bold text-xl">
+    🕹️ GamingStore
   </a>
-  <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="userDropdown">
-    <li><h6 class="dropdown-header text-center">¡Bienvenido!</h6></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="perfil">Mi perfil</a></li>
-    <li><a class="dropdown-item" href="compras">Historial</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item text-danger" href="#">Cerrar sesión</a></li>
-  </ul>
-</li>
-          <li class="nav-item"><a class="nav-link" href="catalogo">Catálogo</a></li>
-           <li class="nav-item">
-  <a class="nav-link" href="#">
-    <i class="bi bi-cart"></i> Carrito (2)
-  </a>
-</li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+  <!-- Links -->
+  <div class="flex gap-6">
+    <a href="/" class="hover:text-yellow-400 transition">Inicio</a>
+    <a href="/catalogo" class="hover:text-yellow-400 transition">Catálogo</a>
+    <a href="/cart" class="hover:text-yellow-400 transition">Carrito (0)</a>
+  </div>
+</nav>
 
   <!-- CONTENEDOR DE PESTAÑAS -->
-  <div class="tabs-container">
-    <div class="tabs">
-      <button class="tab-button blanco" data-tab="laptops">Laptops</button>
-      <button class="tab-button blanco" data-tab="computadoras">Computadoras</button>
-      <button class="tab-button blanco" data-tab="zona-gamer">Zona Gamer</button>
-      <button class="tab-button blanco" data-tab="partes-pc">Partes de PC</button>
-      <button class="tab-button blanco" data-tab="monitores">Monitores y más</button>
-      <button class="tab-button blanco" data-tab="impresoras">Impresoras</button>
+  <div class="max-w-6xl mx-auto mt-24 px-4">
+    <div class="flex gap-4 border-b-2 border-gray-300 mb-4">
+      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="laptops">Laptops</button>
+      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="computadoras">Computadoras</button>
+      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="zona-gamer">Zona Gamer</button>
+      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="partes-pc">Partes de PC</button>
+      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="monitores">Monitores y más</button>
+      <button class="tab-button px-4 py-2 font-semibold border-b-4 border-transparent hover:text-yellow-400 transition" data-tab="impresoras">Impresoras</button>
     </div>
 
-    <!-- Laptops -->
-    <div class="tab-content-custom" id="laptops">
-      <h5 class="w-100 fw-bold">Laptops</h5>
-      <a href="#">Asus</a>
-      <a href="#">HP</a>
-      <a href="#">Lenovo</a>
-      <a href="#">Dell</a>
-
-      <h5 class="w-100 fw-bold mt-3">Laptops Gamer</h5>
-      <a href="#">Asus</a>
-      <a href="#">HP</a>
-      <a href="#">Lenovo</a>
-      <a href="#">Dell</a>
-    </div>
-
-    <!-- Computadoras -->
-    <div class="tab-content-custom" id="computadoras">
-      <h5 class="w-100 fw-bold">Hogar & Oficina</h5>
-      <a href="#">AMD Series</a>
-      <a href="#">Intel Series</a>
-
-      <h5 class="w-100 fw-bold mt-3">PC'S Gamers</h5>
-      <a href="#">Línea baja</a>
-      <a href="#">Línea ultra</a>
-      <a href="#">Línea extrema</a>
-    </div>
-
-    <!-- Zona Gamer -->
-    <div class="tab-content-custom" id="zona-gamer">
-      <h5 class="w-100 fw-bold">Zona Gamer</h5>
-      <a href="#">Teclado Gamer</a>
-      <a href="#">Mouse Gamer</a>
-      <a href="#">Audífonos Gamer</a>
-      <a href="#">Sillas Gamer</a>
-      <a href="#">Pantallas Gamer</a>
-    </div>
-
-    <!-- Partes de PC -->
-    <div class="tab-content-custom" id="partes-pc">
-      <h5 class="w-100 fw-bold">Partes de PC</h5>
-      <a href="#">Tarjetas de video</a>
-      <a href="#">Discos</a>
-      <a href="#">Procesadores</a>
-      <a href="#">Memoria RAM</a>
-      <a href="#">Fuentes de poder</a>
-      <a href="#">Cooler</a>
-    </div>
-
-    <!-- Monitores -->
-    <div class="tab-content-custom" id="monitores">
-      <h5 class="w-100 fw-bold">Monitores</h5>
-      <a href="#">LG</a>
-      <a href="#">Samsung</a>
-      <a href="#">Asus</a>
-      <a href="#">Teros</a>
-
-      <h5 class="w-100 fw-bold mt-3">Proyectores</h5>
-      <a href="#">View Sonic</a>
-      <a href="#">Epson</a>
-      <a href="#">Havit</a>
-    </div>
-
-    <!-- Impresoras -->
-    <div class="tab-content-custom" id="impresoras">
-      <h5 class="w-100 fw-bold">Impresoras</h5>
-      <a href="#">Brother</a>
-      <a href="#">Epson</a>
-      <a href="#">Canon</a>
-      <a href="#">HP</a>
+    <!-- Ejemplo de contenido de pestaña -->
+    <div id="laptops" class="tab-content hidden animate-fadeInUp">
+      <h2 class="text-xl font-bold mb-2">Laptops</h2>
+      <div class="flex flex-wrap gap-3 mb-4">
+        <a href="/laptops/asus" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-black transition">Asus</a>
+        <a href="/laptops/hp" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-black transition">HP</a>
+        <a href="/laptops/lenovo" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-black transition">Lenovo</a>
+        <a href="/laptops/dell" class="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-yellow-400 hover:text-black transition">Dell</a>
+      </div>
     </div>
   </div>
- 
- 
- </div>
 
+  <!-- SCRIPT -->
+  <script>
+    const tabs = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
+    let activeTab = null;
 
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabId = tab.getAttribute('data-tab');
+        const content = document.getElementById(tabId);
 
-  
+        if (activeTab === tab) {
+          tab.classList.remove('text-yellow-400', 'border-yellow-400');
+          content.classList.add('hidden');
+          activeTab = null;
+        } else {
+          tabs.forEach(t => t.classList.remove('text-yellow-400', 'border-yellow-400'));
+          contents.forEach(c => c.classList.add('hidden'));
 
-  
-
-
-
-
-  
-  
-
-  
-
-
+          tab.classList.add('text-yellow-400', 'border-yellow-400');
+          content.classList.remove('hidden');
+          activeTab = tab;
+        }
+      });
+    });
+  </script>
+  </div>
