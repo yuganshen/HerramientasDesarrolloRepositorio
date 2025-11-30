@@ -14,7 +14,7 @@ public class RegistroUsuarioDto {
     @NotBlank(message = "El apellido es obligatorio")
     @Size(min = 2, max = 30, message = "El apellido debe tener entre 2 y 30 caracteres")
     @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$", message = "El apellido solo puede contener letras y espacios")
-    private String apellido;
+    private String apellidos;
 
     @NotBlank(message = "El usuario es obligatorio")
     @Size(min = 3, max = 20, message = "El usuario debe tener entre 3 y 20 caracteres")
@@ -40,15 +40,25 @@ public class RegistroUsuarioDto {
 
     @NotNull(message = "Debe aceptar los términos y condiciones")
     private Boolean terms;
-    
-    
-    
+    private String direccionPrincipal;
 
-    public RegistroUsuarioDto(String nombre, String apellido, String usuario, String email, String telefono,
+    public RegistroUsuarioDto() {
+		super();
+	}
+
+	public String getDireccionPrincipal() {
+		return direccionPrincipal;
+	}
+
+	public void setDireccionPrincipal(String direccionPrincipal) {
+		this.direccionPrincipal = direccionPrincipal;
+	}
+
+	public RegistroUsuarioDto(String nombre, String apellido, String usuario, String email, String telefono,
 			String pais, String password, String confirm, Boolean terms) {
 		super();
 		this.nombre = nombre;
-		this.apellido = apellido;
+		this.apellidos = apellido;
 		this.usuario = usuario;
 		this.email = email;
 		this.telefono = telefono;
@@ -65,11 +75,11 @@ public class RegistroUsuarioDto {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellido) {
+        this.apellidos = apellido;
     }
 
     public String getUsuario() {
