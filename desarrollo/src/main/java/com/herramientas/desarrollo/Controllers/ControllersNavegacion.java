@@ -51,11 +51,6 @@ public class ControllersNavegacion {
 		return"Gestionproductos";
 	}
 	
-	@GetMapping("/gestionusuarios")
-	public String gestionusuarios() {
-		return"Gestionusuarios";
-	}
-	
 	@GetMapping("/inicioAdmin")
 	public String inicioiAdmin() {
 		return"inicioadm";
