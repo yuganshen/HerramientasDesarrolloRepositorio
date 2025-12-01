@@ -7,7 +7,7 @@ public class DTOHistorial {
 	private String precio;
 	private String observaciones;  
 	
-	
+	//HOLA MUNDO
 	 
 	public String getFecha() {
 		return fecha;
