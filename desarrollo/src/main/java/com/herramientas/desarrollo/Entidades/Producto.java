@@ -1,6 +1,6 @@
 package com.herramientas.desarrollo.Entidades;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,12 +21,11 @@ public class Producto {
     private String estado; // activo / inactivo
     private LocalDateTime fechaCreacion;
     private String tipoProducto;
-
+  
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    
 	public String getDescripcion() {
 		return descripcion;
 	}
@@ -83,6 +82,14 @@ public class Producto {
 		this.marca = marca;
 	}
 
+	public String getTipoProducto() {
+		return tipoProducto;
+	}
+
+	public void setTipoProducto(String tipoProducto) {
+		this.tipoProducto = tipoProducto;
+	}
+  
 	public String getNombre() {
 		return nombre;
 	}
@@ -106,15 +113,6 @@ public class Producto {
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
-
-	public String getTipoProducto() {
-		return tipoProducto;
-	}
-
-	public void setTipoProducto(String tipoProducto) {
-		this.tipoProducto = tipoProducto;
-	}
-	
     
 }
 

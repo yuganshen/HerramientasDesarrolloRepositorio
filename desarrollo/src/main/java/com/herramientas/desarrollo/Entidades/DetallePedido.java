@@ -1,6 +1,6 @@
 package com.herramientas.desarrollo.Entidades;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "detalles_pedido")

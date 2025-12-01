@@ -1,13 +1,6 @@
 package com.herramientas.desarrollo.Entidades;
 
-import javax.persistence.*;
-
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 

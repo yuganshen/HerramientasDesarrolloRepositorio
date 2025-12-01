@@ -1,7 +1,7 @@
 package com.herramientas.desarrollo.Entidades;
 
 import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tarjetas")
@@ -22,6 +22,19 @@ public class Tarjeta {
 
     @OneToMany(mappedBy = "tarjeta", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
+
+    
+	public Tarjeta(Long idTarjeta, String tipo, String numeroEnmascarado, String titular, String fechaVencimiento,
+			Usuario usuario, List<Pedido> pedidos) {
+		super();
+		this.idTarjeta = idTarjeta;
+		this.tipo = tipo;
+		this.numeroEnmascarado = numeroEnmascarado;
+		this.titular = titular;
+		this.fechaVencimiento = fechaVencimiento;
+		this.usuario = usuario;
+		this.pedidos = pedidos;
+	}
 
 	public Long getIdTarjeta() {
 		return idTarjeta;
@@ -53,6 +66,30 @@ public class Tarjeta {
 
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getTitular() {
+		return titular;
+	}
+
+	public void setTitular(String titular) {
+		this.titular = titular;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
     

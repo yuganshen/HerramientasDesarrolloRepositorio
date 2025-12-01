@@ -2,7 +2,7 @@ package com.herramientas.desarrollo.Entidades;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "usuarios")
@@ -28,6 +28,24 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
 
+	// ===== Getters y Setters =====
+
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	public String getApellidos() {
 		return apellidos;
 	}
@@ -52,6 +70,14 @@ public class Usuario {
 		this.email = email;
 	}
 
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
 	public String getDireccionPrincipal() {
 		return direccionPrincipal;
 	}
@@ -59,5 +85,58 @@ public class Usuario {
 	public void setDireccionPrincipal(String direccionPrincipal) {
 		this.direccionPrincipal = direccionPrincipal;
 	}
-	
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
+	public LocalDateTime getFechaRegistro() {
+		return fechaRegistro;
+	}
+
+	public void setFechaRegistro(LocalDateTime fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public List<Tarjeta> getTarjetas() {
+		return tarjetas;
+	}
+
+	public void setTarjetas(List<Tarjeta> tarjetas) {
+		this.tarjetas = tarjetas;
+	}
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario{" +
+				"idUsuario=" + idUsuario +
+				", nombre='" + nombre + '\'' +
+				", apellidos='" + apellidos + '\'' +
+				", email='" + email + '\'' +
+				", rol='" + rol + '\'' +
+				", estado='" + estado + '\'' +
+				", fechaRegistro=" + fechaRegistro +
+				'}';
+	}
 }
+

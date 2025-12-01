@@ -1,0 +1,42 @@
+name: Auto Commit
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # IMPORTANTE
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Config git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Hacer cambios
+        run: |
+          echo "Última actualización: $(date)" >> auto-update.txt
+
+      - name: Detectar cambios
+        run: |
+          git add . ':!/.github/workflows'
+          if git diff --cached --quiet; then
+            echo "No hay cambios"
+            exit 0
+          fi
+
+      - name: Commit y push
+        run: |
+          git commit -m "Auto update: $(date)"
+          git push

@@ -43,7 +43,7 @@ public class ControllerLogin {
 
         // Si pasa las validaciones, imprime en consola
         System.out.println("Nombre: " + registroUsuarioDto.getNombre());
-        System.out.println("Apellido: " + registroUsuarioDto.getApellido());
+        System.out.println("Apellido: " + registroUsuarioDto.getApellidos());
         System.out.println("Usuario: " + registroUsuarioDto.getUsuario());
         System.out.println("Email: " + registroUsuarioDto.getEmail());
         System.out.println("Teléfono: " + registroUsuarioDto.getTelefono());

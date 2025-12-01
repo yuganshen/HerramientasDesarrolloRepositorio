@@ -1,0 +1,40 @@
+name: Auto Commit
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Para ejecutarlo manualmente si quieres
+
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+
+      - name: Configurar git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Hacer cambios (simulación)
+        run: |
+          # Aquí pones tus comandos que modifican archivos
+          echo "Última actualización: $(date)" >> auto-update.txt
+
+      - name: Verificar si hay cambios
+        run: |
+          git add .
+          if git diff --cached --quiet; then
+            echo "No hay cambios para commitear"
+            exit 0
+          fi
+
+      - name: Commit y push automático
+        run: |
+          git commit -m "Auto update: $(date)"
+          git push
