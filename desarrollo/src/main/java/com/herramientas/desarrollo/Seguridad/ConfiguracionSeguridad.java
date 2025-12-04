@@ -157,6 +157,13 @@ public class ConfiguracionSeguridad {
                 .requestMatchers("/api/carrito/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
                 .requestMatchers("/api/pedidos/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
                 .requestMatchers("/api/perfil/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
+                .requestMatchers("/api/inicioadmin/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
+                .requestMatchers("/api/gestionproductos/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
+                .requestMatchers("/api/gestionusuarios/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
+                .requestMatchers("/api/gestionpedidos/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
+
+
+
                 
                 // Rutas de administrador - Solo ROLE_ADMINISTRADOR
                 .requestMatchers("/api/admin/**").hasRole("ADMINISTRADOR")
