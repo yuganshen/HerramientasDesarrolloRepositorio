@@ -29,7 +29,7 @@ public class ControllerLogin {
     }
 	
 	//Controller de registro de ususarios + validacion de campos
-	@PostMapping("/registro")
+	/*@PostMapping("/registro")
 	public String procesarRegistro(
 		    @Validated @ModelAttribute RegistroUsuarioDto registroUsuarioDto,
 		    BindingResult result,
@@ -50,13 +50,12 @@ public class ControllerLogin {
         System.out.println("País: " + registroUsuarioDto.getPais());
         System.out.println("Password: " + registroUsuarioDto.getPassword());
         System.out.println("Confirm: " + registroUsuarioDto.getConfirm());
-        System.out.println("Acepta términos y condiciones: " + registroUsuarioDto.getTerms());
 
         // En el futuro aquí iría la lógica de guardar en la base de datos
         model.addAttribute("mensaje", "Registro exitoso");
 
         // Redirige o vuelve a mostrar la vista
         return "Login"; 
-    }
+    }*/
 }
    

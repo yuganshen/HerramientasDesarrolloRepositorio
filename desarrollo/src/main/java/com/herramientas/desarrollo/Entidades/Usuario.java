@@ -17,7 +17,6 @@ public class Usuario {
     private String email;
     private String contraseña;
     private String telefono;
-    private String direccionPrincipal;
     private String rol; // cliente o administrador
     private LocalDateTime fechaRegistro;
     private String estado; // activo / inactivo
@@ -77,15 +76,6 @@ public class Usuario {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-
-	public String getDireccionPrincipal() {
-		return direccionPrincipal;
-	}
-
-	public void setDireccionPrincipal(String direccionPrincipal) {
-		this.direccionPrincipal = direccionPrincipal;
-	}
-
 	public String getRol() {
 		return rol;
 	}
