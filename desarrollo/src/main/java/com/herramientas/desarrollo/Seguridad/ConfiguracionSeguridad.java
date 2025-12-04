@@ -140,6 +140,12 @@ public class ConfiguracionSeguridad {
                 .requestMatchers(HttpMethod.POST, "/api/auth/registro").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/validar-token").permitAll()
                 
+                //rutas de apis del Frond
+                .requestMatchers(HttpMethod.GET, "/apiproducto/**").permitAll()
+                
+                // *** PERMITIR ACCESO A IMÁGENES ***
+                .requestMatchers("/img/**").permitAll()
+                
                 // Rutas públicas para productos y categorías (lectura)
                 .requestMatchers(HttpMethod.GET, "/api/productos/**").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/categorias/**").permitAll()

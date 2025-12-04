@@ -20,12 +20,11 @@ public class Producto {
     private String marca;
     private String estado; // activo / inactivo
     private LocalDateTime fechaCreacion;
-
+    private String tipoProducto;
+  
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
-
-
 
 	public String getDescripcion() {
 		return descripcion;
@@ -82,7 +81,38 @@ public class Producto {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-    
+
+	public String getTipoProducto() {
+		return tipoProducto;
+	}
+
+	public void setTipoProducto(String tipoProducto) {
+		this.tipoProducto = tipoProducto;
+	}
+  
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
     
 }
 
