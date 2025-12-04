@@ -156,7 +156,7 @@ public class ConfiguracionSeguridad {
                 .requestMatchers("/api/admin/**").hasRole("ADMINISTRADOR")
                 .requestMatchers(HttpMethod.POST, "/api/productos/**").hasRole("ADMINISTRADOR")
                 .requestMatchers(HttpMethod.PUT, "/api/productos/**").hasRole("ADMINISTRADOR")
-                .requestMatchers(HttpMethod.DELETE, "/api/productos/**").hasRole("ADMINISTRADOR")
+                .requestMatchers(HttpMethod.DELETE, "/inicioadmin").hasRole("ADMINISTRADOR")
                 
                 // Todas las demás rutas requieren autenticación
                 .anyRequest().authenticated()

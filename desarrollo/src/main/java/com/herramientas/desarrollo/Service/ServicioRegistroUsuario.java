@@ -73,7 +73,6 @@ public class ServicioRegistroUsuario {
         nuevoUsuario.setContraseña(passwordEncoder.encode(registroDto.getPassword()));
         
         nuevoUsuario.setTelefono(registroDto.getTelefono());
-        nuevoUsuario.setDireccionPrincipal(registroDto.getDireccionPrincipal());
         
         // Por defecto, los nuevos usuarios tienen rol de CLIENTE
         // Solo los administradores pueden cambiar este rol
