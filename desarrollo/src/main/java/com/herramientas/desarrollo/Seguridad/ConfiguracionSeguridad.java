@@ -156,12 +156,18 @@ public class ConfiguracionSeguridad {
                 
                 //rutas de apis del Frond
                 .requestMatchers(HttpMethod.GET, "/apiproducto/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/apiproducto/**").permitAll()
+                .requestMatchers(HttpMethod.DELETE, "/apiproducto/eliminar/**").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/apiproducto/**").permitAll()
+
+
                 
                 //----------------------------
   
                 //----------------------------
                 // *** PERMITIR ACCESO A IMÁGENES ***
                 .requestMatchers("/img/**").permitAll()
+                
                 
                 // Rutas públicas para productos y categorías (lectura)
                 .requestMatchers(HttpMethod.GET, "/api/productos/**").permitAll()

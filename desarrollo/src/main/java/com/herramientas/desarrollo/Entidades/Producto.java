@@ -24,6 +24,29 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
+    
+    
+    
+
+	public Producto() {
+		
+	}
+
+	public Producto(Long idProducto, String nombre, String descripcion, Double precio, Integer stock,
+			String imagenPrincipal, String marca, LocalDateTime fechaCreacion, String tipoProducto, String estado,
+			Categoria categoria) {
+		this.idProducto = idProducto;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+		this.stock = stock;
+		this.imagenPrincipal = imagenPrincipal;
+		this.marca = marca;
+		this.fechaCreacion = fechaCreacion;
+		this.tipoProducto = tipoProducto;
+		this.estado = estado;
+		this.categoria = categoria;
+	}
 
 	public String getDescripcion() {
 		return descripcion;
