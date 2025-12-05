@@ -18,10 +18,9 @@ public class Producto {
     private Integer stock;
     private String imagenPrincipal;
     private String marca;
-    private String estado; // activo / inactivo
     private LocalDateTime fechaCreacion;
     private String tipoProducto;
-  
+    private String estado; // activo / inactivo
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
