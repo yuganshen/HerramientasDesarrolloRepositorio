@@ -39,6 +39,9 @@ public class ConfiguracionSeguridad {
 
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
+    
+    @Autowired
+    private FiltroJwt filtroJwt;
 
     /**
      * Define el codificador de contraseñas a usar.
@@ -196,7 +199,7 @@ public class ConfiguracionSeguridad {
             );
         
         // Agregar filtro JWT ANTES del filtro de autenticación estándar
-        http.addFilterBefore(new FiltroJwt(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(filtroJwt, UsernamePasswordAuthenticationFilter.class);
         
         return http.build();
     }

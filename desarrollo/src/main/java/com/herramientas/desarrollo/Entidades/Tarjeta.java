@@ -23,7 +23,10 @@ public class Tarjeta {
     @OneToMany(mappedBy = "tarjeta", cascade = CascadeType.ALL)
     private List<Pedido> pedidos;
 
-    
+	public Tarjeta() {
+		// Constructor por defecto para JPA
+	}
+
 	public Tarjeta(Long idTarjeta, String tipo, String numeroEnmascarado, String titular, String fechaVencimiento,
 			Usuario usuario, List<Pedido> pedidos) {
 		super();

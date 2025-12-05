@@ -24,6 +24,11 @@ public class DetallePedido {
 
     
     
+
+	public DetallePedido() {
+		// Constructor por defecto para JPA
+	}
+
 	public DetallePedido(Long idDetallePedido, int cantidad, Double precioUnitario, Double subtotal, Pedido pedido,
 			Producto producto) {
 		super();
@@ -57,6 +62,30 @@ public class DetallePedido {
 
 	public void setSubtotal(Double subtotal) {
 		this.subtotal = subtotal;
+	}
+    
+	public Double getPrecioUnitario() {
+		return precioUnitario;
+	}
+
+	public void setPrecioUnitario(Double precioUnitario) {
+		this.precioUnitario = precioUnitario;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 	
     

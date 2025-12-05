@@ -30,11 +30,13 @@ import java.io.IOException;
 @Component
 public class FiltroJwt extends OncePerRequestFilter {
 
-    @Autowired
-    private JwtTokenProvider jwtTokenProvider;
+    private final JwtTokenProvider jwtTokenProvider;
+    private final ServicioDetallesUsuario servicioDetallesUsuario;
 
-    @Autowired
-    private ServicioDetallesUsuario servicioDetallesUsuario;
+    public FiltroJwt(JwtTokenProvider jwtTokenProvider, ServicioDetallesUsuario servicioDetallesUsuario) {
+        this.jwtTokenProvider = jwtTokenProvider;
+        this.servicioDetallesUsuario = servicioDetallesUsuario;
+    }
 
     /**
      * Método que se ejecuta en cada solicitud HTTP.

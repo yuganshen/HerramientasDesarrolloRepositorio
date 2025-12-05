@@ -30,8 +30,10 @@ public class Pedido {
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetallePedido> detalles;
-    
-    
+
+	public Pedido() {
+		// Constructor por defecto requerido por JPA
+	}
 
 	public Pedido(Long idPedido, LocalDateTime fechaPedido, Double total, String estado, String metodoPago,
 			String tipoComprobante, String direccionEnvio, String tipoEntrega, Usuario usuario, Tarjeta tarjeta,

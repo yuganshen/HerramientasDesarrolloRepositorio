@@ -17,7 +17,10 @@ public class Pago {
     private String descripcion;          
     private String idUsuario;            
 
-    
+	public Pago() {
+		// Constructor por defecto para JPA
+	}
+
 	public Pago(Long idPago, double monto, String moneda, String fechaPago, String metodoPago, String estado,
 			String referencia, String descripcion, String idUsuario) {
 		super();
