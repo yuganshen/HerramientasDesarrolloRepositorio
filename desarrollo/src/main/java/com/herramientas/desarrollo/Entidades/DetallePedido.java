@@ -14,19 +14,16 @@ public class DetallePedido {
     private Double precioUnitario;
     private Double subtotal;
 
-    @ManyToOne
-    @JoinColumn(name = "pedido_id")
-    private Pedido pedido;
+	@ManyToOne
+	@JoinColumn(name = "pedido_id")
+	private Pedido pedido;
 
-    @ManyToOne
-    @JoinColumn(name = "producto_id")
-    private Producto producto;
-
-    
-    
+	@ManyToOne
+	@JoinColumn(name = "producto_id")
+	private Producto producto;
 
 	public DetallePedido() {
-		// Constructor por defecto para JPA
+		// Constructor por defecto requerido por JPA
 	}
 
 	public DetallePedido(Long idDetallePedido, int cantidad, Double precioUnitario, Double subtotal, Pedido pedido,
@@ -56,20 +53,20 @@ public class DetallePedido {
 		this.cantidad = cantidad;
 	}
 
-	public Double getSubtotal() {
-		return subtotal;
-	}
-
-	public void setSubtotal(Double subtotal) {
-		this.subtotal = subtotal;
-	}
-    
 	public Double getPrecioUnitario() {
 		return precioUnitario;
 	}
 
 	public void setPrecioUnitario(Double precioUnitario) {
 		this.precioUnitario = precioUnitario;
+	}
+
+	public Double getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(Double subtotal) {
+		this.subtotal = subtotal;
 	}
 
 	public Pedido getPedido() {
@@ -80,14 +77,13 @@ public class DetallePedido {
 		this.pedido = pedido;
 	}
 
-	public Producto getProducto() {
-		return producto;
-	}
+    public Producto getProducto() {
+        return producto;
+    }
 
-	public void setProducto(Producto producto) {
-		this.producto = producto;
-	}
-	
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
     
 }
 

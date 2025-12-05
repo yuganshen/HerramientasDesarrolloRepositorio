@@ -1,20 +1,10 @@
 package com.herramientas.desarrollo.Service;
 
-import java.util.List;
-
-import com.herramientas.desarrollo.Entidades.Tarjeta;
-
+/**
+ * Tarjeta service removed. This interface is kept as a deprecated
+ * placeholder to ease incremental removal of tarjeta-related code.
+ */
+@Deprecated
 public interface TarjetaService {
 
-    Tarjeta guardarTarjeta(Tarjeta tarjeta);
-
-    Tarjeta obtenerTarjetaPorId(Long idTarjeta);
-
-    List<Tarjeta> listarTarjetas();
-
-    //List<Tarjeta> listarTarjetasPorUsuario(Long idUsuario);
-
-    Tarjeta actualizarTarjeta(Long idTarjeta, Tarjeta tarjetaActualizada);
-
-    void eliminarTarjeta(Long idTarjeta);
 }

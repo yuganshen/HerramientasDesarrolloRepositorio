@@ -98,6 +98,7 @@ public class FiltroJwt extends OncePerRequestFilter {
         // 🔓 Permitir rutas públicas sin token
         if (path.startsWith("/api/auth/login") ||
             path.startsWith("/api/auth/registro") ||
+            path.startsWith("/api/auth/logout") ||
             path.startsWith("/api/auth/validar-token")) {
 
             filterChain.doFilter(request, response);

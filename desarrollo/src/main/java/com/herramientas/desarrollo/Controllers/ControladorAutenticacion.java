@@ -9,6 +9,9 @@ import com.herramientas.desarrollo.Entidades.Usuario;
 import com.herramientas.desarrollo.Service.ServicioAutenticacion;
 import com.herramientas.desarrollo.Service.ServicioRegistroUsuario;
 import com.herramientas.desarrollo.Seguridad.JwtTokenProvider;
+import com.herramientas.desarrollo.DTOs.UsuarioUpdateDto;
+import com.herramientas.desarrollo.Service.ServicioRegistroUsuario;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +44,9 @@ public class ControladorAutenticacion {
 
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * POST /api/auth/login
@@ -151,6 +157,77 @@ public class ControladorAutenticacion {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new DTOErrorAuth(
                 500,
                 "Error",
+                e.getMessage()
+            ));
+        }
+    }
+
+    /**
+     * PUT /api/auth/info
+     * Actualiza datos del usuario autenticado (nombre, apellidos, telefono, contraseña opcional)
+     */
+    @PutMapping("/info")
+    public ResponseEntity<?> actualizarInfoUsuario(@RequestBody UsuarioUpdateDto dto) {
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication == null || !authentication.isAuthenticated()) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new DTOErrorAuth(
+                        401,
+                        "No autorizado",
+                        "No hay sesión activa"
+                ));
+            }
+
+            String email = authentication.getName();
+            Usuario usuario = servicioRegistroUsuario.obtenerPorEmail(email)
+                    .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+            // Actualizar campos permitidos
+            if (dto.getNombre() != null) usuario.setNombre(dto.getNombre());
+            if (dto.getApellidos() != null) usuario.setApellidos(dto.getApellidos());
+            if (dto.getTelefono() != null) usuario.setTelefono(dto.getTelefono());
+
+            // Si se envía contraseña, cifrar y actualizar
+            if (dto.getContraseña() != null && !dto.getContraseña().isBlank()) {
+                usuario.setContraseña(passwordEncoder.encode(dto.getContraseña()));
+            }
+
+            Usuario actualizado = servicioRegistroUsuario.actualizarUsuario(usuario);
+
+            // No devolver la contraseña en la respuesta
+            actualizado.setContraseña(null);
+
+            return ResponseEntity.ok(actualizado);
+
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new DTOErrorAuth(
+                    500,
+                    "Error",
+                    e.getMessage()
+            ));
+        }
+    }
+
+    /**
+     * POST /api/auth/logout
+     * Cierra la sesión del usuario (elimina el token del cliente)
+     * Con JWT stateless, el backend no mantiene sesión, solo el cliente elimina el token
+     */
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout() {
+        try {
+            // Con JWT stateless, simplemente confirmamos que el logout fue exitoso
+            // El cliente eliminará el token del localStorage/sessionStorage
+            SecurityContextHolder.clearContext();
+            
+            return ResponseEntity.ok(Map.of(
+                "mensaje", "Sesión cerrada exitosamente",
+                "exitoso", true
+            ));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new DTOErrorAuth(
+                500,
+                "Error al cerrar sesión",
                 e.getMessage()
             ));
         }

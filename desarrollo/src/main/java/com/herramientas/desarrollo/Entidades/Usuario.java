@@ -21,11 +21,8 @@ public class Usuario {
     private LocalDateTime fechaRegistro;
     private String estado; // activo / inactivo
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Tarjeta> tarjetas;
-
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<Pedido> pedidos;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private List<Pedido> pedidos;
 
 	// ===== Getters y Setters =====
 
@@ -98,14 +95,6 @@ public class Usuario {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
-	}
-
-	public List<Tarjeta> getTarjetas() {
-		return tarjetas;
-	}
-
-	public void setTarjetas(List<Tarjeta> tarjetas) {
-		this.tarjetas = tarjetas;
 	}
 
 	public List<Pedido> getPedidos() {

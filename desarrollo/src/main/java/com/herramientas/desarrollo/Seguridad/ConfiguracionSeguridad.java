@@ -136,10 +136,21 @@ public class ConfiguracionSeguridad {
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             
+            // Configurar logout
+            .logout(logout -> logout
+                .logoutUrl("/api/auth/logout")
+                .logoutSuccessUrl("/")
+                .permitAll()
+                .clearAuthentication(true)
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID", "Authorization")
+            )
+            
             // Configurar autorización de rutas
             .authorizeHttpRequests(auth -> auth
                 // Rutas públicas - Sin autenticación requerida
                 .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/auth/logout").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/registro").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/validar-token").permitAll()
                 
@@ -158,24 +169,22 @@ public class ConfiguracionSeguridad {
                 
                 // Rutas protegidas - Requieren autenticación
                 .requestMatchers(HttpMethod.GET, "/api/auth/info").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/api/auth/info").authenticated()
                 
-                // Rutas de cliente - Requieren rol ROLE_CLIENTE o ROLE_ADMINISTRADOR
-                .requestMatchers("/api/carrito/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
-                .requestMatchers("/api/pedidos/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
-                .requestMatchers("/api/perfil/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
-                .requestMatchers("/api/inicioadmin/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
-                .requestMatchers("/api/gestionproductos/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
-                .requestMatchers("/api/gestionusuarios/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
-                .requestMatchers("/api/gestionpedidos/**").hasAnyRole("CLIENTE", "ADMINISTRADOR")
-
-
-
+                // Rutas de cliente - Requieren rol ROLE_CLIENTE
+                .requestMatchers("/api/carrito/**").hasRole("CLIENTE")
+                .requestMatchers("/api/pedidos/**").hasRole("CLIENTE")
+                .requestMatchers("/api/perfil/**").hasRole("CLIENTE")
                 
                 // Rutas de administrador - Solo ROLE_ADMINISTRADOR
+                .requestMatchers("/api/inicioadmin/**").hasRole("ADMINISTRADOR")
+                .requestMatchers("/api/gestionproductos/**").hasRole("ADMINISTRADOR")
+                .requestMatchers("/api/gestionusuarios/**").hasRole("ADMINISTRADOR")
+                .requestMatchers("/api/gestionpedidos/**").hasRole("ADMINISTRADOR")
                 .requestMatchers("/api/admin/**").hasRole("ADMINISTRADOR")
                 .requestMatchers(HttpMethod.POST, "/api/productos/**").hasRole("ADMINISTRADOR")
                 .requestMatchers(HttpMethod.PUT, "/api/productos/**").hasRole("ADMINISTRADOR")
-                .requestMatchers(HttpMethod.DELETE, "/inicioadmin").hasRole("ADMINISTRADOR")
+                .requestMatchers(HttpMethod.DELETE, "/api/productos/**").hasRole("ADMINISTRADOR")
                 
                 // Todas las demás rutas requieren autenticación
                 .anyRequest().authenticated()

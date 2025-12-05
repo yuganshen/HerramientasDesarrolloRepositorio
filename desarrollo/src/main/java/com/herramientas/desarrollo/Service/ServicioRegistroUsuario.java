@@ -76,7 +76,7 @@ public class ServicioRegistroUsuario {
         
         // Por defecto, los nuevos usuarios tienen rol de CLIENTE
         // Solo los administradores pueden cambiar este rol
-        nuevoUsuario.setRol("ROLE_ADMINISTRADOR");
+        nuevoUsuario.setRol("ROLE_CLIENTE");
         
         // Registra la fecha actual de registro
         nuevoUsuario.setFechaRegistro(LocalDateTime.now());

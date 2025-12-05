@@ -24,9 +24,6 @@ public class Pedido {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "tarjeta_id")
-    private Tarjeta tarjeta;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetallePedido> detalles;
@@ -36,7 +33,7 @@ public class Pedido {
 	}
 
 	public Pedido(Long idPedido, LocalDateTime fechaPedido, Double total, String estado, String metodoPago,
-			String tipoComprobante, String direccionEnvio, String tipoEntrega, Usuario usuario, Tarjeta tarjeta,
+			String tipoComprobante, String direccionEnvio, String tipoEntrega, Usuario usuario,
 			List<DetallePedido> detalles) {
 		super();
 		this.idPedido = idPedido;
@@ -48,7 +45,6 @@ public class Pedido {
 		this.direccionEnvio = direccionEnvio;
 		this.tipoEntrega = tipoEntrega;
 		this.usuario = usuario;
-		this.tarjeta = tarjeta;
 		this.detalles = detalles;
 	}
 
@@ -124,13 +120,7 @@ public class Pedido {
 		this.usuario = usuario;
 	}
 
-	public Tarjeta getTarjeta() {
-		return tarjeta;
-	}
-
-	public void setTarjeta(Tarjeta tarjeta) {
-		this.tarjeta = tarjeta;
-	}
+	// Tarjeta removed from Pedido
 
 	public List<DetallePedido> getDetalles() {
 		return detalles;
