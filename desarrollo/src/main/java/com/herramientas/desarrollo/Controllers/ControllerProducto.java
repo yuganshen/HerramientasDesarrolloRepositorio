@@ -35,10 +35,5 @@ public class ControllerProducto {
 	}
 	
 	
-	/*@GetMapping("/filtrar")
-	public ResponseEntity<List<Producto>> filtrarPorTipo(@RequestParam("tipo") String tipo) {
-	    List<Producto> lista = productoRepository.findByTipo(tipo);
-	    return ResponseEntity.ok(lista);
-	}*/
 	
 }
