@@ -3,6 +3,7 @@ package com.herramientas.desarrollo.Controllers;
 import com.herramientas.desarrollo.DTOs.DTOLogin;
 
 import com.herramientas.desarrollo.DTOs.DTOAuthResponse;
+import com.herramientas.desarrollo.DTOs.UsuarioPerfilDTO;
 import com.herramientas.desarrollo.DTOs.DTOErrorAuth;
 import com.herramientas.desarrollo.DTOs.RegistroUsuarioDto;
 import com.herramientas.desarrollo.Entidades.Usuario;
@@ -130,83 +131,73 @@ public class ControladorAutenticacion {
         return ResponseEntity.ok(Map.of("valido", esValido));
     }
 
+    private UsuarioPerfilDTO mapearPerfil(Usuario u) {
+        return new UsuarioPerfilDTO(
+                u.getIdUsuario(),
+                u.getNombre(),
+                u.getApellidos(),
+                u.getEmail(),
+                u.getTelefono(),
+                u.getRol(),
+                u.getEstado(),
+                u.getFechaRegistro()
+        );
+    }
+
     /**
      * GET /api/auth/info (PROTEGIDO)
      * Obtiene información del usuario autenticado
      */
     @GetMapping("/info")
-    public ResponseEntity<?> obtenerInfoUsuario() {
-        try {
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            
-            if (authentication == null || !authentication.isAuthenticated()) {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new DTOErrorAuth(
-                    401,
-                    "No autorizado",
-                    "No hay sesión activa"
-                ));
-            }
-
-            String email = authentication.getName();
-            Usuario usuario = servicioRegistroUsuario.obtenerPorEmail(email)
-                    .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
-            return ResponseEntity.ok(usuario);
-
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new DTOErrorAuth(
-                500,
-                "Error",
-                e.getMessage()
-            ));
-        }
+public ResponseEntity<?> obtenerInfoUsuario() {
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    
+    if (authentication == null || !authentication.isAuthenticated()) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+            new DTOErrorAuth(401, "No autorizado", "No hay sesión activa")
+        );
     }
+
+    String email = authentication.getName();
+
+    Usuario usuario = servicioRegistroUsuario.obtenerPorEmail(email)
+            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+    return ResponseEntity.ok(mapearPerfil(usuario));
+}
+
 
     /**
      * PUT /api/auth/info
      * Actualiza datos del usuario autenticado (nombre, apellidos, telefono, contraseña opcional)
      */
     @PutMapping("/info")
-    public ResponseEntity<?> actualizarInfoUsuario(@RequestBody UsuarioUpdateDto dto) {
-        try {
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            if (authentication == null || !authentication.isAuthenticated()) {
-                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new DTOErrorAuth(
-                        401,
-                        "No autorizado",
-                        "No hay sesión activa"
-                ));
-            }
-
-            String email = authentication.getName();
-            Usuario usuario = servicioRegistroUsuario.obtenerPorEmail(email)
-                    .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
-            // Actualizar campos permitidos
-            if (dto.getNombre() != null) usuario.setNombre(dto.getNombre());
-            if (dto.getApellidos() != null) usuario.setApellidos(dto.getApellidos());
-            if (dto.getTelefono() != null) usuario.setTelefono(dto.getTelefono());
-
-            // Si se envía contraseña, cifrar y actualizar
-            if (dto.getContraseña() != null && !dto.getContraseña().isBlank()) {
-                usuario.setContraseña(passwordEncoder.encode(dto.getContraseña()));
-            }
-
-            Usuario actualizado = servicioRegistroUsuario.actualizarUsuario(usuario);
-
-            // No devolver la contraseña en la respuesta
-            actualizado.setContraseña(null);
-
-            return ResponseEntity.ok(actualizado);
-
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new DTOErrorAuth(
-                    500,
-                    "Error",
-                    e.getMessage()
-            ));
-        }
+public ResponseEntity<?> actualizarInfoUsuario(@RequestBody UsuarioUpdateDto dto) {
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    
+    if (authentication == null || !authentication.isAuthenticated()) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+                new DTOErrorAuth(401, "No autorizado", "No hay sesión activa")
+        );
     }
+
+    String email = authentication.getName();
+    Usuario usuario = servicioRegistroUsuario.obtenerPorEmail(email)
+            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+    // Actualizar datos
+    if (dto.getNombre() != null) usuario.setNombre(dto.getNombre());
+    if (dto.getApellidos() != null) usuario.setApellidos(dto.getApellidos());
+    if (dto.getTelefono() != null) usuario.setTelefono(dto.getTelefono());
+    if (dto.getContraseña() != null && !dto.getContraseña().isBlank()) {
+        usuario.setContraseña(passwordEncoder.encode(dto.getContraseña()));
+    }
+
+    Usuario actualizado = servicioRegistroUsuario.actualizarUsuario(usuario);
+
+    return ResponseEntity.ok(mapearPerfil(actualizado));
+}
+
 
     /**
      * POST /api/auth/logout
