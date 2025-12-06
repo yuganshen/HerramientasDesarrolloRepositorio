@@ -152,6 +152,7 @@ public class ControllerProducto {
 	            String nombreImagen = System.currentTimeMillis() + "_" + imagen.getOriginalFilename();
 
 	            String carpeta = "C:/otros2/HerramientasDesarrolloRepositorio/uploads/img/";
+	           
 	            Files.createDirectories(Paths.get(carpeta));
 
 	            Path ruta = Paths.get(carpeta + nombreImagen);
