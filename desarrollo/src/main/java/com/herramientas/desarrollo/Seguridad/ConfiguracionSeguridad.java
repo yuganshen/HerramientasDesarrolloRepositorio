@@ -154,12 +154,15 @@ public class ConfiguracionSeguridad {
                 .requestMatchers(HttpMethod.POST, "/api/auth/registro").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/validar-token").permitAll()
                 
-                //rutas de apis del Frond
+                //rutas de apis del Frond//productos
                 .requestMatchers(HttpMethod.GET, "/apiproducto/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/apiproducto/**").permitAll()
                 .requestMatchers(HttpMethod.DELETE, "/apiproducto/eliminar/**").permitAll()
                 .requestMatchers(HttpMethod.PUT, "/apiproducto/**").permitAll()
-
+                
+                //rutas de apis del Frond//pedidos
+                .requestMatchers(HttpMethod.GET, "/api/pedidos/**").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/api/pedidos/**").permitAll()
 
                 
                 //----------------------------

@@ -36,6 +36,26 @@ public class ControllerPedido {
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
+    
+	@GetMapping("/obtenerPedidos")
+	public ResponseEntity<List<Pedido>> obtenerPedidos() {
+	    return ResponseEntity.ok(pedidoRepositorio.findAll());
+	}
+	@PutMapping("/cambiarEstado/{id}")
+	public ResponseEntity<Pedido> cambiarEstado(@PathVariable("id") Long id) {
+	    Optional<Pedido> pedidoOpt = pedidoRepositorio.findById(id);
+	    if (pedidoOpt.isPresent()) {
+	        Pedido pedido = pedidoOpt.get();
+	        pedido.setEstado("ENTREGADO");
+	        pedidoRepositorio.save(pedido);
+	        return ResponseEntity.ok(pedido);
+	    } else {
+	        return ResponseEntity.notFound().build();
+	    }
+	}
+
+  
+
     @Autowired
     private PedidoService pedidoService;
 
@@ -106,6 +126,9 @@ public class ControllerPedido {
         resp.put("total", pedidoGuardado.getTotal());
         return ResponseEntity.ok(resp);
     }
+
+    
+  
 
     /**
      * GET /api/pedidos - Obtener todos los pedidos del usuario autenticado
